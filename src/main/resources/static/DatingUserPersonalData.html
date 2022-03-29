@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+
+<html lang="en">  
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="DatingUserPersonalData.css">
+    <script src="DatingUserPersonalData.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>	
+</head>
+
+<body  onload="loadEmailPassFullname()">
+    <h1  id="welcomeText" style=" text-align: center;margin-bottom:2.5rem;color:white;">Let's set up your profile</h1>
+
+    <div  class="container">
+      <div id="page1">
+        <div class="d-flex justify-content-center">   
+          <label class="textGender"> </label>
+            <button type="button"  class="btn_choose_sent bg_btn_chose_2">
+                <input type="radio"  id="button1" name="name" />Female
+            </button>
+            <button type="button" class="btn_choose_sent bg_btn_chose_3">
+                <input type="radio" id="button2" name="name" />Male
+            </button>
+        </div>
+      
+        <div class="divdate d-flex justify-content-center">
+        <label class="textGender" style="color:white;">Birthday </label> 
+        <input id="textbday" type="date" name="bday"> 
+        </div>
+
+         
+        <div class="divEducation d-flex justify-content-center">
+          <div class="col-75">
+            <label class="textGender" style="margin-top:-1rem;color:white;" for="comm">Educational level</label>
+          </div>
+          <div class="col-xl">
+            <select id="comm" name="comm" class="icon-menu" required>
+              <option style="padding-left:0px;" value="">Educational level</option>  
+              <option value="High school">High school </option> 
+              <option value="Bachelor">Bachelor</option> 
+              <option value="Master">Master</option>
+              <option value="Phd">Phd</option>  
+            </select> 
+          </div> 
+        </div> 
+        
+        <div class="divjob d-flex justify-content-center">
+            <label class="textGender" style="color:white;">Job</label>      
+              <input type="text" class="form1 form-control mb-5" id="job" placeholder="What do you work as?"> 
+            </div> 
+          
+        
+
+          <div class="divjob d-flex justify-content-center">
+            <label class="textGender" style="color:white;">Location</label>      
+              <input type="text" class="form1 form-control mb-5" id="location" placeholder="What city do you live in?"> 
+            </div> 
+          
+
+          <div class="divjob d-flex justify-content-center">
+            <label class="textGender" style="color:white;">Hobbies</label>      
+              <input type="text" class="form1 form-control mb-5" id="Hobbies" placeholder="What are you hobbies?"> 
+            </div> 
+          </div>
+          </div>
+        
+
+    <div  class="container">
+      <div id="page2" style="display: none;">
+        <div class="d-flex justify-content-center">     
+            <div class="row"> 
+                <label class="heightText" for="input1"style="color:white;" >Height</label>
+                <input type="text" class="form1 form-control mb-5" id="height" placeholder="Enter your height in cm"> 
+            </div>
+        </div>
+
+            <div class="d-flex justify-content-center">
+              <div class="row">     
+                    <label class="weightText" for="input2" style="color:white;">Weight</label>
+                    <input type="text" class="form1 form-control mb-5" id="weight" placeholder="Enter your weight in kg"> 
+              </div> 
+            </div>
+        
+            <div class="d-flex justify-content-center">
+              <div class="row">     
+                    <label class="weightText" for="input3"style="color:white;">Hair color</label>
+                    <input type="text" class="form1 form-control mb-5" id="hair" placeholder="Enter your hair color"> 
+              </div> 
+            </div>
+
+            <div class="d-flex justify-content-center">
+              <div class="row">     
+                    <label class="weightText" for="input2"style="color:white;">Eye color</label>
+                    <input type="text" class="form1 form-control mb-5" id="eye" placeholder="Enter your eye color"> 
+              </div> 
+            </div>
+
+            <div class="d-flex justify-content-center">
+              <div class="row">     
+                    <label class="weightText" for="input2"style="color:white;">Skin color</label>
+                    <input type="text" class="form1 form-control mb-5" id="skin" placeholder="Enter your skin color"> 
+              </div> 
+            </div>
+    </div> 
+  </div> 
+
+
+
+  <div  class="container">
+    <div id="page3" style="display: none;">
+    <div class="pCard_card">
+      <div class="pCard_up">
+         <div class="pCard_text">
+         <input id="fileContainer" type="file">
+        <input id="show" type="button"  value="show">
+        <div id="imgContainer"></div>
+            <h2 id="cardName" style="color:#DECBA4"></h2>  
+            <h2 id="usrjob" style="color:#DECBA4"></h2> 
+         </div>
+      </div>
+      <div class="pCard_down">
+         <div>
+            <p>Age</p>
+            <p id="age"></p>
+         </div>
+         <div>
+            <p>Views</p>
+            <p>0</p>
+         </div>
+         <div>
+            <p>Likes</p>
+            <p>0</p>
+         </div>  
+      </div>
+   </div>
+   <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" style="margin-top:0.55em;">
+    <label class="form-check-label" for="exampleCheck1" style="color:white;font-size: 150%;">Να κοινοποιούνται τα στοιχεία εγγραφής μου στους παρόχους περιεχομένου του DatingSite για σκοπούς μάρκετινγκ.
+   Σημειώνεται ότι τα στοιχεία σου μπορεί να μεταβιβαστούν σε χώρα εκτός του Ευρωπαϊκού Οικονομικού Χώρου, όπως περιγράφεται στην πολιτική απορρήτου της εταιρείας μας.</label>
+  </div>
+  </div>
+  </div>
+
+  
+
+  <div  class="container">
+      <div id="page4" style="display: none;">
+        <div class="d-flex justify-content-center">     
+            <div class="row"> 
+            <label class="textGender"style="color:white;">I am looking for a </label>
+            <button type="button"  class="btn_choose_sent bg_btn_chose_2">
+                <input type="radio"  id="button3" name="name" />Female
+            </button>
+            <button type="button" class="btn_choose_sent bg_btn_chose_3">
+                <input type="radio" id="button4" name="name" />Male
+            </button>
+            </div> 
+            <br>
+        </div>
+          <br>
+
+          <div class="d-flex justify-content-center">
+          <div class="row">
+            <div class="slidecontainer">
+            <label class="textGender"style="color:white;">Min age</label>
+              <input type="range" min="18" max="99" value="18" id="myRange">
+              <p style="color:white;">Min age <span id="demo"></span></p>
+            </div>
+            </div> 
+            </div> 
+            <br><br>
+        
+            
+            <div class="d-flex justify-content-center">
+          <div class="row">
+            <div class="slidecontainer">
+            <label class="textGender"style="color:white;">Max age</label> 
+                <input type="range" min="18" max="99" value="18" id="myRange2">
+                <p style="color:white;">Max age <span id="demo2"></span></p> 
+              </div>
+              </div>
+              </div> 
+              <br><br>
+
+
+              <div class="d-flex justify-content-center">
+              <div class="row">     
+                    <label class="weightText" for="input2"style="color:white;">Height preferance</label>
+                    <input type="text" class="form1 form-control mb-5" id="mateHeight" placeholder="Enter the preferable height"> 
+              </div> 
+            </div>
+
+            
+            
+            <div class="d-flex justify-content-center">
+              <div class="row">     
+                    <label class="weightText" for="input2"style="color:white;">Weight preferance</label>
+                    <input type="text" class="form1 form-control mb-5" id="mateWeight" placeholder="Enter the preferable weight"> 
+              </div> 
+            </div>
+            
+
+
+            <div class="d-flex justify-content-center">
+              <div class="row">     
+                    <label class="weightText" for="input2"style="color:white;">Skin color preferance</label>
+                    <input type="text" class="form1 form-control mb-5" id="mateSkin" placeholder="Enter the preferable skin color"> 
+              </div> 
+            </div>
+
+           
+            <div class="d-flex justify-content-center">
+              <button class="btn btn-success btn-lg"  onclick="finishWithSettingProfileData()">Finish</button> 
+            </div>
+
+      </div> 
+    </div> 
+
+ 
+
+
+  <div class="d-flex justify-content-center">
+  <div id="errordiv" class="alert alert-danger" role="alert" style="display: none;"> 
+    Make sure to fill every feild with your data.
+  </div>
+</div>
+
+      <div class="pagination d-flex justify-content-center">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" id="1" onclick="displayStuff(this.id)" href="">1</a></li>
+          <li class="page-item"><a class="page-link" id="2" onclick="displayStuff(this.id)" href="">2</a></li>
+          <li id="li3" class="page-item disabled"><a class="page-link" id="3" onclick="displayStuff(this.id)" href="">3</a></li>
+          <li id="li4" class="page-item disabled"><a class="page-link" id="4" onclick="displayStuff(this.id)" href="">4</a></li> 
+        </ul>
+      </nav>
+      </div>
+</body> 
+
+
+
+<script>
+  var emailFromSessionApi
+  var fullnameFromSessionApi
+  var unhashedPasswordFromSessionApi
+	var ageFromSessionApi 
+
+
+
+function finishWithSettingProfileData()  
+{
+    let mateGender;
+    if(document.getElementById("button3").checked==true)
+    {
+      mateGender="Female";
+    }
+
+    if(document.getElementById("button4").checked==true)
+    {
+      mateGender="Male";
+    }
+      let rangeMin = $("#myRange").val();
+      let rangeMax = $("#myRange2").val();
+      let mateHeight = $("#mateHeight").val();
+      let mateWeight = $("#mateWeight").val();
+      let mateSkin = $("#mateSkin").val(); 
+
+
+    if ( rangeMin=="" || mateGender=="" ||  mateGender=="" || mateHeight=="" ||  mateWeight=="" || mateSkin=="" )
+    {
+      $("#errordiv").css({"display": "initial"});
+      return false;
+    }
+
+    else
+      $("#errordiv").css({"display": "none"});
+
+      fetch('/fetchUserPersonalDataIdEq4' ,
+      {
+        method:  'POST',
+        headers: 
+        {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify( { 'mateGender' : mateGender,  'rangeMin' : rangeMin, 'rangeMax' : rangeMax ,'mateHeight' : mateHeight,
+        'mateWeight' : mateWeight ,'mateSkin' : mateSkin}) 
+      })
+      
+	          $.ajax( { 
+              url :  'http://localhost:8080/saveDataToDatabase',
+              contentType : "application/json", 
+              type : 'GET',
+              async: false,
+              success : function(result) {         
+              },
+              error: function(jqxhr, status, exception) {
+				alert("API Failure")
+              } 
+            });
+			
+			window.location.replace("http://localhost:8080/api");
+			
+			
+}
+
+async function loadEmailPassFullname() 
+{
+    const response = await fetch("http://localhost:8080/getSessionData")
+    .then( res  =>  res.json() )
+    .then( data => 
+    {
+      if(data.email=="empty" || data.fullname=="empty" || data.password=="empty")
+      {
+        window.location.href = "http://localhost:8080/Signup"
+      }
+      emailFromSessionApi=data.email;
+      fullnameFromSessionApi=data.fullname;
+      unhashedPasswordFromSessionApi=data.password
+	    ageFromSessionApi=data.age
+    });
+}
+
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+
+var slider2 = document.getElementById("myRange2");
+var output2 = document.getElementById("demo2");
+output2.innerHTML = slider2.value;
+
+slider.oninput = function() 
+{
+  output.innerHTML = this.value;
+}
+
+slider2.oninput = function() 
+{
+  output2.innerHTML = this.value;
+}
+
+
+$("a").click(function(event)
+{
+    event.preventDefault();
+});
+
+    $('input#fileContainer').on('change', function () 
+	{ 
+		console.log(this);
+
+		var reader = new FileReader();
+		reader.onload = function (e) 
+		{
+			console.log(reader.result + '->' + typeof reader.result)
+			var thisImage = reader.result;
+			localStorage.setItem("imgData", thisImage);
+		};
+    reader.readAsDataURL(this.files[0]); 
+});
+
+$('input#show').click(function () 
+{
+    var dataImage = localStorage.getItem('imgData'); 
+
+        fetch('fetchUserPersonalDataProfilePic' ,
+						{
+							method:  'POST',
+							headers: 
+							{
+							  'Accept': 'application/json',
+								'Content-Type': 'application/json'
+							},
+							body: JSON.stringify( {  'dataImage' : dataImage })
+						}) 
+
+        document.querySelector(".pCard_up").style.backgroundImage = "url(" + dataImage + ")";
+
+});
+  
+
+  $("#page4h3").hide();
+
+  function displayStuff(id)
+  {
+
+
+    if(id=="1")
+    {
+
+      $("#page1").show();
+      $("#page2").hide();
+      $("#page3").hide();
+      $("#page4").hide();
+    }
+
+    if(id=="2")
+    {
+      var userbutton1=$("#button1").checked;
+      var userbutton2=$("#button2").checked; 
+      var userBday= $("#textbday").val();
+      var userEducationlevel= $("#comm").val();
+      var userLocation= $("#location").val();
+      var userJob= $("#job").val();
+      var userHobbies= $("#Hobbies").val();
+
+      if (document.getElementById("button1").checked == false &&  document.getElementById("button2").checked == false)
+      {
+        $("#errordiv").css({"display": "initial"});
+        return false;
+      }
+
+      if(userLocation==""  || userJob=="" || userHobbies=="" || userBday=="" || userEducationlevel=="" )
+        {
+          $("#errordiv").css({"display": "initial"});
+          return false;
+        }
+
+      else
+      {
+        $("#errordiv").css({"display": "none"});
+
+      }
+
+      $("#li3").removeClass("page-item disabled");
+      $("#li3").addClass("page-item");
+      $("#page3").hide();
+      $("#page1").hide();
+      $("#page4").hide();
+      $("#page2").show();
+      
+      if(true)
+      {
+        let userGender;
+
+        if(document.getElementById("button1").checked==true)
+        {
+          userGender="Female";
+        }
+
+        if(document.getElementById("button2").checked==true)
+        {
+          userGender="Male";
+        }
+
+        if(userGender=="Male")
+        {
+          $('.pCard_up').css("background-image", "url(icons/4_avatar-513.png)");
+          $('.pCard_up').css("background-position", "50%");
+          $('.pCard_up').css("background-size", "cover");  
+        }
+
+        else
+        {
+          $('.pCard_up').css("background-image", "url(icons/4_avatar-512.png)");
+          $('.pCard_up').css("background-position", "50%");
+          $('.pCard_up').css("background-size", "cover");
+        }
+        
+        fetch('fetchUserPersonalDataIdEq2' ,
+						{
+							method:  'POST',
+							headers: 
+							{
+							  'Accept': 'application/json',
+								'Content-Type': 'application/json'
+							},
+							body: JSON.stringify( { 'userGender' : userGender,  'userBday' : userBday, 'userEducationlevel' : userEducationlevel ,'userLocation' : userLocation,
+              'userJob' : userJob, 'userHobbies' : userHobbies }) 
+						})
+        
+        $("#cardName").html(fullnameFromSessionApi+"");
+        var  job=userJob;
+        $("#usrjob").html(job);
+        $("#age").html(ageFromSessionApi+"");
+      } 
+    }
+    
+    if(id=="3")
+    {
+      
+      let userHeight= $("#height").val();
+      let userWeight= $("#weight").val();
+      let userEye= $("#eye").val();
+      let userHair=$("#hair").val();
+      let userSkin=$("#skin").val();
+
+      if( userHeight=="" || userWeight=="" || userEye=="" || userHair=="" ||  userSkin=="")
+      {
+        $("#errordiv").css({"display": "initial"});
+          return false;
+      }
+
+      else
+        $("#errordiv").css({"display": "none"});
+        
+      $("#page2").hide();
+      $("#page1").hide();
+      $("#page4").hide();
+      $("#page3").show(); 
+
+        fetch('/fetchUserPersonalDataIdEq3' ,
+						{
+							method:  'POST',
+							headers: 
+							{
+							    'Accept': 'application/json',
+								'Content-Type': 'application/json'
+							},
+							body: JSON.stringify( { 'userHeight' : userHeight,  'userWeight' : userWeight, 'userEye' : userEye ,'userHair' : userHair,
+              'userSkin' : userSkin }) 
+						})
+      $("#li4").removeClass("page-item disabled");
+      $("#li4").addClass("page-item");
+    }
+
+    if(id=="4")
+    {
+      if(document.getElementById('exampleCheck1').checked) 
+      {
+        $("#errordiv").css({"display": "none"});
+        $("#page2").hide();
+        $("#page1").hide();
+        $("#page3").hide(); 
+        $("#page4").show();
+      }
+      else 
+      {
+        $("#errordiv").css({"display": "initial"});
+        return false;
+      }
+  }
+} 
+</script> 
+</html> 

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" href="login.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <title>SignUp</title>
+  </head>
+  <body onload="myFunction()">
+    <header class="main-header">
+      <nav class="main-nav nav"> 
+          <ul>
+              <li><a href="/">HOME</a></li>
+              <li><a href="login">LOGIN</a></li>
+              <li><a href="Signup">SIGN UP</a></li>
+          </ul>
+      </nav>
+  </header>
+    <div class="signup-form">
+       <form onsubmit="return onsub()" action="/login" method="POST">   
+        <h1>LOG IN</h1> 
+        <input type="text" placeholder="Email" name="username" id="email" required class="txtb">
+        <input type="password" placeholder="Password"  name="password" id="password" required class="txtb">
+        <input type="submit" value="Log in" class="signup-btn"> 
+      </form>
+    </div> 
+  </body>
+  <script>
+        function myFunction()
+        {
+          var url=window.location.href;
+          if(url.includes("error"))
+          {
+            $("#email").css({"border": "2px solid #c31432", "box-shadow": "3px"});				
+            $("#email").attr("placeholder","Authentication failed, try again.");
+            $("#email").click(function() { $("#email").css({"border": "none", "box-shadow": "none"})});
+            return false;
+          }
+        }
+    
+       /* async function sendEmailToApi()
+        {
+          var email=""
+          email=$("#email").val();
+          const response = await fetch('/fetchUserLogInEmail' ,
+                {
+                  method:  'POST',
+                  headers: 
+                  {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify( { 'email' : email})
+                  
+                }).then()
+                event.preventDefault;
+                return false;
+        }*/
+
+
+        function onsub()
+        {
+            var email=$("#email").val()
+			
+            $.ajax( { 
+              url :  'http://localhost:8080/sessionEmail',
+              contentType : "application/json", 
+              type : 'POST',
+              async: false,
+              data : JSON.stringify({
+                "email": email
+            }),
+              success : function(result) {         
+              },
+              error: function(jqxhr, status, exception) {
+              alert('Exception:', exception); 
+              alert('status:', status); 
+              alert('jqxhr:', jqxhr); 
+              } 
+            });
+          /*fetch('/emailFromLogIn' ,
+                {
+                  method:  'POST',
+                  headers: 
+                  {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify( { 'email' : email})
+                  
+                }).then()
+          return false;*/
+        }
+    
+      
+
+
+</script> 
+</html>

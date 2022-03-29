@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8"/>
+	<link rel="stylesheet" href="Signup.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">	
+    <title>SignUp</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <nav class="main-nav nav"> 
+          <ul>
+              <li><a href="/">HOME</a></li>
+              <li><a href="login">LOGIN</a></li>
+              <li><a href="Signup">SIGN UP</a></li>
+          </ul>
+      </nav>
+  </header>
+    <div class="signup-form">
+      <form action="" onsubmit="return dataValidation()" method="GET">   
+        <h1>SIGN UP</h1>
+        <input type="text" placeholder="Full Name" name="fname" id="fname" required class="txtb">
+        <input type="email" placeholder="Email" name="email" id="email"  required class="txtb">
+        <input type="password" placeholder="Password"  name="password" id="password" required class="txtb">
+        <input type="password" placeholder="Enter again the password" id="passwordRe-entered" name="passwordRe-entered" required class="txtb">
+        <i class="fas fa-check fa-2x" id="tick" style="color:green; display:none"> </i> 
+        <input type="text" placeholder="Age"  name="Age" id="age" required class="txtb">
+        <input type="submit" value="Create Account" class="signup-btn"> 
+      </form>
+    </div> 
+  </body>
+  <script>
+$(document).ready(function () 
+    {
+        $("#passwordRe-entered").keyup(checkPasswordMatch); 
+    }) 
+
+    function checkPasswordMatch()  
+    {
+        var passwordFromSecondField = $("#passwordRe-entered").val();
+        var passwordFromFirstField = $("#password").val();
+
+        if (passwordFromSecondField != passwordFromFirstField)
+        {
+            $("#passwordRe-entered").css({"border": "2px solid #c31432", "box-shadow": "3px"});
+            $("#tick").css({"display": "none"});
+
+        }
+
+        if (passwordFromSecondField === passwordFromFirstField)
+        {
+            /*$("#passwordRe-entered").css({"border-color":"#0f9b0f", "box-shadow": "3px"});*/
+            $("#tick").css({"display": "initial"});
+            $("#passwordRe-entered").css({"border":"none"}); 
+        }
+
+        if(passwordFromSecondField=="")
+        {
+            $("#passwordRe-entered").css({"border":"none"});  
+            $("#tick").css({"display": "none"}); 
+        }
+    }
+
+    function dataValidation()
+    {
+      let fnameLength=  $("#fname").val().length;
+      let passwordLength=  $("#password").val().length;
+      let ageFromUser= parseInt($("#age").val());
+
+      if(fnameLength <6)
+      {
+        $("#fname").css({"border": "2px solid #c31432", "box-shadow": "3px"});  //when left empty giving a border to indicate an error
+        $("#fname").val("");
+        $("#fname").attr("placeholder","Enter your full name(must be more than 6 characters)");   //when left empty giving the placeholder a text that will indicate that the user has to enter data
+        $("#fname").click(function() { $("#fname").css({"border": "none", "box-shadow": "none"})});
+        return false;
+
+      }
+
+      if(passwordLength< 6)
+      {
+        $("#password").css({"border": "2px solid #c31432", "box-shadow": "3px"});  //when left empty giving a border to indicate an error
+        $("#password").val("");
+        $("#passwordRe-entered").val("");
+        $("#tick").css({"display": "none"}); 
+        $("#password").attr("placeholder","Your password must be more than 6 characters)");   //when left empty giving the placeholder a text that will indicate that the user has to enter data
+        $("#password").click(function() { $("#password").css({"border": "none", "box-shadow": "none"})});
+        return false;
+      }
+
+      if(ageFromUser <18) 
+      {
+        $("#age").css({"border": "2px solid #c31432", "box-shadow": "3px"});  //when left empty giving a border to indicate an error
+        $("#age").val("");
+        $("#age").attr("placeholder","You need to be at least 18 years old or older)");   //when left empty giving the placeholder a text that will indicate that the user has to enter data
+        $("#age").click(function() { $("#age").css({"border": "none", "box-shadow": "none"})});
+        return false;
+      } 
+
+    
+      if(true)
+	{
+      let userFullname= $("#fname").val();
+      let userPassword= $("#password").val();
+      let userAge= $("#age").val();
+      let email= $("#email").val();
+        $.ajax(
+		{
+            url :  'http://localhost:8080/checkDuplicateEmail', 
+            type : 'GET',
+            async: false,
+            data : {
+                'userFullname' : userFullname,
+                'userPassword' : userPassword,
+                'userAge' : userAge,
+                'email' : email,
+            },
+            success : function(data) 
+			{
+				if(data.includes("new"))
+				{
+					var data;
+					//Fetch username, password, email to an api and save them to the session
+					(async () =>
+					{
+						fetch('saveVarsToSession' ,
+						{
+							method:  'POST',
+							headers: 
+							{
+							    'Accept': 'application/json',
+								'Content-Type': 'application/json'
+							},
+							body: JSON.stringify( { 'email' : email,  'userPassword' : userPassword, 'userFullname' : userFullname,'userAge' : userAge,})
+						}).then( res =>  { return res.json() })
+						  .then( res =>  data=JSON.stringify(res)  )
+						  .then (res =>  { window.location.href = "http://localhost:8080/CustomizeProfile";}) 
+					})();
+				}
+				else if(data.includes("taken")) 
+				{
+					$("#email").css({"border": "2px solid #c31432", "box-shadow": "3px"});  //when left empty giving a border to indicate an error
+					$("#email").val("");
+					$("#email").attr("placeholder","That email is taken, try an other one.");   //when left empty giving the placeholder a text that will indicate that the user has to enter data
+					$("#email").click(function() { $("#email").css({"border": "none", "box-shadow": "none"})});
+					return false;
+				}
+				else
+					alert("Unexpected value returned from Service");
+            }, 
+            error : function(request,error)
+            {
+                alert("Connection to rest api failed.");
+            } 
+        }
+        );
+    } 
+    event.preventDefault();
+  }
+	</script>
+</html>    
