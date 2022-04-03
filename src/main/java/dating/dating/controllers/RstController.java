@@ -548,7 +548,41 @@ public class RstController
         
         return map;
         //todo make sure user does not see himself as a possible mate
-        //todo change colours in the search thingy  
-        //! exception handling needed 
+        //! exception handling needed
     }   
+
+    @GetMapping(value = "/fetchOnePersonVisited")
+    public Map<String,String> fetchOnePersonVisited(HttpSession session)
+    {
+        HashMap<String,String> map = new HashMap<>();
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        String fullname = session.getAttribute("fullnamePerson").toString();
+        String userLoggedInFullname = usersRepository.getFullNameByEmail(session.getAttribute("email").toString());
+        String email = usersRepository.getEmailByFullname(fullname);
+        String bday = usersRepository.getBdayByEmail(email);
+        int age = Integer.parseInt(bday.substring(0,4));
+        age = year - age;
+        String job = usersRepository.getJobByEmail(email);
+        String location = usersRepository.getLocationByEmail(email);
+        int idFromUsers = usersRepository.getIdByEmail(email); 
+        int imageId = userHasImagesRepository.getImageIdByUserId(idFromUsers);
+        byte [] img = imagesRepository.getDataById(imageId);
+        String eyeColor = usersRepository.getEyeColorByEmail(email);
+        String hairColor = usersRepository.getHairColorByEmail(email);
+        String hobbies = usersRepository.getHobbiesByEmail(email);
+        String educationlevel = usersRepository.getEducationByEmail(email);
+        String image = new String (img);
+
+        map.put("image",image);
+        map.put("job",job);
+        map.put("age",String.valueOf(age));
+        map.put("userLoggedInFullname",userLoggedInFullname);
+        map.put("fullname",fullname);
+        map.put("location",location);
+        map.put("hobbies",hobbies);
+        map.put("hairColor",hairColor);
+        map.put("eyeColor",eyeColor);
+        map.put("educationlevel",educationlevel);
+        return map;
+    }
 }
