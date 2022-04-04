@@ -1,12 +1,11 @@
 package dating.dating;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
+import javax.servlet.http.HttpSession;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import dating.dating.controllers.RstController;
 import dating.dating.repositories.ImagesRepository;
 import dating.dating.repositories.UserHasImagesRepository;
 import dating.dating.repositories.UserVisitedUsersRepository;
@@ -33,6 +32,9 @@ class DatingApplicationTests implements Serializable
 
     @Autowired
     UserHasImagesRepository userHasImagesRepository;
+
+    @Autowired
+    RstController rstController;
 	/*@Test
 	void testingfindPasswordByEmail()
 	{
@@ -125,7 +127,7 @@ class DatingApplicationTests implements Serializable
             }
         }*/
 
-        @Test
+        /*@Test
         public void checkIfNotInQueryWorks()
         {
             ArrayList<Integer> arr = new ArrayList<Integer>();
@@ -142,5 +144,14 @@ class DatingApplicationTests implements Serializable
                 images.add(new String (byteImg.get(i)));
             }
             System.out.println(images);
-        } 
+        } */
+
+
+        @Test
+        public void testFetchOnePersonVisited(HttpSession session)
+        {
+            session.setAttribute("fullnamePerson", "Jasmine White");
+            Object result =  rstController.fetchOnePersonVisited(session);
+            System.out.println(result);
+        }
 }

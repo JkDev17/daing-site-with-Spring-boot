@@ -77,12 +77,12 @@ public interface UsersRepository extends JpaRepository <Users, Integer>
     @Query(value = "SELECT id FROM users ORDER BY id DESC LIMIT 0,1", nativeQuery = true)
     public  int  getLastId();
 
-    @Query(value = "SELECT * FROM users WHERE gender =?1 AND hair_color = ?2", nativeQuery = true)
-    public  List<Users>  selecStartWithFilters1(String gender, String hairColor);
+    @Query(value = "SELECT * FROM users WHERE gender =?1 AND hair_color = ?2 AND id != ?3", nativeQuery = true)
+    public  List<Users>  selecStartWithFilters1(String gender, String hairColor, int idToExclude);
 
-    @Query(value = "SELECT * FROM users WHERE gender =?1 ", nativeQuery = true)
-    public  List<Users>  selecStartWithFilters2(String gender);
+    @Query(value = "SELECT * FROM users WHERE gender =?1 AND id != ?2", nativeQuery = true)
+    public  List<Users>  selecStartWithFilters2(String gender, int idToExclude);
 
-    @Query(value = "SELECT * FROM users WHERE hair_color =?1 ", nativeQuery = true)
-    public  List<Users>  selecStartWithFilters3(String hair_color);
+    @Query(value = "SELECT * FROM users WHERE hair_color =?1 AND id != ?2", nativeQuery = true)
+    public  List<Users>  selecStartWithFilters3(String hair_color, int idToExclude);
 }

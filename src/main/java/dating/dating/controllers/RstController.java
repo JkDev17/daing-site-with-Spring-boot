@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import dating.dating.entity.Filters;
 import dating.dating.entity.UserVisitedUsers;
 import dating.dating.entity.Users;
+import dating.dating.exceptions.ProfileNotFoundException;
 import dating.dating.repositories.ImagesRepository;
 import dating.dating.repositories.UserHasImagesRepository;
 import dating.dating.repositories.UserVisitedUsersRepository;
@@ -414,11 +415,12 @@ public class RstController
         String gender = filter.getgenderFilter();
         String hairColor = filter.gethairFilter();
         String email = session.getAttribute("email").toString();
+        int idToExclude = usersRepository.getIdByEmail(email);
         emails.add(email);
         map.put("email",emails);
         if(!"empty".equals(hairColor) && !"empty".equals(gender))
         {
-            List<Users> listOfSelectStarUsers = usersRepository.selecStartWithFilters1(gender, hairColor);
+            List<Users> listOfSelectStarUsers = usersRepository.selecStartWithFilters1(gender, hairColor,idToExclude);
 
             for(Users list: listOfSelectStarUsers)
             {
@@ -461,7 +463,7 @@ public class RstController
 
         else if (!"empty".equals(gender))
         {
-            List<Users> listOfSelectStarUsers = usersRepository.selecStartWithFilters2(gender);
+            List<Users> listOfSelectStarUsers = usersRepository.selecStartWithFilters2(gender, idToExclude);
             for(Users list: listOfSelectStarUsers)
             {
                 fullnames.add(list.getFullname().toString());
@@ -501,7 +503,7 @@ public class RstController
 
         else if (!"empty".equals(hairColor))
         {
-            List<Users> listOfSelectStarUsers = usersRepository.selecStartWithFilters3(hairColor);
+            List<Users> listOfSelectStarUsers = usersRepository.selecStartWithFilters3(hairColor, idToExclude);
             for(Users list: listOfSelectStarUsers)
             {
                 fullnames.add(list.getFullname().toString());
@@ -558,31 +560,38 @@ public class RstController
         int year = Calendar.getInstance().get(Calendar.YEAR);
         String fullname = session.getAttribute("fullnamePerson").toString();
         String userLoggedInFullname = usersRepository.getFullNameByEmail(session.getAttribute("email").toString());
-        String email = usersRepository.getEmailByFullname(fullname);
-        String bday = usersRepository.getBdayByEmail(email);
-        int age = Integer.parseInt(bday.substring(0,4));
-        age = year - age;
-        String job = usersRepository.getJobByEmail(email);
-        String location = usersRepository.getLocationByEmail(email);
-        int idFromUsers = usersRepository.getIdByEmail(email); 
-        int imageId = userHasImagesRepository.getImageIdByUserId(idFromUsers);
-        byte [] img = imagesRepository.getDataById(imageId);
-        String eyeColor = usersRepository.getEyeColorByEmail(email);
-        String hairColor = usersRepository.getHairColorByEmail(email);
-        String hobbies = usersRepository.getHobbiesByEmail(email);
-        String educationlevel = usersRepository.getEducationByEmail(email);
-        String image = new String (img);
+        try
+        {
+            String email = usersRepository.getEmailByFullname(fullname);
+            String bday = usersRepository.getBdayByEmail(email);
+            int age = Integer.parseInt(bday.substring(0,4));
+            age = year - age;
+            String job = usersRepository.getJobByEmail(email);
+            String location = usersRepository.getLocationByEmail(email);
+            int idFromUsers = usersRepository.getIdByEmail(email); 
+            int imageId = userHasImagesRepository.getImageIdByUserId(idFromUsers);
+            byte [] img = imagesRepository.getDataById(imageId);
+            String eyeColor = usersRepository.getEyeColorByEmail(email);
+            String hairColor = usersRepository.getHairColorByEmail(email);
+            String hobbies = usersRepository.getHobbiesByEmail(email);
+            String educationlevel = usersRepository.getEducationByEmail(email);
+            String image = new String (img);
 
-        map.put("image",image);
-        map.put("job",job);
-        map.put("age",String.valueOf(age));
-        map.put("userLoggedInFullname",userLoggedInFullname);
-        map.put("fullname",fullname);
-        map.put("location",location);
-        map.put("hobbies",hobbies);
-        map.put("hairColor",hairColor);
-        map.put("eyeColor",eyeColor);
-        map.put("educationlevel",educationlevel);
+            map.put("image",image);
+            map.put("job",job);
+            map.put("age",String.valueOf(age));
+            map.put("userLoggedInFullname",userLoggedInFullname);
+            map.put("fullname",fullname);
+            map.put("location",location);
+            map.put("hobbies",hobbies);
+            map.put("hairColor",hairColor);
+            map.put("eyeColor",eyeColor);
+            map.put("educationlevel",educationlevel);
+        }
+        catch(NullPointerException exception)
+        {
+            throw new ProfileNotFoundException("Profile not found");
+        }
         return map;
     }
 }
