@@ -465,6 +465,7 @@
             </div>
         </header>
 
+        <h2 id="errorText" style="display: none;text-align: center;">Profile not found </h2>
         <div class="pCard_card">
               <div class="pCard_up">
                 <div class="pCard_text">
@@ -544,9 +545,12 @@
                 $('#hair').html("Hair color: "+data.hairColor);
                 $('#hobbies').html("Likes to spend time doing : "+ data.hobbies);
               },
-              error: function(jqxhr, status, exception) 
+              error: function(request, status) 
               {
-                alert(exception)
+                $(".pCard_back").hide()
+                $(".pCard_down").hide()
+                $(".pCard_card").hide()
+                $("#errorText").show()
               } 
             });
 
@@ -562,8 +566,11 @@
               //alert("success")
             }
             ,
-            error: function() {
-             alert("Unable to reach API")
+            error: function(request,status) {
+                $(".pCard_back").hide()
+                $(".pCard_down").hide()
+                $(".pCard_card").hide()
+                $("#errorText").show()
             } 
         });
 

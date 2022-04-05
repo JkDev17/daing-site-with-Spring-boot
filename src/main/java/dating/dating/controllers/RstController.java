@@ -333,32 +333,41 @@ public class RstController
         ArrayList<String> educationLevels = new ArrayList<String>();
         ArrayList<String> images = new ArrayList<String>();
         ArrayList<String> emails = new ArrayList<String>();
+        String email = "";
         String bday = "";
         int age = 0;
         int year = Calendar.getInstance().get(Calendar.YEAR);
-        String email = session.getAttribute("email").toString();
-        int id = usersRepository.getIdByEmail(email);
-        int imageIdToExclude = userHasImagesRepository.userHasImages(id);
-        List <byte[]> byteImg = imagesRepository.getDataNeqId(imageIdToExclude);
-        List<Users> listOfSelectStarUsers = usersRepository.getStarFromUsersNeqToId(id);
-        for(Users list: listOfSelectStarUsers)
+        try
         {
-            fullnames.add(list.getFullname().toString());
-            jobs.add(list.getJobTitle().toString());
-            bday = list.getBirthday().toString();
-            age = Integer.parseInt(bday.substring(0, 4));
-            age = year - age;
-            ages.add(String.valueOf(age));
-            locations.add(list.getLocation().toString());
-            hairColors.add(list.getHairColor().toString());
-            eyeColors.add(list.getEyeColor().toString());
-            hobbies.add(list.getHobbies().toString());
-            educationLevels.add(list.getEducationLevel().toString());
+            email = session.getAttribute("email").toString();
+            int id = usersRepository.getIdByEmail(email);
+            int imageIdToExclude = userHasImagesRepository.userHasImages(id);
+            List <byte[]> byteImg = imagesRepository.getDataNeqId(imageIdToExclude);
+            List<Users> listOfSelectStarUsers = usersRepository.getStarFromUsersNeqToId(id);
+            for(Users list: listOfSelectStarUsers)
+            {
+                fullnames.add(list.getFullname().toString());
+                jobs.add(list.getJobTitle().toString());
+                bday = list.getBirthday().toString();
+                age = Integer.parseInt(bday.substring(0, 4));
+                age = year - age;
+                ages.add(String.valueOf(age));
+                locations.add(list.getLocation().toString());
+                hairColors.add(list.getHairColor().toString());
+                eyeColors.add(list.getEyeColor().toString());
+                hobbies.add(list.getHobbies().toString());
+                educationLevels.add(list.getEducationLevel().toString());
+            }
+            for (int i =0; i < byteImg.size(); i++)
+            {
+                images.add(new String (byteImg.get(i)));
+            }
         }
-        for (int i =0; i < byteImg.size(); i++)
+        catch(NullPointerException exception)
         {
-            images.add(new String (byteImg.get(i)));
+            throw new ProfileNotFoundException();
         }
+
         emails.add(email);
         map.put("email",emails);
         map.put("images", images);
@@ -376,20 +385,29 @@ public class RstController
     @GetMapping(value = "/updateUserVisitedUser")
     public void userVisitedUser(HttpSession session, HttpServletRequest request)   
     {
-        String email = session.getAttribute("email").toString();
-        int id1 = usersRepository.getIdByEmail(email);
-        int id2 = usersRepository.getIdByFullname(request.getParameter("fullname").toString());
-        if(userVisitedUsersRepository.getUid1_VisitedUserUid2(id2, id1) == null)
+        int id1=0,id2=0;
+        try
         {
-            Date date = new Date();
-            Timestamp timestamp = new Timestamp(date.getTime());
-            userVisitedUsersRepository.saveAndFlush(new UserVisitedUsers(id1, id2, timestamp));
+            String email = session.getAttribute("email").toString();
+            id1 = usersRepository.getIdByEmail(email);
+            id2 = usersRepository.getIdByFullname(request.getParameter("fullname").toString());
+            
+            if(userVisitedUsersRepository.getUid1_VisitedUserUid2(id2, id1) == null)
+            {
+                Date date = new Date();
+                Timestamp timestamp = new Timestamp(date.getTime());
+                userVisitedUsersRepository.saveAndFlush(new UserVisitedUsers(id1, id2, timestamp));
+            }
+            else
+            {
+                Date date = new Date();
+                Timestamp timestamp = new Timestamp(date.getTime());
+                userVisitedUsersRepository.updateUid1_VisitedUserUid2(id2, id1, timestamp);
+            }
         }
-        else
+        catch(NullPointerException exception)
         {
-            Date date = new Date();
-            Timestamp timestamp = new Timestamp(date.getTime());
-            userVisitedUsersRepository.updateUid1_VisitedUserUid2(id2, id1, timestamp);
+            throw new ProfileNotFoundException();
         }
     } 
 
@@ -549,7 +567,6 @@ public class RstController
         }
         
         return map;
-        //todo make sure user does not see himself as a possible mate
         //! exception handling needed
     }   
 
@@ -558,10 +575,11 @@ public class RstController
     {
         HashMap<String,String> map = new HashMap<>();
         int year = Calendar.getInstance().get(Calendar.YEAR);
-        String fullname = session.getAttribute("fullnamePerson").toString();
-        String userLoggedInFullname = usersRepository.getFullNameByEmail(session.getAttribute("email").toString());
+
         try
         {
+            String fullname = session.getAttribute("fullnamePerson").toString();
+            String userLoggedInFullname = usersRepository.getFullNameByEmail(session.getAttribute("email").toString());
             String email = usersRepository.getEmailByFullname(fullname);
             String bday = usersRepository.getBdayByEmail(email);
             int age = Integer.parseInt(bday.substring(0,4));

@@ -850,6 +850,10 @@ background: rgb(231, 236, 237);
       {
         arrOfProfileData = data
       });
+      if(arrOfProfileData.fullnames === undefined)
+      {
+        window.location.replace("http://localhost:8080/login")
+      }
       $('#helloLink').html("Hello " + arrOfProfileData.email)
       $('.pCard_up').css("background-image", "url("  + arrOfProfileData.images[currentProfileImgIndex] +  ")")
       $('.pCard_up').css('background-size', 'cover')
@@ -878,7 +882,7 @@ background: rgb(231, 236, 237);
             }
             ,
             error: function() {
-             alert("Unable to reach API")
+            alert("Unable to reach API")
             } 
         });
   }
