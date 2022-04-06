@@ -428,14 +428,25 @@ public class RstController
         ArrayList<String> emails = new ArrayList<String>();
         ArrayList<Integer> usersId = new ArrayList<Integer>();
         String bday = "";
+        String email= "";
+        String hairColor = "";
+        String gender = "";
         int age = 0;
         int year = Calendar.getInstance().get(Calendar.YEAR);
-        String gender = filter.getgenderFilter();
-        String hairColor = filter.gethairFilter();
-        String email = session.getAttribute("email").toString();
+
+        try
+        {
+            gender = filter.getgenderFilter();
+            hairColor = filter.gethairFilter();
+            email = session.getAttribute("email").toString();
+        }
+        catch(NullPointerException exception)
+        {
+            throw new ProfileNotFoundException("parameters not found to filter with");
+        }
+
         int idToExclude = usersRepository.getIdByEmail(email);
         emails.add(email);
-        map.put("email",emails);
         if(!"empty".equals(hairColor) && !"empty".equals(gender))
         {
             List<Users> listOfSelectStarUsers = usersRepository.selecStartWithFilters1(gender, hairColor,idToExclude);
@@ -567,7 +578,6 @@ public class RstController
         }
         
         return map;
-        //! exception handling needed
     }   
 
     @GetMapping(value = "/fetchOnePersonVisited")
