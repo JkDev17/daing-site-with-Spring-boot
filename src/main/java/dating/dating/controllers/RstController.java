@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -162,7 +164,7 @@ public class RstController
     }
 
     @GetMapping(value="/TestingImagesApi")
-    public Map<String,String> TestingImagesApi(HttpSession session)
+    public Map<String,String> testingImagesApi(HttpSession session)
     {
         HashMap<String, String> map = new HashMap<>();
         String img="";
@@ -177,7 +179,7 @@ public class RstController
     }
 
     @PostMapping(value="/TestingImagesApi-v2")
-    public Map<String,String> GetLastImage()
+    public Map<String,String> getLastImage()
     {
         HashMap<String, String> map = new HashMap<>();
         byte [] image = imagesRepository.findLastImage();
@@ -190,7 +192,7 @@ public class RstController
     }
 
     @PostMapping(value="/TestingImagesApi-v3")
-    public Map<String,List<String>> GetAllImages()
+    public Map<String,List<String>> getAllImages()
     {
         ArrayList <String> imagesList = new ArrayList <String>() ;
         HashMap<String, List<String>> map = new HashMap<>();
@@ -365,6 +367,7 @@ public class RstController
         }
         catch(NullPointerException exception)
         {
+            System.out.println("Profile not found exception is being throw at line:"+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
             throw new ProfileNotFoundException();
         }
 
@@ -385,29 +388,34 @@ public class RstController
     @GetMapping(value = "/updateUserVisitedUser")
     public void userVisitedUser(HttpSession session, HttpServletRequest request)   
     {
+        String email = "";
         int id1=0,id2=0;
-        try
-        {
-            String email = session.getAttribute("email").toString();
-            id1 = usersRepository.getIdByEmail(email);
-            id2 = usersRepository.getIdByFullname(request.getParameter("fullname").toString());
-            
-            if(userVisitedUsersRepository.getUid1_VisitedUserUid2(id2, id1) == null)
-            {
-                Date date = new Date();
-                Timestamp timestamp = new Timestamp(date.getTime());
-                userVisitedUsersRepository.saveAndFlush(new UserVisitedUsers(id1, id2, timestamp));
-            }
-            else
-            {
-                Date date = new Date();
-                Timestamp timestamp = new Timestamp(date.getTime());
-                userVisitedUsersRepository.updateUid1_VisitedUserUid2(id2, id1, timestamp);
-            }
-        }
-        catch(NullPointerException exception)
-        {
+         if( session.getAttribute("email") == null && session.getAttribute("userEmailFromSignup") == null)
+         {
+            System.out.println("Profile not found exception is being throw at" +"/updateUserVisitedUser " + "api at file RstController.java");
             throw new ProfileNotFoundException();
+         }
+
+        else if( session.getAttribute("email") == null)
+            email = session.getAttribute("userEmailFromSignup").toString();
+            
+        else
+            email = session.getAttribute("email").toString();
+            
+        id1 = usersRepository.getIdByEmail(email);
+        id2 = usersRepository.getIdByFullname(request.getParameter("fullname").toString());
+        
+        if(userVisitedUsersRepository.getUid1_VisitedUserUid2(id2, id1) == null)
+        {
+            Date date = new Date();
+            Timestamp timestamp = new Timestamp(date.getTime());
+            userVisitedUsersRepository.saveAndFlush(new UserVisitedUsers(id1, id2, timestamp));
+        }
+        else
+        {
+            Date date = new Date();
+            Timestamp timestamp = new Timestamp(date.getTime());
+            userVisitedUsersRepository.updateUid1_VisitedUserUid2(id2, id1, timestamp);
         }
     } 
 
@@ -442,6 +450,7 @@ public class RstController
         }
         catch(NullPointerException exception)
         {
+            System.out.println("Profile not found exception is being throw at line:"+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
             throw new ProfileNotFoundException("parameters not found to filter with");
         }
 
@@ -618,8 +627,186 @@ public class RstController
         }
         catch(NullPointerException exception)
         {
+            System.out.println("Profile not found exception is being throw at line:"+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
             throw new ProfileNotFoundException("Profile not found");
         }
+        return map;
+    }
+
+    @GetMapping(value = "/MatchingProfiles")
+    public HashMap<String,List<String>> matchingProfiles (HttpSession session)
+    {
+        HashMap <String,List<String>> map = new HashMap <String,List<String>>();
+        ArrayList<String> fullnames = new ArrayList<String>();
+        ArrayList<String> jobs = new ArrayList<String>();
+        ArrayList<String> ages = new ArrayList<String>();
+        ArrayList<String> locations = new ArrayList<String>();
+        ArrayList<String> hairColors  = new ArrayList<String>();
+        ArrayList<String> eyeColors = new ArrayList<String>();
+        ArrayList<String> hobbies = new ArrayList<String>();
+        ArrayList<String> educationLevels = new ArrayList<String>();
+        ArrayList<String> images = new ArrayList<String>();
+        ArrayList<String> emails = new ArrayList<String>();
+        ArrayList<Integer> imagesId = new ArrayList<Integer>();
+        ArrayList<Integer> usersId = new ArrayList<Integer>();
+        List<Users> users = new ArrayList<Users>();
+        String email = "";
+        String usersLocation= "";
+        
+        try
+        {
+            email = session.getAttribute("userEmailFromSignup").toString();
+            session.setAttribute("email", email);
+            int idToExclude = usersRepository.getIdByEmail(email);
+            usersLocation = usersRepository.getLocationByEmail(email);
+            users = usersRepository.getStarFromUsersNeqToId(idToExclude);
+        }
+        catch(NullPointerException exception)
+        {
+            System.out.println("Profile not found exception is being throw at line:"+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
+            throw new ProfileNotFoundException();
+        }
+        String bday = "";
+        int age= 0;
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        String mateSkinColor = "";
+        String mateGender = "";
+        int mateAgeUpperLimit = 0;
+        int mateLowerAgeLowerLimit = 0;
+        double mateHeight =0.0;
+        double mateWeight = 0.0;
+        try
+        {
+            mateSkinColor = session.getAttribute("mateSkinFromDatingUserPersonalData").toString();
+            mateGender = session.getAttribute("mateGenderFromDatingUserPersonalData").toString();
+            mateAgeUpperLimit = Integer.parseInt(session.getAttribute("rangeMaxFromDatingUserPersonalData").toString());
+            mateLowerAgeLowerLimit  = Integer.parseInt(session.getAttribute("rangeMinFromDatingUserPersonalData").toString());
+            mateHeight = Double.parseDouble(session.getAttribute("mateHeightFromDatingUserPersonalData").toString());
+            mateWeight = Double.parseDouble(session.getAttribute("mateWeightFromDatingUserPersonalData").toString());
+        }
+        catch(NullPointerException exception)
+        {
+            System.out.println("Profile not found exception is being throw at line:"+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
+            throw new ProfileNotFoundException();
+        }
+        System.out.println("User is:"+ email);
+        System.out.println("User wanted his mate to be the gender of:"+ mateGender);
+        System.out.println("User wanted his mate to be of color:" + mateSkinColor);
+        System.out.println("User wanted his mate to be of age between:"+ mateLowerAgeLowerLimit + " and "+ mateAgeUpperLimit);
+        System.out.println("User wanted his mate to be in kg:"+ mateWeight);
+        System.out.println("User wanted his mate to be in cm"+ mateHeight);
+        System.out.println(users.size()+ " is the size of our list of users");
+        System.out.println(usersLocation);
+        for( int i =0; i<users.size(); i++)
+        {
+            if(!users.get(i).getGender().equals(mateGender))
+            {
+                System.out.println(i);
+                System.out.println(users.get(i).getFullname() + " is about to be removed");
+                users.remove(i);
+                i--;
+            }
+            else
+            {
+                System.out.println(i);
+                System.out.println("User: " + users.get(i).getFullname() +" is not getting removed with gender:"+users.get(i).getGender());
+            }
+        }
+        
+        for(int i =0; i<users.size();i++)
+        {
+            if(users.get(i).getLocation().equals(usersLocation))
+            {
+                System.out.println("I am "+ users.get(i).getFullname() + " and I am in location "+ users.get(i).getLocation());
+                users.get(i).updateMatchingScore(10);
+            }
+
+            if(users.get(i).getSkinColor().equals(mateSkinColor))
+            {
+                System.out.println("I am "+ users.get(i).getFullname() + " and I have "+ users.get(i).getSkinColor() + " skin color");
+                users.get(i).updateMatchingScore(5);
+            }
+
+            bday = usersRepository.getBdayByEmail(users.get(i).getEmail().toString());
+            age = Integer.parseInt(bday.substring(0,4));
+            age = year - age;
+            if(age <= mateAgeUpperLimit && age >= mateLowerAgeLowerLimit )
+            {
+                System.out.println("I am "+ users.get(i).getFullname() + " and my age is:"+ age+ " with mateAgeUpperLimit:"+ mateAgeUpperLimit + " and mateLowerAgeLowerLimit:"+ mateLowerAgeLowerLimit);
+                users.get(i).updateMatchingScore(4);
+            }
+
+            double matesWeight = Double.parseDouble(users.get(i).getWeight().toString());
+            double matesHeight = Double.parseDouble(users.get(i).getHeight().toString());
+            if( (matesWeight <=mateWeight+5 && matesWeight>= mateWeight-5 ) && (matesHeight<= mateHeight+5 && matesHeight>= mateHeight-5) )
+            {
+                System.out.println("I am "+ users.get(i).getFullname() + " and my weight is:"+ users.get(i).getWeight()+ " and my height is:"+users.get(i).getHeight());
+                users.get(i).updateMatchingScore(3);
+            } 
+        }
+
+        Collections.sort(users, Comparator.comparingInt(Users ::getMatchingScore).reversed());
+        for(Users user: users)
+        {
+            System.out.println("The user: "+user.getFullname()+" has matching score of:" + user.getMatchingScore());
+        }
+
+        for(Users user: users)
+        {
+            if(user.getMatchingScore() ==0)
+            {
+                continue;
+            }
+            fullnames.add(user.getFullname());
+            jobs.add(user.getJobTitle().toString());
+            bday = user.getBirthday().toString();
+            age = Integer.parseInt(bday.substring(0, 4));
+            age = year - age;
+            ages.add(String.valueOf(age));
+            locations.add(user.getLocation().toString());
+            hairColors.add(user.getHairColor().toString());
+            eyeColors.add(user.getEyeColor().toString());
+            hobbies.add(user.getHobbies().toString());
+            educationLevels.add(user.getEducationLevel().toString());
+        }
+
+        System.out.println("Number of fullnames are:" +fullnames.size());
+        for(int i=0; i<fullnames.size(); i++)
+        {
+           usersId.add(usersRepository.getIdByFullname(fullnames.get(i)));
+           System.out.println(""+ fullnames.get(i) + " has user id:" + usersRepository.getIdByFullname(fullnames.get(i)));
+        }
+
+        for(int i=0; i<usersId.size(); i++ )
+        {
+            int userId = userHasImagesRepository.getImageIdByUserId(usersId.get(i));
+            imagesId.add(userId);
+        }
+        System.out.println("UsersId are:" + usersId);
+        System.out.println("ImagesId are:" + imagesId);
+        System.out.println("ImagesId are:" + imagesId.size());
+        List <byte[]> byteImg = new ArrayList<byte[]> ();
+        for(int i=0; i<imagesId.size();i++)
+        {
+            byteImg.add(imagesRepository.getDataById(imagesId.get(i)));
+        }
+        
+        System.out.println("I have "+ byteImg.size()+ " IMAGES");
+        for (int i =0; i < byteImg.size(); i++)
+        {
+            images.add(new String (byteImg.get(i)));
+        }
+        emails.add(email);
+        map.put("email",emails);
+        map.put("images", images);
+        map.put("fullnames",fullnames);
+        map.put("jobs",jobs);
+        map.put("ages",ages);
+        map.put("locations",locations);
+        map.put("hairColors",hairColors);
+        map.put("eyeColors",eyeColors);
+        map.put("hobbies",hobbies);
+        map.put("educationLevels",educationLevels);
         return map;
     }
 }

@@ -280,19 +280,20 @@ function finishWithSettingProfileData()
 
     else
       $("#errordiv").css({"display": "none"});
-
-      fetch('/fetchUserPersonalDataIdEq4' ,
-      {
-        method:  'POST',
-        headers: 
-        {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify( { 'mateGender' : mateGender,  'rangeMin' : rangeMin, 'rangeMax' : rangeMax ,'mateHeight' : mateHeight,
-        'mateWeight' : mateWeight ,'mateSkin' : mateSkin}) 
-      })
-      
+			
+			  $.ajax( { 
+              url :  'http://localhost:8080/fetchUserPersonalDataIdEq4',
+              contentType : "application/json",
+			  data: JSON.stringify( { 'mateGender' : mateGender,  'rangeMin' : rangeMin, 'rangeMax' : rangeMax ,'mateHeight' : mateHeight,
+									  'mateWeight' : mateWeight ,'mateSkin' : mateSkin}), 
+              type : 'POST',
+              async: false,
+              success : function(result) {         
+              },
+              error: function(jqxhr, status, exception) {
+				alert("API Failure")
+              } 
+            });
 	          $.ajax( { 
               url :  'http://localhost:8080/saveDataToDatabase',
               contentType : "application/json", 
@@ -305,7 +306,7 @@ function finishWithSettingProfileData()
               } 
             });
 			
-			window.location.replace("http://localhost:8080/api");
+			window.location.replace("http://localhost:8080/ProfilesMatched");
 			
 			
 }

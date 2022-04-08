@@ -70,27 +70,33 @@ public class DefaultController
     }
 
    @GetMapping(value="/TestingImages")
-    public   String testingImages()
+    public String testingImages()
     {
         return "TestingImages.html";
     }
 
     @GetMapping(value="/DownloadApp")
-    public   String download()
+    public String download()
     {
         return "DownloadApp.html";
     }
 
     @GetMapping(value="/getPremium")
-    public   String getPremium()
+    public String getPremium()
     {
         return "Premium.html";
     }
 
     @GetMapping(value="/findSoulmate")
-    public   String findSoulmate()
+    public String findSoulmate()
     {
         return "findSoulmate.html";
+    }
+
+    @GetMapping(value="/ProfilesMatched")
+    public String profileMatching()
+    {
+        return "ProfilesMatched.html";
     }
 
     @GetMapping(value="/PremiumApi")

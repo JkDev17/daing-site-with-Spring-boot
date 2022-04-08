@@ -39,7 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Seri
     "/fetchUserPersonalDataIdEq3", "/fetchUserPersonalDataIdEq4" , "/saveDataToDatabase" , "/sessionEmail", "/getUserLogInEmail" ,
     "/TestingImagesApi-v2", "/TestingImagesApi-v3", "/fetchDataFromDatabase" , "/fetchUserVisitedUsersList", "/fetchBasicDataFromDB"
     , "/fetchStarFromUsersNeqId", "/findSoulmate", "/fetchStarFromUImagesNeqToId", "/updateUserVisitedUser", "/FilterProfiles",
-    "/VisitProfile", "/fetchOnePersonVisited").permitAll()
+    "/VisitProfile", "/fetchOnePersonVisited", "/MatchingProfiles", "/ProfilesMatched").permitAll()
     //.antMatchers("/PremiumApi").hasRole("PREMIUM_USER") 
     .anyRequest().authenticated()
     .and()

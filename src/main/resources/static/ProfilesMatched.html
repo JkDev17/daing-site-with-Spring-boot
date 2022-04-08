@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 
@@ -46,10 +44,6 @@
             overflow: hidden;
             }
 
-            /****************
-            Back
-            ****************/
-
             .pCard_card .pCard_back {
             text-align: center;
             position: absolute;
@@ -64,9 +58,6 @@
             text-decoration: none;
             }
 
-            /****************
-            UP
-            ****************/
 
             .pCard_card .pCard_up {
             position: absolute;
@@ -163,9 +154,6 @@
             top: 470px;
             }
 
-            /****************
-            Down
-            ****************/
 
             .pCard_card .pCard_down {
             background-color: #fff;
@@ -294,7 +282,6 @@
 }
 
 
-/* - - - - - RATINGS */
 .rating {
   position: absolute;
   top: 0;
@@ -321,7 +308,7 @@
   display: none;
 }
 
-/* - - - - - RATE */
+
 #rate {
   top: -65px;
 }
@@ -398,7 +385,6 @@
 }
 
 
-
 .header-div{
     text-align: center;
     font-size: 18px;
@@ -434,115 +420,246 @@
     color:#007bff;
 }
 
-
 .logSign
 {
     position:fixed;
     top:0%;
     right:4%;
 }  
-
-#usersHasVisited
-{
-  color:#007bff;
-}
-
-    </style>
+</style>
     <body onload="loadData()">
-    
-        <header>
-                <div class="header-div">
-                    <ul>
-                        <li>  <a href="/"> HOME </a> </li>
-                        <li> <a href="/getPremium"> PREMIUM </a> </li>
-                        <li> <a href="/DownloadApp">DOWNLOAD APP</a> </li>
-                        <li> <a href="/ProfilesMatched">MATCHED PROFILES</a> </li>  
-                    </ul>
-                    <div class="logSign">
-                            <ul>
-                                <li> <a id= "helloLink" href="/api"></a> </li> 
-                            </ul>
-                        </div>
-                </div>
-            </header>
 
-            <h3 id="usersHasVisited" style="text-align: center;">  </h3>
-    
-            <div class="pCard_card">
-                  <div class="pCard_up">
-                    <div class="pCard_text">
-                      <h2  id="nameUsr"></h2>
-                      <h2  id="jobUsr"></h2>
+    <header>
+            <div class="header-div">
+                <ul>
+                    <li>  <a href="/">HOME </a> </li>
+                    <li> <a href="/getPremium">PREMIUM </a> </li>
+                    <li> <a href="/api">MY PROFILE</a> </li>
+                    <li> <a href="/DownloadApp">DOWNLOAD APP</a> </li> 
+                </ul>
+                <div class="logSign">
+                        <ul>
+                            <li> <a id= "helloLink" href=""></a> </li>
+                        </ul>
                     </div>
-                    <div  class="pCard_add"><i class="fa fa-plus"></i></div>
-                </div>
+            </div>
+            <h4  id="matchesFound"></h4>
+        </header>
 
-              <div class="pCard_down">
-                  <div>
-                      <p >Age</p>
-                      <p id="ageUsr"></p>
-                  </div>
-                  <div>
-                      <p style="margin-left:7rem">Location</p>
-                      <p id="locationUsr" style="margin-left:7rem" ></p>
-                  </div>
-              </div>
-
-              <div class="pCard_back">
-                  <p id="hair"></p>
-                  <p id="eye"></p>
-                  <p id="education"></p>    
-                  <p id="hobbies"></p> 
-              </div>
+        <h2 id="errorText" style="display: none;text-align: center;">Profile not found </h2>
+        <div class="pCard_card">
+            <div class="pCard_up">
+        <div class="pCard_text">
+            <h2  id="nameUsr"></h2>
+            <h2  id="jobUsr"></h2>
+        </div>
+    </div>
+    <div class="pCard_down">
+        <div>
+            <p >Age</p>
+            <p id="ageUsr"></p>
+        </div>
+        <div>
+            <p style="margin-left:7rem">Location</p>
+            <p id="locationUsr" style="margin-left:7rem" ></p> 
+        </div>
+        <div>
+            <p>
+                <!-- LIKE -->
+                <section style="width:12rem; margin-left:4.5rem;" id="like" class="rating">
+                <!-- FIFTH HEART -->
+                <input type="radio" id="heart_5" name="like" value="5" />
+                <label for="heart_5" title="Five">&#10084;</label>
+                <!-- FOURTH HEART -->
+                <input type="radio" id="heart_4" name="like" value="4" />
+                <label for="heart_4" title="Four">&#10084;</label>
+                <!-- THIRD HEART -->
+                <input type="radio" id="heart_3" name="like" value="3" />
+                <label for="heart_3" title="Three">&#10084;</label>
+                <!-- SECOND HEART -->
+                <input type="radio" id="heart_2" name="like" value="2" />
+                <label for="heart_2" title="Two">&#10084;</label>
+                <!-- FIRST HEART -->
+                <input type="radio" id="heart_1" name="like" value="1" />
+                <label for="heart_1" title="One">&#10084;</label> 
+                </section>
+            </p>
+        </div>
+    </div>
+    <div class="pCard_back">
+    </div>
+    </div>
+        <div class="buttonsNextPrev">
+            <div id="previousProfileButton"> 
+                <button onclick="previousProfile()" role="button" class="btn btn-outline-primary btn-lg btn-iconed btn-rounded">
+                <i class="fa fa-chevron-left"></i> <span style="margin-left:1rem;"class="spn">Prev</span>
+                </button>
             </div>
 
-    </body>
+            <div id="nextProfileButton"> 
+                <button onclick="nextProfile()" role="button" class="btn btn-outline-primary btn-lg btn-iconed btn-rounded">
+                <span style="margin-right:1rem;"class="spn">Next</span><i class="fa fa-chevron-right"></i> 
+                </button>
+            </div>
+        </div>
+</body>
 
     <script>
-      function loadData()
-      {
-        var fullname;
-        var height;
-        var weight;
-        $.ajax( { 
-              url :  'http://localhost:8080/fetchDataFromDatabase',
-              contentType : "application/json", 
-              type : 'GET',
-              async: false,
-              success : function(data) 
-              {
-                $('#nameUsr').html(data.fullname);
-                $('#jobUsr').html(data.job);
-                $('#ageUsr').html(data.age);
-                $('#locationUsr').html(data.location);  
-                $('.pCard_up').css("background-image", "url("  + data.image +  ")");
-                $('.pCard_up').css('background-size', 'cover');
-                $('#helloLink').html("Hello " + data.fullname);
-                $('#education').html("education level : "+data.educationlevel);
-                $('#eye').html("Eye color: "+data.eyeColor);
-                $('#hair').html("Hair color: "+data.hairColor);
-                $('#hobbies').html("Likes to spend time doing : "+ data.hobbies);
-                if(data.numOfUsersVisitedUser == "0")
-                {
-                  $('#usersHasVisited').html("No users visited your profile this week.")
-                }
-                else
-                $('#usersHasVisited').html("Hello "+data.fullname+", "+data.numOfUsersVisitedUser+" users has visited your account last week. Update to premium to get to know who did!"); 
-              },
-              error: function(jqxhr, status, exception) 
-              {
-                alert(exception)
-              } 
-            });        
-            
-      }
+    var currentYear=2021;
+    var size=0;
+    var tsize=0;
+    var currentProfileIndex=0;
+    var currentProfileImgIndex=0;
+    var ids=[];
+    var fullnames=[];
+    var genders=[];
+    var birthdays=[];
+    var education_levels=[];
+    var job_titles=[];
+    var locations=[];
+    var hobbies=[];
+    var hair_colors=[];
+    var skin_colors=[];
+    var eye_colors=[];
+    var imgs= [];
+    var arrOfProfileData
+    var arrOfProfileImg
 
-      $(function () {
-    "use strict";
-    $(".pCard_add").click(function () {
-      $(".pCard_card").toggleClass("pCard_on");
-      $(".pCard_add i").toggleClass("fa-minus");
-    });
-  });
-    </script>
-</html>  
+        async function loadData()
+        {
+            await fetch("http://localhost:8080/MatchingProfiles", {method: 'GET'})    
+            .then( res  =>  res.json() )
+            .then( data => 
+            {
+                arrOfProfileData = data
+            });
+            if(arrOfProfileData.fullnames === undefined)
+            {
+                $(".pCard_back").hide()
+                $(".pCard_down").hide()
+                $(".pCard_card").hide()
+                $("#errorText").show()
+            }
+            $('#helloLink').html("Hello " + arrOfProfileData.email)
+            $('.pCard_up').css("background-image", "url("  + arrOfProfileData.images[currentProfileImgIndex] +  ")")
+            $('.pCard_up').css('background-size', 'cover')
+            $('#nameUsr').html(arrOfProfileData.fullnames[currentProfileImgIndex])
+            $('#locationUsr').html(arrOfProfileData.locations[currentProfileImgIndex])
+            $('#ageUsr').html(arrOfProfileData.ages[currentProfileImgIndex])
+            $('#jobUsr').html(arrOfProfileData.jobs[currentProfileImgIndex])
+            $('#education').html("Education: "+arrOfProfileData.educationLevels[currentProfileImgIndex])
+            $('#eye').html("Eye color: "+arrOfProfileData.eyeColors[currentProfileImgIndex])
+            $('#hair').html("Hair color: "+arrOfProfileData.hairColors[currentProfileImgIndex])
+            $('#hobbies').html("Hobbies: "+arrOfProfileData.hobbies[currentProfileImgIndex])
+            size= arrOfProfileData.locations.length-1
+            tsize=size+1
+            $("#matchesFound").html(tsize+" profiles found") 
+            
+            $.ajax( { 
+                    url :  'http://localhost:8080/updateUserVisitedUser', 
+                    type : 'GET',
+                    async: false,
+                    data : {
+                        'fullname' : arrOfProfileData.fullnames[currentProfileImgIndex],
+                    },  
+                    success : function(data) 
+                    {
+                    //alert("success")
+                    }
+                    ,
+                    error: function() {
+                        $(".pCard_back").hide()
+                        $(".pCard_down").hide()
+                        $(".pCard_card").hide()
+                        $("#errorText").show()
+                    } 
+                });
+        }
+
+        function nextProfile()
+        {
+
+            if(currentProfileIndex==size)
+            {
+                alert("End of profiles")
+                return;
+            }
+            currentProfileIndex++
+            currentProfileImgIndex++
+
+            $('.pCard_up').css("background-image", "url("  + arrOfProfileData.images[currentProfileImgIndex] +  ")")
+            $('.pCard_up').css('background-size', 'cover')
+            $('#nameUsr').html(arrOfProfileData.fullnames[currentProfileImgIndex])
+            $('#locationUsr').html(arrOfProfileData.locations[currentProfileImgIndex])
+            $('#ageUsr').html(arrOfProfileData.ages[currentProfileImgIndex])
+            $('#jobUsr').html(arrOfProfileData.jobs[currentProfileImgIndex])
+            $('#education').html("Education: "+arrOfProfileData.educationLevels[currentProfileImgIndex])
+            $('#eye').html("Eye color: "+arrOfProfileData.eyeColors[currentProfileImgIndex])
+            $('#hair').html("Hair color: "+arrOfProfileData.hairColors[currentProfileImgIndex])
+            $('#hobbies').html("Hobbies: "+arrOfProfileData.hobbies[currentProfileImgIndex])
+
+            $.ajax( { 
+                    url :  'http://localhost:8080/updateUserVisitedUser', 
+                    type : 'GET',
+                    async: false,
+                    data : {
+                        'fullname' : arrOfProfileData.fullnames[currentProfileImgIndex],
+                    },  
+                    success : function(data) 
+                    {
+                    //alert("success")
+                    }
+                    ,
+                    error: function() {
+                        $(".pCard_back").hide()
+                        $(".pCard_down").hide()
+                        $(".pCard_card").hide()
+                        $("#errorText").show()
+                    } 
+                });
+            }
+
+        function previousProfile()
+        {
+
+        if(currentProfileIndex==0)
+        {   
+            alert("No previous profile from the first one")
+            return;
+        }
+        currentProfileIndex--
+        currentProfileImgIndex--
+
+        $('.pCard_up').css("background-image", "url("  + arrOfProfileData.images[currentProfileImgIndex] +  ")")
+        $('.pCard_up').css('background-size', 'cover')
+        $('#nameUsr').html(arrOfProfileData.fullnames[currentProfileImgIndex])
+        $('#locationUsr').html(arrOfProfileData.locations[currentProfileImgIndex])
+        $('#ageUsr').html(arrOfProfileData.ages[currentProfileImgIndex])
+        $('#jobUsr').html(arrOfProfileData.jobs[currentProfileImgIndex])
+        $('#education').html("Education: "+arrOfProfileData.educationLevels[currentProfileImgIndex])
+        $('#eye').html("Eye color: "+arrOfProfileData.eyeColors[currentProfileImgIndex])
+        $('#hair').html("Hair color: "+arrOfProfileData.hairColors[currentProfileImgIndex])
+        $('#hobbies').html("Hobbies: "+arrOfProfileData.hobbies[currentProfileImgIndex])
+        
+        $.ajax( { 
+                url :  'http://localhost:8080/updateUserVisitedUser', 
+                type : 'GET',
+                async: false,
+                data : {
+                    'fullname' : arrOfProfileData.fullnames[currentProfileImgIndex],
+                },  
+                success : function(data) 
+                {
+                //alert("success")
+                }
+                ,
+                error: function() {
+                    $(".pCard_back").hide()
+                    $(".pCard_down").hide()
+                    $(".pCard_card").hide()
+                    $("#errorText").show()
+                } 
+            });
+        }
+    </script> 
+</html> 

@@ -22,5 +22,5 @@ public class ExceptionResponse
     public void setDateTime(LocalDateTime dateTime) 
     {
         this.dateTime = dateTime;
-    } 
+    }
 }

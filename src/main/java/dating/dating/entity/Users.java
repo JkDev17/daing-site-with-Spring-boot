@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
@@ -79,12 +80,13 @@ public class Users implements Serializable
     @Column(nullable = false)
     private boolean enabled;
 
-
     @Column(nullable = false)
     private String role;
 
+    @Transient
+    private int matchingScore;
 
-    @javax.persistence.Transient
+    @Transient
     private Collection<? extends GrantedAuthority> authorities;
 
     public Collection<?extends GrantedAuthority> getAuthorities() 
@@ -92,6 +94,20 @@ public class Users implements Serializable
         return this.authorities;
     }
 
+    public int getMatchingScore()
+    {
+        return this.matchingScore;
+    }
+
+    public void setMatchingScore(int matchingScore)
+    {
+        this.matchingScore = matchingScore;
+    }
+
+    public void updateMatchingScore(int matchingScore)
+    {
+        this.matchingScore += matchingScore;
+    }
 
     public void setAuthorities(Collection<?extends GrantedAuthority> authorities) 
     {
@@ -202,11 +218,6 @@ public class Users implements Serializable
     public void setJobTitle(String jobTitle) 
     {
         this.jobTitle = jobTitle;
-    }
-
-    public String getLocaltion() 
-    {
-        return this.location;
     }
 
     public String getHobbies() 
@@ -327,7 +338,7 @@ public class Users implements Serializable
             ", birthday='" + getBirthday() + "'" +
             ", educationLevel='" + getEducationLevel() + "'" +
             ", jobTitle='" + getJobTitle() + "'" +
-            ", localtion='" + getLocaltion() + "'" +
+            ", localtion='" + getLocation() + "'" +
             ", hobbies='" + getHobbies() + "'" +
             ", height='" + getHeight() + "'" +
             ", weight='" + getWeight() + "'" +
