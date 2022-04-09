@@ -4,6 +4,9 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.util.Optional;
 import javax.servlet.http.HttpSession;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -25,6 +28,8 @@ public class UsersServices
 
     @Autowired
     ImagesRepository imagesRepository;
+
+    Logger LOGGER = LoggerFactory.getLogger(UsersServices.class);
     
     public String checkDuplicateEmail(String email)
     {
@@ -79,5 +84,6 @@ public class UsersServices
         userId = userRepo.getLastId();
         imageId = imagesRepository.getLastId();
         userHasImagesRepository.saveAndFlush(new UserHasImages(userId, imageId, '1'));
+        LOGGER.info("User created with id:"+ userId+" and email:"+ session.getAttribute("userEmailFromSignup").toString());
     }
 }

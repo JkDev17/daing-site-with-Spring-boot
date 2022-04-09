@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,6 +47,8 @@ public class RstController
 
     @Autowired
     UserVisitedUsersRepository userVisitedUsersRepository;
+
+    Logger LOGGER = LoggerFactory.getLogger(RestController.class);
     
     @GetMapping(value="/checkDuplicateEmail")
     public String checkDuplicateEmail(@RequestParam("email") String email)
@@ -367,7 +371,7 @@ public class RstController
         }
         catch(NullPointerException exception)
         {
-            System.out.println("Profile not found exception is being throw at line:"+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
+            LOGGER.error("Session variables returning null at: "+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
             throw new ProfileNotFoundException();
         }
 
@@ -392,7 +396,7 @@ public class RstController
         int id1=0,id2=0;
          if( session.getAttribute("email") == null && session.getAttribute("userEmailFromSignup") == null)
          {
-            System.out.println("Profile not found exception is being throw at" +"/updateUserVisitedUser " + "api at file RstController.java");
+            LOGGER.error("Session variables returning null at file RstController.java");
             throw new ProfileNotFoundException();
          }
 
@@ -401,10 +405,17 @@ public class RstController
             
         else
             email = session.getAttribute("email").toString();
-            
-        id1 = usersRepository.getIdByEmail(email);
-        id2 = usersRepository.getIdByFullname(request.getParameter("fullname").toString());
         
+        try
+        {
+            id1 = usersRepository.getIdByEmail(email);
+            id2 = usersRepository.getIdByFullname(request.getParameter("fullname").toString());
+        }
+        catch(NullPointerException exception)
+        {
+            LOGGER.error("Session variables returning null at file RstController.java");
+            throw new ProfileNotFoundException();
+        }
         if(userVisitedUsersRepository.getUid1_VisitedUserUid2(id2, id1) == null)
         {
             Date date = new Date();
@@ -450,7 +461,7 @@ public class RstController
         }
         catch(NullPointerException exception)
         {
-            System.out.println("Profile not found exception is being throw at line:"+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
+            LOGGER.error("Session variables returning null at: "+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
             throw new ProfileNotFoundException("parameters not found to filter with");
         }
 
@@ -627,7 +638,7 @@ public class RstController
         }
         catch(NullPointerException exception)
         {
-            System.out.println("Profile not found exception is being throw at line:"+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
+            LOGGER.error("Session variables returning null at: "+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
             throw new ProfileNotFoundException("Profile not found");
         }
         return map;
@@ -663,7 +674,7 @@ public class RstController
         }
         catch(NullPointerException exception)
         {
-            System.out.println("Profile not found exception is being throw at line:"+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
+            LOGGER.error("Session variables returning null at: "+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
             throw new ProfileNotFoundException();
         }
         String bday = "";
@@ -686,7 +697,7 @@ public class RstController
         }
         catch(NullPointerException exception)
         {
-            System.out.println("Profile not found exception is being throw at line:"+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
+            LOGGER.error("Session variables returning null at: "+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
             throw new ProfileNotFoundException();
         }
         System.out.println("User is:"+ email);
