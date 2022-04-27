@@ -63,6 +63,11 @@ public class UserVisitedUsers
         this.lastVisited = lastVisited;
     }
 
+    public UserVisitedUsers()
+    {
+        
+    }
+
     @Override
     public String toString() 
     {

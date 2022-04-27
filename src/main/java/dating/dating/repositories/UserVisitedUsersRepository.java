@@ -25,4 +25,9 @@ public interface UserVisitedUsersRepository extends JpaRepository <UserVisitedUs
     @Transactional
     @Query(value = "UPDATE user_visited_users  SET last_visited = ?3 WHERE u_id2 = ?1 AND u_id1 = ?2 ", nativeQuery = true)
     public Integer updateUid1_VisitedUserUid2(int uId2, int uId1, Timestamp timestamp);
+
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE * FROM user_visited_users", nativeQuery = true)
+    void deleteStarUserVisitedUsers();
 }
