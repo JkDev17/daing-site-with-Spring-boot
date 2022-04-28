@@ -3,32 +3,22 @@ package dating.dating.controllers;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import dating.dating.services.UsersServices;
 
 @Controller
 public class DefaultController
 {
+    private final UsersServices userServices;
 
-    @Autowired
-    UsersServices userService;
-
-    /*@RequestMapping(value= "/VisitProfile")
-    public String visitPerson(Model model) 
+    DefaultController(UsersServices userServices)
     {
-        String userFullname = "John";
-        System.out.println(userFullname);
-        model.addAttribute("userFullname", userFullname);
-        System.out.println(model);
-        return "Person";
-    }*/
-
+        this.userServices = userServices;
+    }
 
     @RequestMapping(value = "VisitProfile")
     public String VisitProfile( @RequestParam String fullname,  HttpSession session)
@@ -120,13 +110,13 @@ public class DefaultController
         if( http.getAttribute("email").toString() == "null")
         {
             email = session.getAttribute("userEmailFromSignup").toString();
-            isPrem = userService.getUserRole(email);
+            isPrem = userServices.getUserRole(email);
         }
 
         else
         {
             email = http.getAttribute("email").toString();
-            isPrem = userService.getUserRole(email);
+            isPrem = userServices.getUserRole(email);
             //System.out.println("IsPrem is equal to:"+isPrem);
             http.setAttribute("role", isPrem);
         }

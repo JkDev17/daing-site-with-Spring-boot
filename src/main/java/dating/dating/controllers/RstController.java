@@ -15,26 +15,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import dating.dating.entity.Filters;
-import dating.dating.repositories.ImagesRepository;
-import dating.dating.repositories.UserHasImagesRepository;
 import dating.dating.repositories.UserVisitedUsersRepository;
-import dating.dating.repositories.UsersRepository;
 import dating.dating.services.UsersServices;
 
 @RestController
 public class RstController
 {
-    @Autowired
-    UsersServices userService;
+    private final UsersServices userService;
 
-    @Autowired
-    ImagesRepository imagesRepository;
-
-    @Autowired
-    UsersRepository usersRepository;
-
-    @Autowired
-    UserHasImagesRepository userHasImagesRepository;
+    RstController(UsersServices userService)
+    {
+        this.userService = userService;
+    }
 
     @Autowired
     UserVisitedUsersRepository userVisitedUsersRepository;

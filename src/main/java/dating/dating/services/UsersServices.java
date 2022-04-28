@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import dating.dating.entity.Users;
@@ -32,17 +31,22 @@ import dating.dating.repositories.UsersRepository;
 @Service
 public class UsersServices
 {
-    @Autowired
-    UsersRepository usersRepository;
+    private final UsersRepository usersRepository;
 
-    @Autowired
-    UserHasImagesRepository userHasImagesRepository;
+    private final UserHasImagesRepository userHasImagesRepository;
 
-    @Autowired
-    ImagesRepository imagesRepository;
+    private final ImagesRepository imagesRepository;
 
-    @Autowired
-    UserVisitedUsersRepository userVisitedUsersRepository;
+    private final UserVisitedUsersRepository userVisitedUsersRepository;
+
+    UsersServices(UsersRepository usersRepository,UserHasImagesRepository userHasImagesRepository, ImagesRepository imagesRepository,
+                  UserVisitedUsersRepository userVisitedUsersRepository)
+    {
+        this.usersRepository = usersRepository;
+        this.userHasImagesRepository = userHasImagesRepository;
+        this.imagesRepository = imagesRepository;
+        this.userVisitedUsersRepository = userVisitedUsersRepository;
+    }
 
     Logger LOGGER = LoggerFactory.getLogger(UsersServices.class);
 
