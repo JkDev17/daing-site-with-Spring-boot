@@ -8,14 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import dating.dating.entity.Filters;
-import dating.dating.repositories.UserVisitedUsersRepository;
 import dating.dating.services.UsersServices;
 
 @RestController
@@ -27,9 +25,6 @@ public class RstController
     {
         this.userService = userService;
     }
-
-    @Autowired
-    UserVisitedUsersRepository userVisitedUsersRepository;
 
     Logger LOGGER = LoggerFactory.getLogger(RestController.class);
     
