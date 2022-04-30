@@ -1,6 +1,8 @@
 package dating.dating.services;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
@@ -42,11 +44,12 @@ public class UsersServicesTest
 
     HashMap<String,String> map = new HashMap<>();
 
+
     @Test
     @DisplayName("Testing the method serveDatatoGetSession")
     public void canServeDatatoGetSession()
     {
-        //then
+        //when
         when(request.getSession()).thenReturn(HttpSession);
         when(request.getSession().getAttribute("userEmailFromSignup")).thenReturn("JasmineWhite@gmail.com");
         when(request.getSession().getAttribute("userUnhashedPasswordFromSignup")).thenReturn("abcdefg1234");
@@ -54,7 +57,7 @@ public class UsersServicesTest
         when(request.getSession().getAttribute("userAgeFromSignup")).thenReturn("23");
         map = usersServices.serveDatatoGetSession(HttpSession);
 
-        //given
+        //then
         assertNotNull(map);
     }
 
@@ -62,7 +65,7 @@ public class UsersServicesTest
     @DisplayName("Testing the method serveDatatoGetSession for empty as result")
     public void canNotServeDatatoGetSession()
     {
-        //then
+        //when
         when(request.getSession()).thenReturn(HttpSession);
         when(request.getSession().getAttribute("userEmailFromSignup")).thenReturn(null);
         when(request.getSession().getAttribute("userUnhashedPasswordFromSignup")).thenReturn(null);
@@ -70,8 +73,8 @@ public class UsersServicesTest
         when(request.getSession().getAttribute("userAgeFromSignup")).thenReturn(null);
         map = usersServices.serveDatatoGetSession(HttpSession);
 
-        //given
-        assertAll("Order: John,Eric,Lana",
+        //then
+        assertAll("Email,pass,fullname,age ->empty",
                 ()-> assertEquals("empty", map.get("email")),
                 ()-> assertEquals("empty", map.get("password")),
                 ()-> assertEquals("empty", map.get("fullname")),
@@ -79,5 +82,61 @@ public class UsersServicesTest
         );
     }
 
-    ;
+    @Test
+    @DisplayName("Testing method saveVarsToSession")
+    public void canSaveVarsToSessionTest()
+    {
+        //given
+        HashMap <String,String> inputMap = new HashMap<>();
+        map.put("email","JohnMartins@gmail.com");
+        map.put("password","abcdefg1234");
+        map.put("fullname","John Martins");
+        map.put("age","19");
+  
+
+        //when
+        when(request.getSession()).thenReturn(HttpSession);
+        when(request.getSession().getAttribute("userEmailFromSignup")).thenReturn("JohnMartins@gmail.com");
+        when(request.getSession().getAttribute("userUnhashedPasswordFromSignup")).thenReturn("abcdefg1234");
+        when(request.getSession().getAttribute("userFullnameFromSignup")).thenReturn("John Martins");
+        when(request.getSession().getAttribute("userAgeFromSignup")).thenReturn("19");
+        usersServices.saveVarsToSession(inputMap, request);
+
+        //then
+        assertAll("Email,pass,fullname,age ->[JohnMartins@gmail.com," +
+        "abcdefg1234,John Martins, 19]" ,
+        ()-> assertEquals("JohnMartins@gmail.com", request.getSession().getAttribute("userEmailFromSignup").toString()),
+        ()-> assertEquals("John Martins", request.getSession().getAttribute("userFullnameFromSignup").toString()),
+        ()-> assertEquals("abcdefg1234", request.getSession().getAttribute("userUnhashedPasswordFromSignup").toString()),
+        ()-> assertEquals("19", request.getSession().getAttribute("userAgeFromSignup").toString())
+        ); 
+    }
+
+    @Test
+    @DisplayName("Testing method saveVarsToSession")
+    public void cannotSaveVarsToSessionTest()
+    {
+        //given
+        HashMap <String,String> inputMap = new HashMap<>();
+        map.put("email","JohnMartins@gmail.com");
+        map.put("password","abcdefg1234");
+        map.put("fullname","John Martins");
+        map.put("age","19");
+
+        //when
+        when(request.getSession()).thenReturn(HttpSession);
+        when(request.getSession().getAttribute("userEmailFromSignup")).thenReturn("empty");
+        when(request.getSession().getAttribute("userUnhashedPasswordFromSignup")).thenReturn("empty");
+        when(request.getSession().getAttribute("userFullnameFromSignup")).thenReturn("empty");
+        when(request.getSession().getAttribute("userAgeFromSignup")).thenReturn("empty");
+        usersServices.saveVarsToSession(inputMap, request);
+
+        //then
+        assertAll("Email,pass,fullname,age -> empty" ,
+        ()-> assertEquals("empty", request.getSession().getAttribute("userEmailFromSignup").toString()),
+        ()-> assertEquals("empty", request.getSession().getAttribute("userFullnameFromSignup").toString()),
+        ()-> assertEquals("empty", request.getSession().getAttribute("userUnhashedPasswordFromSignup").toString()),
+        ()-> assertEquals("empty", request.getSession().getAttribute("userAgeFromSignup").toString())
+        );
+    }
 }
