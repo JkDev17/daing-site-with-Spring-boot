@@ -18,4 +18,14 @@ public class ProfileNotFoundException extends RuntimeException
     {
         this.numberFromStackTrace = numberFromStackTrace;
     }
+
+    public String getMyMessage() 
+    {
+        return message;
+    }
+
+    public void setMessage(String message) 
+    {
+        this.message = message;
+    }
 }

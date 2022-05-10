@@ -24,7 +24,7 @@ public class SchedulingConfig
         this.userVisitedUsersRepository = userVisitedUsersRepository;
     }
 
-    @Scheduled(cron = "0 00 0 * 7 ?") // cron For Sunday 24:00 
+    @Scheduled(cron = "0 16 17 * * ?") // cron For Sunday 24:00 
     public void cleanUserVisitedUsersNLogsEverySunday() 
     {
         List<String> files;

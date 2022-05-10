@@ -316,7 +316,7 @@ public class UsersServices
         catch(NullPointerException exception)
         {
             LOGGER.error("Session variables returning null at: "+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
-            throw new ProfileNotFoundException();
+            throw new ProfileNotFoundException("Null values found at method getStarFromUsersNeqId");
         }
 
         emails.add(email);
@@ -359,7 +359,7 @@ public class UsersServices
         catch(NullPointerException exception)
         {
             LOGGER.error("Session variables returning null at file RstController.java");
-            throw new ProfileNotFoundException();
+            throw new ProfileNotFoundException("Null at session | request variables");
         }
         if(userVisitedUsersRepository.getUid1_VisitedUserUid2(id2, id1) == null)
         {
@@ -398,7 +398,6 @@ public class UsersServices
         String gender = "";
         int age = 0;
         int year = Calendar.getInstance().get(Calendar.YEAR);
-
         try
         {
             gender = filters.getgenderFilter();
@@ -623,7 +622,7 @@ public class UsersServices
         catch(NullPointerException exception)
         {
             LOGGER.error("Session variables returning null at: "+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
-            throw new ProfileNotFoundException();
+            throw new ProfileNotFoundException("Session variables returning null");
         }
         String bday = "";
         int age= 0;
@@ -646,7 +645,7 @@ public class UsersServices
         catch(NullPointerException exception)
         {
             LOGGER.error("Session variables returning null at: "+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
-            throw new ProfileNotFoundException();
+            throw new ProfileNotFoundException("Session variables returning null");
         }
         System.out.println("User is:"+ email);
         System.out.println("User wanted his mate to be the gender of:"+ mateGender);
@@ -767,7 +766,7 @@ public class UsersServices
         map.put("hobbies",hobbies);
         map.put("educationLevels",educationLevels);
         System.out.println("EXITING matchingProfiles!!!!!!!!!!");
-        return map;
+        return map; 
     }
 
     public String checkDuplicateEmail(String email)

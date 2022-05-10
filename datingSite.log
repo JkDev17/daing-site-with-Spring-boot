@@ -1,67 +1,127 @@
-28 Apr 2022 - 14:32:50.062 [restartedMain] INFO  dating.dating.DatingApplication - Starting DatingApplication using Java 11.0.11 on DESKTOP-7I4BO0A with PID 10200 (C:\Users\USER\Documents\Spring\dating\target\classes started by USER in C:\Users\USER\Documents\Spring\dating)
-28 Apr 2022 - 14:32:50.075 [restartedMain] INFO  dating.dating.DatingApplication - No active profile set, falling back to default profiles: default
-28 Apr 2022 - 14:32:50.163 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-28 Apr 2022 - 14:32:50.164 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-28 Apr 2022 - 14:32:51.021 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-28 Apr 2022 - 14:32:51.099 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 68 ms. Found 4 JPA repository interfaces.
-28 Apr 2022 - 14:32:52.153 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-28 Apr 2022 - 14:32:52.168 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-28 Apr 2022 - 14:32:52.169 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
-28 Apr 2022 - 14:32:52.268 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-28 Apr 2022 - 14:32:52.269 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2105 ms
-28 Apr 2022 - 14:32:52.394 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-28 Apr 2022 - 14:32:53.204 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-28 Apr 2022 - 14:32:53.437 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-28 Apr 2022 - 14:32:53.530 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
-28 Apr 2022 - 14:32:53.773 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-28 Apr 2022 - 14:32:53.935 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-28 Apr 2022 - 14:32:54.311 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.Images (class must be instantiated by Interceptor)
-28 Apr 2022 - 14:32:54.549 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.UserHasImages (class must be instantiated by Interceptor)
-28 Apr 2022 - 14:32:54.759 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-28 Apr 2022 - 14:32:54.769 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-28 Apr 2022 - 14:32:55.574 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
-28 Apr 2022 - 14:32:55.575 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
-28 Apr 2022 - 14:32:55.576 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
-28 Apr 2022 - 14:32:55.619 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d9f0d57, org.springframework.security.web.context.SecurityContextPersistenceFilter@6017ece4, org.springframework.security.web.header.HeaderWriterFilter@505b91bf, org.springframework.security.web.authentication.logout.LogoutFilter@1ee0cfd, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@54c914c8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@26fbd6dd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c3ff068, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@75d94528, org.springframework.security.web.session.SessionManagementFilter@5f3375a6, org.springframework.security.web.access.ExceptionTranslationFilter@4a90f471, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5a807f8f]
-28 Apr 2022 - 14:32:55.820 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
-28 Apr 2022 - 14:32:55.939 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-28 Apr 2022 - 14:32:55.965 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-28 Apr 2022 - 14:32:55.973 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-28 Apr 2022 - 14:32:55.984 [restartedMain] INFO  dating.dating.DatingApplication - Started DatingApplication in 6.459 seconds (JVM running for 7.02)
-28 Apr 2022 - 14:33:00.526 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-28 Apr 2022 - 14:33:00.527 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-28 Apr 2022 - 14:33:00.528 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-28 Apr 2022 - 14:44:35.256 [restartedMain] INFO  dating.dating.DatingApplication - Starting DatingApplication using Java 11.0.11 on DESKTOP-7I4BO0A with PID 16476 (C:\Users\USER\Documents\Spring\dating\target\classes started by USER in C:\Users\USER\Documents\Spring\dating)
-28 Apr 2022 - 14:44:35.258 [restartedMain] INFO  dating.dating.DatingApplication - No active profile set, falling back to default profiles: default
-28 Apr 2022 - 14:44:35.322 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-28 Apr 2022 - 14:44:35.323 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-28 Apr 2022 - 14:44:36.044 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-28 Apr 2022 - 14:44:36.106 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 4 JPA repository interfaces.
-28 Apr 2022 - 14:44:37.237 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-28 Apr 2022 - 14:44:37.250 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-28 Apr 2022 - 14:44:37.251 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
-28 Apr 2022 - 14:44:37.337 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-28 Apr 2022 - 14:44:37.338 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2014 ms
-28 Apr 2022 - 14:44:37.461 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-28 Apr 2022 - 14:44:37.799 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-28 Apr 2022 - 14:44:37.978 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-28 Apr 2022 - 14:44:38.073 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
-28 Apr 2022 - 14:44:38.216 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-28 Apr 2022 - 14:44:38.340 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-28 Apr 2022 - 14:44:38.665 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.Images (class must be instantiated by Interceptor)
-28 Apr 2022 - 14:44:38.880 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.UserHasImages (class must be instantiated by Interceptor)
-28 Apr 2022 - 14:44:39.048 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-28 Apr 2022 - 14:44:39.058 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-28 Apr 2022 - 14:44:40.227 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
-28 Apr 2022 - 14:44:40.232 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
-28 Apr 2022 - 14:44:40.234 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
-28 Apr 2022 - 14:44:40.289 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3734ccbe, org.springframework.security.web.context.SecurityContextPersistenceFilter@1c58b684, org.springframework.security.web.header.HeaderWriterFilter@1971f40f, org.springframework.security.web.authentication.logout.LogoutFilter@12962531, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6d9a0b62, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41c5eec0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e119b4f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@521e26f1, org.springframework.security.web.session.SessionManagementFilter@549e4493, org.springframework.security.web.access.ExceptionTranslationFilter@1bf1cbac, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3d7f84e8]
-28 Apr 2022 - 14:44:40.502 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
-28 Apr 2022 - 14:44:40.662 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-28 Apr 2022 - 14:44:40.699 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-28 Apr 2022 - 14:44:40.710 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-28 Apr 2022 - 14:44:40.724 [restartedMain] INFO  dating.dating.DatingApplication - Started DatingApplication in 6.121 seconds (JVM running for 6.608)
-28 Apr 2022 - 14:45:04.216 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-28 Apr 2022 - 14:45:04.216 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-28 Apr 2022 - 14:45:04.221 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-28 Apr 2022 - 14:52:25.398 [http-nio-8080-exec-5] INFO  dating.dating.services.UsersServices - User created with id:69 and email:TrevonDavis@gmail.com
+10 May 2022 - 17:45:41.375 [restartedMain] INFO  dating.dating.DatingApplication - Starting DatingApplication using Java 11.0.11 on DESKTOP-7I4BO0A with PID 8512 (C:\Users\USER\Documents\Spring\dating\target\classes started by USER in C:\Users\USER\Documents\Spring\dating)
+10 May 2022 - 17:45:41.396 [restartedMain] INFO  dating.dating.DatingApplication - No active profile set, falling back to default profiles: default
+10 May 2022 - 17:45:41.485 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+10 May 2022 - 17:45:41.485 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+10 May 2022 - 17:45:42.362 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10 May 2022 - 17:45:42.433 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 65 ms. Found 4 JPA repository interfaces.
+10 May 2022 - 17:45:43.411 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+10 May 2022 - 17:45:43.421 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+10 May 2022 - 17:45:43.437 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
+10 May 2022 - 17:45:43.535 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+10 May 2022 - 17:45:43.535 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2050 ms
+10 May 2022 - 17:45:43.643 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+10 May 2022 - 17:45:44.213 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+10 May 2022 - 17:45:44.466 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10 May 2022 - 17:45:44.543 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+10 May 2022 - 17:45:44.698 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+10 May 2022 - 17:45:44.867 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+10 May 2022 - 17:45:45.230 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.Images (class must be instantiated by Interceptor)
+10 May 2022 - 17:45:45.414 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.UserHasImages (class must be instantiated by Interceptor)
+10 May 2022 - 17:45:45.599 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10 May 2022 - 17:45:45.617 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10 May 2022 - 17:45:46.464 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+10 May 2022 - 17:45:46.465 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+10 May 2022 - 17:45:46.466 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+10 May 2022 - 17:45:46.510 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@313aa75, org.springframework.security.web.context.SecurityContextPersistenceFilter@6ae2259a, org.springframework.security.web.header.HeaderWriterFilter@736e410c, org.springframework.security.web.authentication.logout.LogoutFilter@31d8944b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1fc6fcf3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72f5e6da, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@240bac3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@610090cc, org.springframework.security.web.session.SessionManagementFilter@50c740d4, org.springframework.security.web.access.ExceptionTranslationFilter@182d6066, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1db9dc3d]
+10 May 2022 - 17:45:46.704 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+10 May 2022 - 17:45:46.826 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+10 May 2022 - 17:45:46.886 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+10 May 2022 - 17:45:46.894 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+10 May 2022 - 17:45:46.908 [restartedMain] INFO  dating.dating.DatingApplication - Started DatingApplication in 6.157 seconds (JVM running for 6.663)
+10 May 2022 - 17:45:56.376 [restartedMain] INFO  dating.dating.DatingApplication - Starting DatingApplication using Java 11.0.11 on DESKTOP-7I4BO0A with PID 9236 (C:\Users\USER\Documents\Spring\dating\target\classes started by USER in C:\Users\USER\Documents\Spring\dating)
+10 May 2022 - 17:45:56.377 [restartedMain] INFO  dating.dating.DatingApplication - No active profile set, falling back to default profiles: default
+10 May 2022 - 17:45:56.430 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+10 May 2022 - 17:45:56.431 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+10 May 2022 - 17:45:57.060 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10 May 2022 - 17:45:57.127 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 4 JPA repository interfaces.
+10 May 2022 - 17:45:58.077 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+10 May 2022 - 17:45:58.102 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+10 May 2022 - 17:45:58.103 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
+10 May 2022 - 17:45:58.192 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+10 May 2022 - 17:45:58.192 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1760 ms
+10 May 2022 - 17:45:58.361 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+10 May 2022 - 17:45:58.717 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+10 May 2022 - 17:45:58.917 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10 May 2022 - 17:45:58.994 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+10 May 2022 - 17:45:59.162 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+10 May 2022 - 17:45:59.281 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+10 May 2022 - 17:45:59.598 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.Images (class must be instantiated by Interceptor)
+10 May 2022 - 17:45:59.782 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.UserHasImages (class must be instantiated by Interceptor)
+10 May 2022 - 17:45:59.898 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10 May 2022 - 17:45:59.913 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10 May 2022 - 17:46:00.584 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+10 May 2022 - 17:46:00.584 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+10 May 2022 - 17:46:00.584 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+10 May 2022 - 17:46:00.622 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@74b903df, org.springframework.security.web.context.SecurityContextPersistenceFilter@7976e19e, org.springframework.security.web.header.HeaderWriterFilter@5443f060, org.springframework.security.web.authentication.logout.LogoutFilter@7141f37, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1967c53c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@749bd86, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@274030f9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4054e3f1, org.springframework.security.web.session.SessionManagementFilter@4cfecdd1, org.springframework.security.web.access.ExceptionTranslationFilter@6c2fb27f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6052296a]
+10 May 2022 - 17:46:00.784 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+10 May 2022 - 17:46:00.884 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+10 May 2022 - 17:46:00.926 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+10 May 2022 - 17:46:00.933 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+10 May 2022 - 17:46:00.941 [restartedMain] INFO  dating.dating.DatingApplication - Started DatingApplication in 4.976 seconds (JVM running for 5.452)
+10 May 2022 - 17:53:51.958 [restartedMain] INFO  dating.dating.DatingApplication - Starting DatingApplication using Java 11.0.11 on DESKTOP-7I4BO0A with PID 7552 (C:\Users\USER\Documents\Spring\dating\target\classes started by USER in C:\Users\USER\Documents\Spring\dating)
+10 May 2022 - 17:53:51.959 [restartedMain] INFO  dating.dating.DatingApplication - No active profile set, falling back to default profiles: default
+10 May 2022 - 17:53:52.012 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+10 May 2022 - 17:53:52.012 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+10 May 2022 - 17:53:52.599 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10 May 2022 - 17:53:52.664 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 4 JPA repository interfaces.
+10 May 2022 - 17:53:53.518 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+10 May 2022 - 17:53:53.537 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+10 May 2022 - 17:53:53.539 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
+10 May 2022 - 17:53:53.617 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+10 May 2022 - 17:53:53.618 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1605 ms
+10 May 2022 - 17:53:53.716 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+10 May 2022 - 17:53:54.005 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+10 May 2022 - 17:53:54.136 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10 May 2022 - 17:53:54.194 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+10 May 2022 - 17:53:54.331 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+10 May 2022 - 17:53:54.437 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+10 May 2022 - 17:53:54.712 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.Images (class must be instantiated by Interceptor)
+10 May 2022 - 17:53:54.884 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.UserHasImages (class must be instantiated by Interceptor)
+10 May 2022 - 17:53:55.006 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10 May 2022 - 17:53:55.017 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10 May 2022 - 17:53:55.697 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+10 May 2022 - 17:53:55.697 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+10 May 2022 - 17:53:55.697 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+10 May 2022 - 17:53:55.731 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@b265e50, org.springframework.security.web.context.SecurityContextPersistenceFilter@4aa5160e, org.springframework.security.web.header.HeaderWriterFilter@164c4b84, org.springframework.security.web.authentication.logout.LogoutFilter@1de8b35d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@62cc68a3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c69a19c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37c2a51f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@64770eed, org.springframework.security.web.session.SessionManagementFilter@1c36aa0a, org.springframework.security.web.access.ExceptionTranslationFilter@4c3b749b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4ba79cd1]
+10 May 2022 - 17:53:55.886 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+10 May 2022 - 17:53:56.004 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+10 May 2022 - 17:53:56.028 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+10 May 2022 - 17:53:56.035 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+10 May 2022 - 17:53:56.044 [restartedMain] INFO  dating.dating.DatingApplication - Started DatingApplication in 4.492 seconds (JVM running for 4.986)
+10 May 2022 - 17:55:46.036 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10 May 2022 - 17:55:46.036 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+10 May 2022 - 17:55:46.041 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+10 May 2022 - 18:51:19.923 [http-nio-8080-exec-7] INFO  dating.dating.services.UsersServices - User created with id:70 and email:MariaLima@gmail.com
+10 May 2022 - 19:02:55.674 [restartedMain] INFO  dating.dating.DatingApplication - Starting DatingApplication using Java 11.0.11 on DESKTOP-7I4BO0A with PID 12204 (C:\Users\USER\Documents\Spring\dating\target\classes started by USER in C:\Users\USER\Documents\Spring\dating)
+10 May 2022 - 19:02:55.676 [restartedMain] INFO  dating.dating.DatingApplication - No active profile set, falling back to default profiles: default
+10 May 2022 - 19:02:55.729 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+10 May 2022 - 19:02:55.730 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+10 May 2022 - 19:02:56.429 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10 May 2022 - 19:02:56.488 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 4 JPA repository interfaces.
+10 May 2022 - 19:02:57.442 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+10 May 2022 - 19:02:57.456 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+10 May 2022 - 19:02:57.456 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
+10 May 2022 - 19:02:57.532 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+10 May 2022 - 19:02:57.533 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1803 ms
+10 May 2022 - 19:02:57.635 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+10 May 2022 - 19:02:57.970 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+10 May 2022 - 19:02:58.091 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+10 May 2022 - 19:02:58.154 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+10 May 2022 - 19:02:58.299 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+10 May 2022 - 19:02:58.408 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+10 May 2022 - 19:02:58.697 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.Images (class must be instantiated by Interceptor)
+10 May 2022 - 19:02:58.894 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.UserHasImages (class must be instantiated by Interceptor)
+10 May 2022 - 19:02:59.051 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10 May 2022 - 19:02:59.059 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+10 May 2022 - 19:03:00.055 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+10 May 2022 - 19:03:00.056 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+10 May 2022 - 19:03:00.056 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+10 May 2022 - 19:03:00.089 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@38dd1eac, org.springframework.security.web.context.SecurityContextPersistenceFilter@1acab34d, org.springframework.security.web.header.HeaderWriterFilter@19bbbee2, org.springframework.security.web.authentication.logout.LogoutFilter@91219b1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@555ceebf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5dc9494e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36e3b492, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7f4ef6a9, org.springframework.security.web.session.SessionManagementFilter@46577305, org.springframework.security.web.access.ExceptionTranslationFilter@13754877, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@155c1689]
+10 May 2022 - 19:03:00.292 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+10 May 2022 - 19:03:00.416 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+10 May 2022 - 19:03:00.449 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+10 May 2022 - 19:03:00.458 [restartedMain] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+10 May 2022 - 19:03:00.470 [restartedMain] INFO  dating.dating.DatingApplication - Started DatingApplication in 5.224 seconds (JVM running for 5.697)
+10 May 2022 - 19:04:24.590 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10 May 2022 - 19:04:24.591 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+10 May 2022 - 19:04:24.593 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
