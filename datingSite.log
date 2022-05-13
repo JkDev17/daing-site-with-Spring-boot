@@ -124,4 +124,325 @@
 10 May 2022 - 19:03:00.470 [restartedMain] INFO  dating.dating.DatingApplication - Started DatingApplication in 5.224 seconds (JVM running for 5.697)
 10 May 2022 - 19:04:24.590 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 10 May 2022 - 19:04:24.591 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-10 May 2022 - 19:04:24.593 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+10 May 2022 - 19:04:24.593 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms13 May 2022 - 16:34:41.581 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 13692 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 16:34:41.597 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 16:34:43.386 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 16:34:43.386 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 16:34:43.386 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 16:34:43.786 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5aea8994, org.springframework.security.web.context.SecurityContextPersistenceFilter@4b93dd6a, org.springframework.security.web.header.HeaderWriterFilter@49491770, org.springframework.security.web.authentication.logout.LogoutFilter@2bba35ef, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3db6dd52, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2616b618, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@cf01c2e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@20a3e10c, org.springframework.security.web.session.SessionManagementFilter@35f7969d, org.springframework.security.web.access.ExceptionTranslationFilter@615439f7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6ed18d80]
+13 May 2022 - 16:34:44.172 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 16:34:44.372 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 16:34:44.372 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 16:34:44.383 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 11 ms
+13 May 2022 - 16:34:44.403 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 3.278 seconds (JVM running for 4.117)
+13 May 2022 - 19:23:07.987 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 14708 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 19:23:07.990 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 19:23:09.253 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 19:23:09.254 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 19:23:09.254 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 19:23:09.646 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5ad57e90, org.springframework.security.web.context.SecurityContextPersistenceFilter@316d30ad, org.springframework.security.web.header.HeaderWriterFilter@3321291a, org.springframework.security.web.authentication.logout.LogoutFilter@671d97bc, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ab33ca8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1da745a2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6cd45b6c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a345298, org.springframework.security.web.session.SessionManagementFilter@3313463c, org.springframework.security.web.access.ExceptionTranslationFilter@7c4d1c7b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@74eec640]
+13 May 2022 - 19:23:09.950 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 19:23:10.126 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 19:23:10.127 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 19:23:10.128 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+13 May 2022 - 19:23:10.154 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.46 seconds (JVM running for 3.662)
+13 May 2022 - 19:23:10.159 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: static org.springframework.test.web.servlet.MockMvc dating.dating.controllers.DefaultControllerTest.mockMvc
+13 May 2022 - 19:23:10.188 [main] WARN  o.s.web.servlet.PageNotFound - No mapping for GET /
+13 May 2022 - 19:23:10.221 [main] WARN  o.s.web.servlet.PageNotFound - No mapping for GET /VisitProfile
+13 May 2022 - 19:25:35.823 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 568 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 19:25:35.825 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 19:25:37.074 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 19:25:37.074 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 19:25:37.075 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 19:25:37.463 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3866c96e, org.springframework.security.web.context.SecurityContextPersistenceFilter@12209826, org.springframework.security.web.header.HeaderWriterFilter@1da745a2, org.springframework.security.web.authentication.logout.LogoutFilter@674184d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4b85edeb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@13cc31ae, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@754de353, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@241fc278, org.springframework.security.web.session.SessionManagementFilter@5e3d2765, org.springframework.security.web.access.ExceptionTranslationFilter@7e31062c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@74d22ddd]
+13 May 2022 - 19:25:37.773 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 19:25:37.936 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 19:25:37.936 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 19:25:37.936 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+13 May 2022 - 19:25:37.973 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.451 seconds (JVM running for 3.617)
+13 May 2022 - 19:25:37.979 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: static org.springframework.test.web.servlet.MockMvc dating.dating.controllers.DefaultControllerTest.mockMvc
+13 May 2022 - 19:25:38.008 [main] WARN  o.s.web.servlet.PageNotFound - No mapping for GET /
+13 May 2022 - 19:28:33.594 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 14044 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 19:28:33.596 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 19:28:34.850 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 19:28:34.850 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 19:28:34.850 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 19:28:35.251 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1a345298, org.springframework.security.web.context.SecurityContextPersistenceFilter@3ea75b05, org.springframework.security.web.header.HeaderWriterFilter@3dc46f24, org.springframework.security.web.authentication.logout.LogoutFilter@774f2992, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@704d3b00, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4597e6e3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3a5b7d7e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4ad896f7, org.springframework.security.web.session.SessionManagementFilter@9c0d0bd, org.springframework.security.web.access.ExceptionTranslationFilter@7893c715, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3973b6d4]
+13 May 2022 - 19:28:35.547 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 19:28:35.733 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 19:28:35.733 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 19:28:35.735 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+13 May 2022 - 19:28:35.763 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.491 seconds (JVM running for 3.767)
+13 May 2022 - 19:28:35.768 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowired annotation is not supported on static fields: static org.springframework.test.web.servlet.MockMvc dating.dating.controllers.DefaultControllerTest.mockMvc
+13 May 2022 - 19:28:35.802 [main] WARN  o.s.web.servlet.PageNotFound - No mapping for GET /
+13 May 2022 - 19:30:59.433 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 2484 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 19:30:59.436 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 19:31:00.677 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 19:31:00.678 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 19:31:00.678 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 19:31:01.047 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@32e697ac, org.springframework.security.web.context.SecurityContextPersistenceFilter@259195fe, org.springframework.security.web.header.HeaderWriterFilter@30d5e37c, org.springframework.security.web.authentication.logout.LogoutFilter@44b9c7c4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@ce655b9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3a5b7d7e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e321d9d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3866c96e, org.springframework.security.web.session.SessionManagementFilter@41ece227, org.springframework.security.web.access.ExceptionTranslationFilter@153cfd86, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7d1f3fe9]
+13 May 2022 - 19:31:01.347 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 19:31:01.541 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 19:31:01.542 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 19:31:01.543 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+13 May 2022 - 19:31:01.579 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.439 seconds (JVM running for 3.612)
+13 May 2022 - 19:31:01.598 [main] WARN  o.s.web.servlet.PageNotFound - No mapping for GET /
+13 May 2022 - 19:31:01.649 [main] WARN  o.s.web.servlet.PageNotFound - No mapping for GET /VisitProfile
+13 May 2022 - 19:37:10.227 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 15092 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 19:37:10.230 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 19:37:11.479 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 19:37:11.480 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 19:37:11.480 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 19:37:11.858 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@32e697ac, org.springframework.security.web.context.SecurityContextPersistenceFilter@259195fe, org.springframework.security.web.header.HeaderWriterFilter@30d5e37c, org.springframework.security.web.authentication.logout.LogoutFilter@44b9c7c4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@ce655b9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3a5b7d7e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e321d9d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3866c96e, org.springframework.security.web.session.SessionManagementFilter@41ece227, org.springframework.security.web.access.ExceptionTranslationFilter@153cfd86, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7d1f3fe9]
+13 May 2022 - 19:37:12.174 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 19:37:12.355 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 19:37:12.355 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 19:37:12.357 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+13 May 2022 - 19:37:12.387 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.457 seconds (JVM running for 3.689)
+13 May 2022 - 19:37:12.421 [main] WARN  o.s.web.servlet.PageNotFound - No mapping for GET /
+13 May 2022 - 19:37:12.460 [main] WARN  o.s.web.servlet.PageNotFound - No mapping for GET /VisitProfile
+13 May 2022 - 19:42:36.135 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 12780 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 19:42:36.139 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 19:42:37.436 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 19:42:37.437 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 19:42:37.437 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 19:42:37.823 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2eb6d34a, org.springframework.security.web.context.SecurityContextPersistenceFilter@5834198f, org.springframework.security.web.header.HeaderWriterFilter@b1d19ff, org.springframework.security.web.authentication.logout.LogoutFilter@785a4557, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@601f264d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@395281c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5d221b20, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2d73e8c4, org.springframework.security.web.session.SessionManagementFilter@efe49ab, org.springframework.security.web.access.ExceptionTranslationFilter@5cffec7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7dd3981e]
+13 May 2022 - 19:42:38.214 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 19:42:38.404 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 19:42:38.404 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 19:42:38.405 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+13 May 2022 - 19:42:38.432 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.622 seconds (JVM running for 3.88)
+13 May 2022 - 19:43:19.194 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 8144 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 19:43:19.196 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 19:43:20.463 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 19:43:20.464 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 19:43:20.464 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 19:43:20.849 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d73e8c4, org.springframework.security.web.context.SecurityContextPersistenceFilter@4eb63dc8, org.springframework.security.web.header.HeaderWriterFilter@17c53dfb, org.springframework.security.web.authentication.logout.LogoutFilter@2bf3ec4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4403bff8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41d20f06, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79d4ff58, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ce2e079, org.springframework.security.web.session.SessionManagementFilter@6dcf7b6a, org.springframework.security.web.access.ExceptionTranslationFilter@7e81617a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59313495]
+13 May 2022 - 19:43:21.137 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 19:43:21.304 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 19:43:21.304 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 19:43:21.305 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+13 May 2022 - 19:43:21.319 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.447 seconds (JVM running for 3.719)
+13 May 2022 - 19:43:44.191 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 10464 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 19:43:44.193 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 19:43:45.468 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 19:43:45.468 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 19:43:45.468 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 19:43:45.855 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d73e8c4, org.springframework.security.web.context.SecurityContextPersistenceFilter@4eb63dc8, org.springframework.security.web.header.HeaderWriterFilter@17c53dfb, org.springframework.security.web.authentication.logout.LogoutFilter@2bf3ec4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4403bff8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41d20f06, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79d4ff58, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ce2e079, org.springframework.security.web.session.SessionManagementFilter@6dcf7b6a, org.springframework.security.web.access.ExceptionTranslationFilter@7e81617a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59313495]
+13 May 2022 - 19:43:46.143 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 19:43:46.318 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 19:43:46.318 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 19:43:46.330 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 12 ms
+13 May 2022 - 19:43:46.357 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.46 seconds (JVM running for 3.667)
+13 May 2022 - 23:04:35.735 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 9588 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 23:04:35.738 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 23:04:37.053 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 23:04:37.053 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 23:04:37.054 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 23:04:37.431 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d73e8c4, org.springframework.security.web.context.SecurityContextPersistenceFilter@4eb63dc8, org.springframework.security.web.header.HeaderWriterFilter@17c53dfb, org.springframework.security.web.authentication.logout.LogoutFilter@2bf3ec4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4403bff8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41d20f06, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79d4ff58, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ce2e079, org.springframework.security.web.session.SessionManagementFilter@6dcf7b6a, org.springframework.security.web.access.ExceptionTranslationFilter@7e81617a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59313495]
+13 May 2022 - 23:04:37.756 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 23:04:37.951 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 23:04:37.951 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 23:04:37.952 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+13 May 2022 - 23:04:37.984 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.554 seconds (JVM running for 3.842)
+13 May 2022 - 23:06:08.961 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 5704 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 23:06:08.963 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 23:06:10.407 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 23:06:10.408 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 23:06:10.408 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 23:06:10.806 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d73e8c4, org.springframework.security.web.context.SecurityContextPersistenceFilter@4eb63dc8, org.springframework.security.web.header.HeaderWriterFilter@17c53dfb, org.springframework.security.web.authentication.logout.LogoutFilter@2bf3ec4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4403bff8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41d20f06, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79d4ff58, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ce2e079, org.springframework.security.web.session.SessionManagementFilter@6dcf7b6a, org.springframework.security.web.access.ExceptionTranslationFilter@7e81617a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59313495]
+13 May 2022 - 23:06:11.098 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 23:06:11.271 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 23:06:11.272 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 23:06:11.273 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+13 May 2022 - 23:06:11.300 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.687 seconds (JVM running for 3.973)
+13 May 2022 - 23:10:15.346 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 13260 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 23:10:15.349 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 23:10:16.728 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 23:10:16.729 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 23:10:16.729 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 23:10:17.119 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d73e8c4, org.springframework.security.web.context.SecurityContextPersistenceFilter@4eb63dc8, org.springframework.security.web.header.HeaderWriterFilter@17c53dfb, org.springframework.security.web.authentication.logout.LogoutFilter@2bf3ec4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4403bff8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41d20f06, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79d4ff58, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ce2e079, org.springframework.security.web.session.SessionManagementFilter@6dcf7b6a, org.springframework.security.web.access.ExceptionTranslationFilter@7e81617a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59313495]
+13 May 2022 - 23:10:17.459 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 23:10:17.674 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 23:10:17.675 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 23:10:17.676 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+13 May 2022 - 23:10:17.705 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.664 seconds (JVM running for 3.949)
+13 May 2022 - 23:17:33.392 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 11564 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 23:17:33.408 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 23:17:34.723 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 23:17:34.724 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 23:17:34.724 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 23:17:35.131 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@15e8c040, org.springframework.security.web.context.SecurityContextPersistenceFilter@2086d469, org.springframework.security.web.header.HeaderWriterFilter@6be766d1, org.springframework.security.web.authentication.logout.LogoutFilter@42cc420b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4bdb04c8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@184de357, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@395281c2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1f71e024, org.springframework.security.web.session.SessionManagementFilter@273aaab7, org.springframework.security.web.access.ExceptionTranslationFilter@1fee4278, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@67d5ac2f]
+13 May 2022 - 23:17:35.448 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 23:17:35.649 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 23:17:35.649 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 23:17:35.650 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+13 May 2022 - 23:17:35.683 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.575 seconds (JVM running for 3.832)
+13 May 2022 - 23:19:31.023 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 14860 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 23:19:31.026 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 23:19:32.367 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 23:19:32.368 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 23:19:32.369 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 23:19:32.820 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d73e8c4, org.springframework.security.web.context.SecurityContextPersistenceFilter@4eb63dc8, org.springframework.security.web.header.HeaderWriterFilter@17c53dfb, org.springframework.security.web.authentication.logout.LogoutFilter@2bf3ec4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4403bff8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41d20f06, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79d4ff58, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ce2e079, org.springframework.security.web.session.SessionManagementFilter@6dcf7b6a, org.springframework.security.web.access.ExceptionTranslationFilter@7e81617a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59313495]
+13 May 2022 - 23:19:33.128 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 23:19:33.322 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 23:19:33.322 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 23:19:33.323 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+13 May 2022 - 23:19:33.352 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.645 seconds (JVM running for 3.951)
+13 May 2022 - 23:19:33.455 [main] WARN  o.s.test.context.TestContextManager - Caught exception while invoking 'afterTestMethod' callback on TestExecutionListener [org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@46dffdc3] for test method [public void dating.dating.controllers.DefaultControllerTest.canVisitProfile() throws java.lang.Exception] and test instance [dating.dating.controllers.DefaultControllerTest@1d9bd1d6]
+org.mockito.exceptions.misusing.InvalidUseOfMatchersException: 
+Misplaced or misused argument matcher detected here:
+
+-> at dating.dating.controllers.DefaultControllerTest.canVisitProfile(DefaultControllerTest.java:67)
+
+You cannot use argument matchers outside of verification or stubbing.
+Examples of correct usage of argument matchers:
+    when(mock.get(anyInt())).thenReturn(null);
+    doThrow(new RuntimeException()).when(mock).someVoidMethod(anyObject());
+    verify(mock).someMethod(contains("foo"))
+
+This message may appear after an NullPointerException if the last matcher is returning an object 
+like any() but the stubbed method signature expect a primitive argument, in this case,
+use primitive alternatives.
+    when(mock.get(any())); // bad use, will raise NPE
+    when(mock.get(anyInt())); // correct usage use
+
+Also, this error might show up because you use argument matchers with methods that cannot be mocked.
+Following methods *cannot* be stubbed/verified: final/private/equals()/hashCode().
+Mocking methods declared on non-public parent classes is not supported.
+
+	at org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener.resetMocks(ResetMocksTestExecutionListener.java:83)
+	at org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener.resetMocks(ResetMocksTestExecutionListener.java:70)
+	at org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener.afterTestMethod(ResetMocksTestExecutionListener.java:64)
+	at org.springframework.test.context.TestContextManager.afterTestMethod(TestContextManager.java:445)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.afterEach(SpringExtension.java:206)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAfterEachCallbacks$11(TestMethodTestDescriptor.java:253)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAllAfterMethodsOrCallbacks$12(TestMethodTestDescriptor.java:269)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAllAfterMethodsOrCallbacks$13(TestMethodTestDescriptor.java:269)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeAllAfterMethodsOrCallbacks(TestMethodTestDescriptor.java:268)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeAfterEachCallbacks(TestMethodTestDescriptor.java:252)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:137)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:65)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:84)
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:529)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:756)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+13 May 2022 - 23:21:08.971 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 1876 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 23:21:08.972 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 23:21:10.287 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 23:21:10.287 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 23:21:10.287 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 23:21:10.702 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72324965, org.springframework.security.web.context.SecurityContextPersistenceFilter@21f50d2c, org.springframework.security.web.header.HeaderWriterFilter@7e5e6573, org.springframework.security.web.authentication.logout.LogoutFilter@15f2a43f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5dae5a70, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@270f28cf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@12c76d6e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@249b54af, org.springframework.security.web.session.SessionManagementFilter@5d27b4c1, org.springframework.security.web.access.ExceptionTranslationFilter@520a95ff, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2a120c88]
+13 May 2022 - 23:21:11.029 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 23:21:11.237 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 23:21:11.238 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 23:21:11.239 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+13 May 2022 - 23:21:11.265 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.592 seconds (JVM running for 3.821)
+13 May 2022 - 23:23:00.197 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 10164 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 23:23:00.199 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 23:23:01.528 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 23:23:01.528 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 23:23:01.528 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 23:23:01.924 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d73e8c4, org.springframework.security.web.context.SecurityContextPersistenceFilter@4eb63dc8, org.springframework.security.web.header.HeaderWriterFilter@17c53dfb, org.springframework.security.web.authentication.logout.LogoutFilter@2bf3ec4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4403bff8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41d20f06, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79d4ff58, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ce2e079, org.springframework.security.web.session.SessionManagementFilter@6dcf7b6a, org.springframework.security.web.access.ExceptionTranslationFilter@7e81617a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59313495]
+13 May 2022 - 23:23:02.228 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 23:23:02.413 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 23:23:02.414 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 23:23:02.415 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+13 May 2022 - 23:23:02.436 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.551 seconds (JVM running for 3.758)
+13 May 2022 - 23:23:31.198 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 6392 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 23:23:31.200 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 23:23:32.503 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 23:23:32.503 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 23:23:32.503 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 23:23:32.906 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d73e8c4, org.springframework.security.web.context.SecurityContextPersistenceFilter@4eb63dc8, org.springframework.security.web.header.HeaderWriterFilter@17c53dfb, org.springframework.security.web.authentication.logout.LogoutFilter@2bf3ec4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4403bff8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41d20f06, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79d4ff58, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ce2e079, org.springframework.security.web.session.SessionManagementFilter@6dcf7b6a, org.springframework.security.web.access.ExceptionTranslationFilter@7e81617a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59313495]
+13 May 2022 - 23:23:33.257 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 23:23:33.527 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 23:23:33.528 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 23:23:33.529 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+13 May 2022 - 23:23:33.558 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.681 seconds (JVM running for 3.874)
+13 May 2022 - 23:25:09.830 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 6820 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 23:25:09.832 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 23:25:11.202 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 23:25:11.202 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 23:25:11.202 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 23:25:11.601 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7f012923, org.springframework.security.web.context.SecurityContextPersistenceFilter@76b305e1, org.springframework.security.web.header.HeaderWriterFilter@5cffec7, org.springframework.security.web.authentication.logout.LogoutFilter@70f4abc1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5f5c187d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49c83262, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@184de357, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@601f264d, org.springframework.security.web.session.SessionManagementFilter@3e28dc96, org.springframework.security.web.access.ExceptionTranslationFilter@165d1d54, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@71ad959b]
+13 May 2022 - 23:25:11.891 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 23:25:12.061 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 23:25:12.062 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 23:25:12.063 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+13 May 2022 - 23:25:12.091 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.557 seconds (JVM running for 3.781)
+13 May 2022 - 23:25:31.867 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 11972 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 23:25:31.869 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 23:25:33.293 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 23:25:33.294 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 23:25:33.294 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 23:25:33.671 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d73e8c4, org.springframework.security.web.context.SecurityContextPersistenceFilter@4eb63dc8, org.springframework.security.web.header.HeaderWriterFilter@17c53dfb, org.springframework.security.web.authentication.logout.LogoutFilter@2bf3ec4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4403bff8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41d20f06, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79d4ff58, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ce2e079, org.springframework.security.web.session.SessionManagementFilter@6dcf7b6a, org.springframework.security.web.access.ExceptionTranslationFilter@7e81617a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59313495]
+13 May 2022 - 23:25:33.957 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 23:25:34.147 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 23:25:34.148 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 23:25:34.149 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+13 May 2022 - 23:25:34.178 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.606 seconds (JVM running for 3.793)
+13 May 2022 - 23:28:09.490 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 12412 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 23:28:09.492 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 23:28:10.809 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 23:28:10.809 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 23:28:10.810 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 23:28:11.205 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d73e8c4, org.springframework.security.web.context.SecurityContextPersistenceFilter@4eb63dc8, org.springframework.security.web.header.HeaderWriterFilter@17c53dfb, org.springframework.security.web.authentication.logout.LogoutFilter@2bf3ec4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4403bff8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41d20f06, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79d4ff58, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ce2e079, org.springframework.security.web.session.SessionManagementFilter@6dcf7b6a, org.springframework.security.web.access.ExceptionTranslationFilter@7e81617a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59313495]
+13 May 2022 - 23:28:11.489 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 23:28:11.658 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 23:28:11.659 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 23:28:11.660 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+13 May 2022 - 23:28:11.687 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.488 seconds (JVM running for 3.721)
+13 May 2022 - 23:32:09.502 [main] INFO  d.d.c.DefaultControllerTest - Starting DefaultControllerTest using Java 11.0.11 on DESKTOP-7I4BO0A with PID 15352 (started by USER in C:\Users\USER\Documents\Spring\dating)
+13 May 2022 - 23:32:09.504 [main] INFO  d.d.c.DefaultControllerTest - No active profile set, falling back to default profiles: default
+13 May 2022 - 23:32:10.784 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+13 May 2022 - 23:32:10.784 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+13 May 2022 - 23:32:10.785 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+13 May 2022 - 23:32:11.160 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d73e8c4, org.springframework.security.web.context.SecurityContextPersistenceFilter@4eb63dc8, org.springframework.security.web.header.HeaderWriterFilter@17c53dfb, org.springframework.security.web.authentication.logout.LogoutFilter@2bf3ec4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4403bff8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41d20f06, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79d4ff58, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ce2e079, org.springframework.security.web.session.SessionManagementFilter@6dcf7b6a, org.springframework.security.web.access.ExceptionTranslationFilter@7e81617a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59313495]
+13 May 2022 - 23:32:11.447 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+13 May 2022 - 23:32:11.636 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+13 May 2022 - 23:32:11.636 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+13 May 2022 - 23:32:11.637 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+13 May 2022 - 23:32:11.661 [main] INFO  d.d.c.DefaultControllerTest - Started DefaultControllerTest in 2.46 seconds (JVM running for 3.66)
