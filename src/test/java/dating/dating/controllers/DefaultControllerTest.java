@@ -5,11 +5,13 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -22,19 +24,26 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import dating.dating.services.UsersServices;
 
+
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(DefaultController.class)
 public class DefaultControllerTest 
 {
-    @MockBean
+    @InjectMocks
     DefaultController defaultController;
 
     @Mock
     HttpSession httpSession;
 
     @Mock
+    HttpSession http;
+
+    @Mock
     HttpServletRequest request;
 
+    @Mock
+    HttpServletResponse httpServletResponse;
+   
     static MockMvc mockMvc;
 
     @MockBean
@@ -481,5 +490,96 @@ public class DefaultControllerTest
     }
 
     //test /PremiumApi
+    
+    @Test
+    @DisplayName("Testing /PremiumApi with role 0 (Redirecting to api)")
+    public void canGetPremiumApi() throws Exception
+    {
+        //given
+        String expectedLocation="http://localhost:8080/api";
+        String role = "0";
+        //when
+        when(request.getSession()).thenReturn(httpSession);
+        MvcResult mvcResult = mockMvc.perform(get("/PremiumApi")
+                                     .sessionAttr("role", role))
+                                     .andExpect(status().isFound())  //302 http status since Redirection
+                                     .andDo(MockMvcResultHandlers.print())
+                                     .andReturn();
+
+        String actualLocation = mvcResult.getResponse().getHeader("Location");
+
+        //then
+        assertEquals(expectedLocation, actualLocation);
+    }
+
+    @Test
+    @DisplayName("Testing /PremiumApi with role 1 ")
+    public void canGetPremiumApiWithRole1 () throws Exception
+    {
+        //given
+        String expectedForwardedURL = "PremiumProfile.html";
+        String role = "1";
+
+        //when  
+        when(request.getSession()).thenReturn(httpSession);
+        MvcResult mvcResult = mockMvc.perform(get("/PremiumApi")
+                                     .sessionAttr("role", role))          
+                                     .andExpect(status().isOk())
+                                     .andDo(MockMvcResultHandlers.print())
+                                    .andReturn();
+
+        String actualForwardedURL = mvcResult.getResponse().getForwardedUrl();
+
+        //then          
+        assertEquals(expectedForwardedURL, actualForwardedURL);
+    }
+
+    @Test
+    @DisplayName("Testing /PremiumApi with role 1 but with wrong URL ")
+    public void cannotGetPremiumApi () throws Exception
+    {
+        //given
+        int expectedStatusCode = 404;
+        String role = "1";
+
+        //when  
+        when(request.getSession()).thenReturn(httpSession);
+        MvcResult mvcResult = mockMvc.perform(get("/Premium")
+                                     .sessionAttr("role", role))          
+                                     .andExpect(status().isNotFound())
+                                     .andDo(MockMvcResultHandlers.print())
+                                    .andReturn();
+
+        int actualStatusCode = mvcResult.getResponse().getStatus();
+
+        //then          
+        assertEquals(expectedStatusCode, actualStatusCode);
+    }
+
+    /*@Test
+    @DisplayName("Testing /success ")
+    public void canGetSucessApi() throws Exception
+    {
+        //given
+        String email = "JasmineWhite@gmail.com";
+        char role = '1';
+
+        //when
+        when(request.getSession()).thenReturn(httpSession);
+        when(request.getSession()).thenReturn(http);
+        when(usersServices.getUserRole(email)).thenReturn(role);
+        MvcResult mvcResult = mockMvc.perform(get("/success")
+                                     .sessionAttr("email", email)
+                                     .sessionAttr("userEmailFromSignup", "null"))
+                                     .andExpect(status().isFound())
+                                     .andDo(MockMvcResultHandlers.print())
+                                     .andReturn();
+
+        //then
+        System.out.println(mvcResult.getResponse().getContentAsString());
+        System.out.println(mvcResult.getResponse().getStatus());
+        System.out.println(mvcResult.getResponse().getRedirectedUrl());
+    }*/
+
     
 }
