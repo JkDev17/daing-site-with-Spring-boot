@@ -171,15 +171,15 @@ public class RstControllerTest
         String password = "abcdefg1234";
         String age = "21";
         String userFullname = "Jasmine White";
-        MultiValueMap<String, String> parameters = new LinkedMultiValueMap<>();
-        parameters.put("email", Collections.singletonList(email));
-        parameters.put("userPassword", Collections.singletonList(password));
-        parameters.put("userAge", Collections.singletonList(age));
-        parameters.put("userFullName", Collections.singletonList(userFullname));
+        HashMap<String, String> parameters = new HashMap <String,String>();
+        parameters.put("email", email);
+        parameters.put("userPassword", password);
+        parameters.put("userAge", age);
+        parameters.put("userFullName", userFullname);
         
         final MvcResult result = mockMvc.perform(post("/saveVarsToSession")
-                        .params(parameters)
-                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                        .contentType("application/json")
+                        .content(objectMapper.writeValueAsString(parameters)))
                         .andExpect(status().isOk())
                         .andDo(MockMvcResultHandlers.print())
                         .andReturn();
@@ -292,18 +292,17 @@ public class RstControllerTest
         String job = "Software Developer";
         String hobbies = "Traveling Music Gym Fashion";
 
-        MultiValueMap<String, String> parameters = new LinkedMultiValueMap<>();
-        parameters.put("userGender", Collections.singletonList(gender));
-        parameters.put("userBday", Collections.singletonList(bday));
-        parameters.put("userEducationlevel", Collections.singletonList(educationLevel));
-        parameters.put("userJob", Collections.singletonList(job));
-        parameters.put("userHobbies", Collections.singletonList(hobbies));
+        HashMap<String, String> parameters = new HashMap<String,String>();
+        parameters.put("userGender", gender);
+        parameters.put("userBday", bday);
+        parameters.put("userEducationlevel",educationLevel);
+        parameters.put("userJob", job);
+        parameters.put("userHobbies", hobbies);
 
         //when
         MvcResult mvcResult = mockMvc.perform(post("/fetchUserPersonalDataIdEq2")
-                                     .params(parameters)
-                                     .param("request", request.toString())
-                                     .contentType(MediaType.APPLICATION_JSON))
+                                     .contentType("application/json")
+                                     .content(objectMapper.writeValueAsString(parameters)))
                                      .andExpect(status().isOk())
                                      .andDo(MockMvcResultHandlers.print())
                                      .andReturn();
@@ -326,18 +325,17 @@ public class RstControllerTest
         String job = "Software Developer";
         String hobbies = "Traveling Music Gym Fashion";
 
-        MultiValueMap<String, String> parameters = new LinkedMultiValueMap<>();
-        parameters.put("userGender", Collections.singletonList(gender));
-        parameters.put("userBday", Collections.singletonList(bday));
-        parameters.put("userEducationlevel", Collections.singletonList(educationLevel));
-        parameters.put("userJob", Collections.singletonList(job));
-        parameters.put("userHobbies", Collections.singletonList(hobbies));
+        HashMap<String, String> parameters = new HashMap<String,String>();
+        parameters.put("userGender", gender);
+        parameters.put("userBday", bday);
+        parameters.put("userEducationlevel", educationLevel);
+        parameters.put("userJob", job);
+        parameters.put("userHobbies", hobbies);
 
         //when
         MvcResult mvcResult = mockMvc.perform(post("/fetchUserPersonalDataId")
-                                     .params(parameters)
-                                     .param("request", request.toString())
-                                     .contentType(MediaType.APPLICATION_JSON))
+                                     .contentType("application/json")
+                                     .content(objectMapper.writeValueAsString(parameters)))
                                      .andExpect(status().isFound())
                                      .andDo(MockMvcResultHandlers.print())
                                      .andReturn();
@@ -360,18 +358,17 @@ public class RstControllerTest
         String job = "Software Developer";
         String hobbies = "Traveling Music Gym Fashion";
 
-        MultiValueMap<String, String> parameters = new LinkedMultiValueMap<>();
-        parameters.put("userGender", Collections.singletonList(gender));
-        parameters.put("userBday", Collections.singletonList(bday));
-        parameters.put("userEducationlevel", Collections.singletonList(educationLevel));
-        parameters.put("userJob", Collections.singletonList(job));
-        parameters.put("userHobbies", Collections.singletonList(hobbies));
+        HashMap<String, String> parameters = new HashMap<String,String>();
+        parameters.put("userGender", gender);
+        parameters.put("userBday", bday);
+        parameters.put("userEducationlevel", educationLevel);
+        parameters.put("userJob", job);
+        parameters.put("userHobbies",hobbies);
 
         //when
         MvcResult mvcResult = mockMvc.perform(post("/fetchUserPersonalDataIdEq3")
-                                    .params(parameters)
-                                    .param("request", request.toString())
-                                    .contentType(MediaType.APPLICATION_JSON))
+                                    .contentType("application/json")
+                                    .content(objectMapper.writeValueAsString(parameters)))
                                     .andExpect(status().isOk())
                                     .andDo(MockMvcResultHandlers.print())
                                     .andReturn();
@@ -394,21 +391,20 @@ public class RstControllerTest
         String job = "Software Developer";
         String hobbies = "Traveling Music Gym Fashion";
 
-        MultiValueMap<String, String> parameters = new LinkedMultiValueMap<>();
-        parameters.put("userGender", Collections.singletonList(gender));
-        parameters.put("userBday", Collections.singletonList(bday));
-        parameters.put("userEducationlevel", Collections.singletonList(educationLevel));
-        parameters.put("userJob", Collections.singletonList(job));
-        parameters.put("userHobbies", Collections.singletonList(hobbies));
+       HashMap<String, String> parameters = new HashMap<String,String>();
+        parameters.put("userGender", gender);
+        parameters.put("userBday", bday);
+        parameters.put("userEducationlevel", educationLevel);
+        parameters.put("userJob", job);
+        parameters.put("userHobbies", hobbies);
 
         //when
         MvcResult mvcResult = mockMvc.perform(post("/fetchUserPersonalDataIdEq4")
-                                    .params(parameters)
-                                    .param("request", request.toString())
-                                    .contentType(MediaType.APPLICATION_JSON))
-                                    .andExpect(status().isOk())
-                                    .andDo(MockMvcResultHandlers.print())
-                                    .andReturn();
+                                     .contentType("application/json")
+                                     .content(objectMapper.writeValueAsString(parameters)))
+                                     .andExpect(status().isOk())
+                                     .andDo(MockMvcResultHandlers.print())
+                                     .andReturn();
 
         int actualStatus = mvcResult.getResponse().getStatus();
 

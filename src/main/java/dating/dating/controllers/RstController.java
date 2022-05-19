@@ -35,8 +35,9 @@ public class RstController
     }
     
     @PostMapping(value="/saveVarsToSession" , consumes = "application/json", produces="application/json")
-    public Map<String,String> getVarsTosaveToSession(@RequestParam final Map<String, String> parameters, HttpServletRequest request) 
+    public Map<String,String> getVarsTosaveToSession(@RequestBody final Map<String, String> parameters, HttpServletRequest request) 
     {
+        System.out.println("The params are :" + parameters);
         userService.saveVarsToSession(parameters, request);
         return parameters;
     }
@@ -51,25 +52,25 @@ public class RstController
 
 
     @PostMapping(value="/fetchUserPersonalDataIdEq2") //id equals to 2 => check js to remember
-    public void fetchUserPersonalDataIdEq2(@RequestParam final Map<String, String> input , HttpServletRequest request)
+    public void fetchUserPersonalDataIdEq2(@RequestBody final Map<String, String> input , HttpServletRequest request)
     {
         userService.fetchUserPersonalDataPage2(input, request);
     } 
 
     @PostMapping(value="/fetchUserPersonalDataIdEq3")
-    public void fetchUserPersonalDataIdEq3(@RequestParam final Map<String, String> input , HttpServletRequest request)
+    public void fetchUserPersonalDataIdEq3(@RequestBody final Map<String, String> input , HttpServletRequest request)
     {
         userService.fetchUserPersonalDataPage3(input, request);
     }
 
     @PostMapping(value="/fetchUserPersonalDataIdEq4")
-    public void fetchUserPersonalDataIdEq4(@RequestParam final Map<String, String> input , HttpServletRequest request)
+    public void fetchUserPersonalDataIdEq4(@RequestBody final Map<String, String> input , HttpServletRequest request)
     {
         userService.fetchUserPersonalDataPage4(input, request);
     }
 
     @PostMapping(value="/fetchUserPersonalDataProfilePic")
-    public void fetchUserProfilePic(@RequestParam Map<String, String> input , HttpServletRequest request)
+    public void fetchUserProfilePic(@RequestBody Map<String, String> input , HttpServletRequest request)
     {
         userService.saveUsersProfilePicToSessionData(input, request);
     }
