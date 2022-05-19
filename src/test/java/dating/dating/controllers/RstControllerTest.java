@@ -12,9 +12,8 @@ import java.util.HashMap;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -24,6 +23,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpSession;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -438,7 +438,276 @@ public class RstControllerTest
         //then
     }
 
-    //todo test "/sessionEmail"
+    @Test
+    @DisplayName("Testing /sessionEmail")
+    public void canFetchUserLogInEmail() throws JsonProcessingException, Exception
+    {
+        //given
+        int expectedStatus = 200;
+        String email = "JasmineWhite@gmail.com";
+        String fullName = "Jasmine White";
+        String gender = "female";
+        HashMap <String,String> map = new HashMap<>();
+        map.put("email",email);
+        map.put("fullname",fullName);
+        map.put("gender",gender);
+
+        //when
+        MvcResult mvcResult = mockMvc.perform(post("/sessionEmail")
+                                     .content(objectMapper.writeValueAsString(map))
+                                     .contentType("application/json"))
+                                     .andExpect(status().isOk())
+                                     .andDo(MockMvcResultHandlers.print())
+                                     .andReturn();
+        int actualStatus =mvcResult.getResponse().getStatus();                                     
+        
+        //then
+        assertEquals(expectedStatus, actualStatus);
+    }
     
+    @Test
+    @DisplayName("Testing /fetchDataFromDatabase")
+    public void canFetchDataFromDatabase() throws Exception
+    {
+        //given
+        int expectedStatus = 200;
+        String email = "JasmineWhite@gmail.com";
+        String fullName = "Jasmine White";
+        String gender = "female";
+        HashMap <String,String> map = new HashMap<>();
+        map.put("email",email);
+        map.put("fullname",fullName);
+        map.put("gender",gender);
+
+        //when
+        when(usersServices.fetchDataForProfileWhoLoggedIn(httpSession)).thenReturn(map);
+        MvcResult mvcResult = mockMvc.perform(get("/fetchDataFromDatabase"))
+                                        .andExpect(status().isOk())
+                                        .andDo(MockMvcResultHandlers.print())
+                                        .andReturn();
+
+        int actualStatus =mvcResult.getResponse().getStatus();
+                                        
+        //then
+        assertEquals(expectedStatus, actualStatus);
+    }
     
+    @Test
+    @DisplayName("Testing /fetchUserVisitedUsersList")
+    public void canFetchUserVisitedUsersList() throws Exception
+    {
+        //given
+        int expectedStatus = 200;
+        String email = "JasmineWhite@gmail.com";
+        String fullName = "Jasmine White";
+        String gender = "female";
+        HashMap <String,String> map = new HashMap<>();
+        map.put("email",email);
+        map.put("fullname",fullName);
+        map.put("gender",gender);
+
+        //when
+        when(usersServices.fetchDataForProfileWhoLoggedIn(httpSession)).thenReturn(map);
+        MvcResult mvcResult = mockMvc.perform(get("/fetchUserVisitedUsersList"))
+                                        .andExpect(status().isOk())
+                                        .andDo(MockMvcResultHandlers.print())
+                                        .andReturn();
+
+        int actualStatus =mvcResult.getResponse().getStatus();
+                                        
+        //then
+        assertEquals(expectedStatus, actualStatus);
+    }
+
+    @Test
+    @DisplayName("Testing /fetchBasicDataFromDB")
+    public void canFetchBasicDataFromDB() throws Exception
+    {
+        //given
+        int expectedStatus = 200;
+        String email = "JasmineWhite@gmail.com";
+        String fullName = "Jasmine White";
+        String gender = "female";
+        HashMap <String,String> map = new HashMap<>();
+        map.put("email",email);
+        map.put("fullname",fullName);
+        map.put("gender",gender);
+
+        //when
+        when(usersServices.fetchDataForProfileWhoLoggedIn(httpSession)).thenReturn(map);
+        MvcResult mvcResult = mockMvc.perform(get("/fetchBasicDataFromDB"))
+                                        .andExpect(status().isOk())
+                                        .andDo(MockMvcResultHandlers.print())
+                                        .andReturn();
+
+        int actualStatus =mvcResult.getResponse().getStatus();
+                                        
+        //then
+        assertEquals(expectedStatus, actualStatus);
+    }
+
+    @Test
+    @DisplayName("Testing /updateToPremium")
+    @WithMockUser(username = "MariaLima@gmail.com", password = "abcdefg1234")
+    public void canUpdateToPremium() throws Exception
+    {
+        //given
+        int expectedStatus = 200;
+        String email = "JasmineWhite@gmail.com";
+        String fullName = "Jasmine White";
+        String gender = "female";
+        HashMap <String,String> map = new HashMap<>();
+        map.put("email",email);
+        map.put("fullname",fullName);
+        map.put("gender",gender);
+
+        //when
+        when(usersServices.fetchDataForProfileWhoLoggedIn(httpSession)).thenReturn(map);
+        MvcResult mvcResult = mockMvc.perform(get("/updateToPremium"))
+                                        .andExpect(status().isOk())
+                                        .andDo(MockMvcResultHandlers.print())
+                                        .andReturn();
+
+        int actualStatus =mvcResult.getResponse().getStatus();
+                                        
+        //then
+        assertEquals(expectedStatus, actualStatus);
+    }
+
+    @Test
+    @DisplayName("Testing /fetchStarFromUsersNeqId")
+    public void canFetchStarFromUsersNeqId() throws Exception
+    {
+        //given
+        int expectedStatus = 200;
+        String email = "JasmineWhite@gmail.com";
+        String fullName = "Jasmine White";
+        String gender = "female";
+        HashMap <String,String> map = new HashMap<>();
+        map.put("email",email);
+        map.put("fullname",fullName);
+        map.put("gender",gender);
+
+        //when
+        when(usersServices.fetchDataForProfileWhoLoggedIn(httpSession)).thenReturn(map);
+        MvcResult mvcResult = mockMvc.perform(get("/fetchStarFromUsersNeqId"))
+                                        .andExpect(status().isOk())
+                                        .andDo(MockMvcResultHandlers.print())
+                                        .andReturn();
+
+        int actualStatus =mvcResult.getResponse().getStatus();
+                                        
+        //then
+        assertEquals(expectedStatus, actualStatus);
+    }
+
+    @Test
+    @DisplayName("Testing /updateUserVisitedUser")
+    public void canUpdateUserVisitedUser() throws Exception
+    {
+        //given
+        int expectedStatus = 200;
+        String email = "JasmineWhite@gmail.com";
+        String fullName = "Jasmine White";
+        String gender = "female";
+        HashMap <String,String> map = new HashMap<>();
+        map.put("email",email);
+        map.put("fullname",fullName);
+        map.put("gender",gender);
+
+        //when
+        when(usersServices.fetchDataForProfileWhoLoggedIn(httpSession)).thenReturn(map);
+        MvcResult mvcResult = mockMvc.perform(get("/updateUserVisitedUser"))
+                                        .andExpect(status().isOk())
+                                        .andDo(MockMvcResultHandlers.print())
+                                        .andReturn();
+
+        int actualStatus =mvcResult.getResponse().getStatus();
+                                        
+        //then
+        assertEquals(expectedStatus, actualStatus);
+    }
+
+    @Test
+    @DisplayName("Testing /fetchOnePersonVisited")
+    public void canFetchOnePersonVisited() throws Exception
+    {
+        //given
+        int expectedStatus = 200;
+        String email = "JasmineWhite@gmail.com";
+        String fullName = "Jasmine White";
+        String gender = "female";
+        HashMap <String,String> map = new HashMap<>();
+        map.put("email",email);
+        map.put("fullname",fullName);
+        map.put("gender",gender);
+
+        //when
+        when(usersServices.fetchDataForProfileWhoLoggedIn(httpSession)).thenReturn(map);
+        MvcResult mvcResult = mockMvc.perform(get("/fetchOnePersonVisited"))
+                                        .andExpect(status().isOk())
+                                        .andDo(MockMvcResultHandlers.print())
+                                        .andReturn();
+
+        int actualStatus =mvcResult.getResponse().getStatus();
+                                        
+        //then
+        assertEquals(expectedStatus, actualStatus);
+    }
+
+    @Test
+    @DisplayName("Testing /MatchingProfiles")
+    public void canMatchingProfiles() throws Exception
+    {
+        //given
+        int expectedStatus = 200;
+        String email = "JasmineWhite@gmail.com";
+        String fullName = "Jasmine White";
+        String gender = "female";
+        HashMap <String,String> map = new HashMap<>();
+        map.put("email",email);
+        map.put("fullname",fullName);
+        map.put("gender",gender);
+
+        //when
+        when(usersServices.fetchDataForProfileWhoLoggedIn(httpSession)).thenReturn(map);
+        MvcResult mvcResult = mockMvc.perform(get("/MatchingProfiles"))
+                                        .andExpect(status().isOk())
+                                        .andDo(MockMvcResultHandlers.print())
+                                        .andReturn();
+
+        int actualStatus =mvcResult.getResponse().getStatus();
+                                        
+        //then
+        assertEquals(expectedStatus, actualStatus);
+    }
+
+    @Test
+    @DisplayName("Testing /FilterProfiles")
+    public void canFilterProfiles() throws Exception
+    {
+        //given
+        int expectedStatus = 200;
+        String email = "JasmineWhite@gmail.com";
+        String fullName = "Jasmine White";
+        String gender = "female";
+        HashMap <String,String> map = new HashMap<>();
+        map.put("email",email);
+        map.put("fullname",fullName);
+        map.put("gender",gender);
+
+        //when
+        when(usersServices.fetchDataForProfileWhoLoggedIn(httpSession)).thenReturn(map);
+        MvcResult mvcResult = mockMvc.perform(post("/FilterProfiles")
+                                        .contentType("application/json")
+                                        .content(objectMapper.writeValueAsString(map)))
+                                        .andExpect(status().isOk())
+                                        .andDo(MockMvcResultHandlers.print())
+                                        .andReturn();
+
+        int actualStatus =mvcResult.getResponse().getStatus();
+                                        
+        //then
+        assertEquals(expectedStatus, actualStatus);
+    }
 }
