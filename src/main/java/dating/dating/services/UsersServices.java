@@ -1,9 +1,20 @@
 package dating.dating.services;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
@@ -11,18 +22,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.imgscalr.Scalr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import dating.dating.entity.Users;
-import dating.dating.exceptions.ProfileNotFoundException;
 import dating.dating.entity.Filters;
 import dating.dating.entity.Images;
 import dating.dating.entity.UserHasImages;
 import dating.dating.entity.UserVisitedUsers;
+import dating.dating.entity.Users;
+import dating.dating.exceptions.ProfileNotFoundException;
 import dating.dating.repositories.ImagesRepository;
 import dating.dating.repositories.UserHasImagesRepository;
 import dating.dating.repositories.UserVisitedUsersRepository;
@@ -39,6 +52,8 @@ public class UsersServices
 
     private final UserVisitedUsersRepository userVisitedUsersRepository;
 
+    Logger LOGGER = LoggerFactory.getLogger(UsersServices.class);
+
     UsersServices(UsersRepository usersRepository,UserHasImagesRepository userHasImagesRepository, ImagesRepository imagesRepository,
                   UserVisitedUsersRepository userVisitedUsersRepository)
     {
@@ -48,7 +63,75 @@ public class UsersServices
         this.userVisitedUsersRepository = userVisitedUsersRepository;
     }
 
-    Logger LOGGER = LoggerFactory.getLogger(UsersServices.class);
+    public String getSpecificPersonAvatarIcon(String email) throws IOException
+    {
+        //getting the image as bytes based on email
+        int id = usersRepository.getIdByEmail(email);
+        int imageId = userHasImagesRepository.getImageIdByUserId(id);
+        byte [] imageRaw = imagesRepository.getDataById(imageId); 
+
+        //seperating the meta data from the actual data
+        //example data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkV
+        // meta data => image/jpeg;base64
+        //real data => /9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkV
+        //then we base 64 decode the  real data to get the binary format of the image
+        String imgRawString = new String(imageRaw);
+        String partSeparator = ",";
+        if (imgRawString.contains(partSeparator)) 
+        {
+            String encodedImg = imgRawString.split(partSeparator)[1];
+            byte[] decodedImg = Base64.getDecoder().decode(encodedImg.getBytes(StandardCharsets.UTF_8));
+
+            
+            InputStream is = new ByteArrayInputStream(decodedImg);
+            BufferedImage bi = ImageIO.read(is);
+
+            BufferedImage scaledImg = Scalr.resize(bi, 200);
+
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ImageIO.write(scaledImg, "jpg", baos);
+            byte[] avatarBytes = baos.toByteArray();
+
+            FileOutputStream fos = new FileOutputStream("image.jpeg");
+
+            try 
+            {
+                fos.write(avatarBytes);
+            }
+    
+            finally 
+            {
+                fos.close();
+            }
+
+            //open the thumbnail file we saved to send the text String like format to front end 
+            BufferedImage newBi = ImageIO.read(new File("C:\\Users\\USER\\Documents\\Spring\\dating\\image.jpeg"));
+
+            // convert BufferedImage to byte[]
+            ByteArrayOutputStream newBaos = new ByteArrayOutputStream();
+            ImageIO.write(newBi, "jpeg", newBaos);
+            byte[] bytes = baos.toByteArray();
+            
+            //deleting the thumbnail image 
+            String fileName = "C:\\Users\\USER\\Documents\\Spring\\dating\\image.jpeg";
+
+            try 
+            {
+                Files.delete(Paths.get(fileName));
+            } 
+
+            catch (IOException e) 
+            {
+                e.printStackTrace();
+            }
+
+            //encodeToString() seems to be the best choice (others ruined the format for some reason.)
+            String text = Base64.getEncoder().encodeToString(bytes);
+            return imgRawString.split(partSeparator)[0] + "," + text;
+        }
+        else return "Couldn't create thumbnails";
+    }
+
 
     public void saveVarsToSession(Map<String, String> input , HttpServletRequest request)
     {
@@ -282,7 +365,10 @@ public class UsersServices
         ArrayList<String> hobbies = new ArrayList<String>();
         ArrayList<String> educationLevels = new ArrayList<String>();
         ArrayList<String> images = new ArrayList<String>();
+        ArrayList<String> myEmail = new ArrayList<String>();
         ArrayList<String> emails = new ArrayList<String>();
+        ArrayList<String> myFullname = new ArrayList<String>();
+        String fullname;
         String email = "";
         String bday = "";
         int age = 0;
@@ -290,12 +376,14 @@ public class UsersServices
         try
         {
             email = session.getAttribute("email").toString();
+            fullname = usersRepository.getFullNameByEmail(email);
             int id = usersRepository.getIdByEmail(email);
             int imageIdToExclude = userHasImagesRepository.userHasImages(id);
             List <byte[]> byteImg = imagesRepository.getDataNeqId(imageIdToExclude);
             List<Users> listOfSelectStarUsers = usersRepository.getStarFromUsersNeqToId(id);
             for(Users list: listOfSelectStarUsers)
             {
+                emails.add(list.getEmail().toString());
                 fullnames.add(list.getFullname().toString());
                 jobs.add(list.getJobTitle().toString());
                 bday = list.getBirthday().toString();
@@ -319,8 +407,11 @@ public class UsersServices
             throw new ProfileNotFoundException("Null values found at method getStarFromUsersNeqId");
         }
 
-        emails.add(email);
-        map.put("email",emails);
+        myEmail.add(email);
+        myFullname.add(fullname);
+        map.put("myFullname",myFullname);
+        map.put("email",myEmail);
+        map.put("emails",emails);
         map.put("images", images);
         map.put("fullnames",fullnames);
         map.put("jobs",jobs);
@@ -391,6 +482,7 @@ public class UsersServices
         ArrayList<String> images = new ArrayList<String>();
         ArrayList<Integer> imagesId = new ArrayList<Integer>();
         ArrayList<String> emails = new ArrayList<String>();
+        ArrayList<String> mateEmails = new ArrayList<String>();
         ArrayList<Integer> usersId = new ArrayList<Integer>();
         String bday = "";
         String email= "";
@@ -418,6 +510,7 @@ public class UsersServices
 
             for(Users list: listOfSelectStarUsers)
             {
+                mateEmails.add(list.getEmail().toString());
                 fullnames.add(list.getFullname().toString());
                 jobs.add(list.getJobTitle().toString());
                 bday = list.getBirthday().toString();
@@ -443,6 +536,7 @@ public class UsersServices
                 images.add(new String (byteImg.get(i)));
             }
 
+            map.put("emails",mateEmails);
             map.put("email",emails);
             map.put("images", images);
             map.put("fullnames",fullnames);
@@ -460,6 +554,7 @@ public class UsersServices
             List<Users> listOfSelectStarUsers = usersRepository.selecStartWithFilters2(gender, idToExclude);
             for(Users list: listOfSelectStarUsers)
             {
+                mateEmails.add(list.getEmail().toString());
                 fullnames.add(list.getFullname().toString());
                 jobs.add(list.getJobTitle().toString());
                 bday = list.getBirthday().toString();
@@ -483,6 +578,7 @@ public class UsersServices
                 images.add(new String (byteImg.get(i)));
             }
 
+            map.put("emails",mateEmails);
             map.put("email",emails);
             map.put("images", images);
             map.put("fullnames",fullnames);
@@ -500,6 +596,7 @@ public class UsersServices
             List<Users> listOfSelectStarUsers = usersRepository.selecStartWithFilters3(hairColor, idToExclude);
             for(Users list: listOfSelectStarUsers)
             {
+                mateEmails.add(list.getEmail().toString());
                 fullnames.add(list.getFullname().toString());
                 jobs.add(list.getJobTitle().toString());
                 bday = list.getBirthday().toString();
@@ -523,6 +620,7 @@ public class UsersServices
                 images.add(new String (byteImg.get(i)));
             }
 
+            map.put("emails",mateEmails);
             map.put("email",emails);
             map.put("images", images);
             map.put("fullnames",fullnames);

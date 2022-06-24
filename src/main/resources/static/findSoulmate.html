@@ -11,6 +11,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 </head>
 <style>
     body {
@@ -616,8 +618,6 @@ background: rgb(231, 236, 237);
     width: 15rem;
     left: 0;
     right: 0;
-    /* background: red; */
-    /* z-index: -1; */
     height: 40px;
     top: -10px;
 }
@@ -690,13 +690,316 @@ background: rgb(231, 236, 237);
   margin-right:1.5em;
   margin-top: 0.25em;
 }
+
+
+.centerit {
+    position:absolute;
+    display:none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index:9999;
+  }
+
+  .close {
+    position:absolute;
+    margin-top:200px;
+    top:-40px;
+    right:-5px;
+    width:25px;
+    height:25px;
+    cursor:pointer;
+    color: black;
+    display: inline-block;
+}
+  .chat-container {
+      background-color: #f4f4f4;
+      margin-top:200px;
+      width: 900px;
+      height:850px;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+  }
+  .chat-container .top-bar {
+      width: 100%;
+      height: 80px;
+      display: flex;
+  }
+
+  .chat-container main {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+  }
+  .chat-container main .top-bar {
+      background-color: #fff;
+      border-bottom: solid 1px #d6d6d6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 40px;
+  }
+  .chat-container main .top-bar .user-info {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas: "user-image user-name" "user-image user-status";
+      align-items: center;
+  }
+  .chat-container main .top-bar .user-info .user-head {
+      grid-area: user-image;
+      margin-right: 20px;
+  }
+  .chat-container main .top-bar .user-info .user-head:after {
+      display: none;
+  }
+  .chat-container main .top-bar .user-info .name {
+      grid-area: user-name;
+      font-size: 23px;
+      position: relative;
+      top: 6px;
+  }
+  .chat-container main .top-bar .user-info .status {
+      grid-area: user-status;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      top: -3px;
+  }
+  .chat-container main .top-bar .user-info .status:before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      display: block;
+      border-radius: 50%;
+      background-color: #f95b55;
+      margin-right: 5px;
+  }
+  .chat-container main .top-bar .user-info .status.online:before {
+      background-color: #01e777;
+  }
+  .chat-container main .top-bar .user-info .status.away:before {
+      background-color: #fda14c;
+  }
+  .chat-container main .top-bar .user-info .status.offline:before {
+      background-color: #f95b55;
+  }
+  .chat-container main .top-bar .user-info .status:after {
+      content: 'online';
+  }
+  .chat-container main .top-bar .buttons svg {
+      height: 25px;
+      fill: #c0c2c3;
+  }
+  .chat-container main .top-bar .buttons div {
+      cursor: pointer;
+  }
+  .chat-container main .top-bar .buttons div:hover > svg {
+      fill: #363e47;
+  }
+  .chat-container main .messages {
+      height: calc(100% - 160px);
+      display: flex;
+      flex-direction: column;
+      overflow-y: scroll;
+  }
+  .chat-container main .messages .date-split {
+      text-align: center;
+      color: #afafaf;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .chat-container main .messages .date-split:before, .chat-container main .messages .date-split:after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 100px;
+      background-color: #c4c3c3;
+  }
+  .chat-container main .messages .date-split:before {
+      margin-right: 20px;
+  }
+  .chat-container main .messages .date-split:after {
+      margin-left: 20px;
+  }
+  .chat-container main .messages .message {
+      display: flex;
+      margin: 20px;
+      position: relative;
+  }
+  .chat-container main .messages .message .user-head:after {
+      display: none;
+  }
+  .chat-container main .messages .message:after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 20px 15px 0;
+      border-color: transparent #fff transparent transparent;
+      position: absolute;
+      left: 59px;
+  }
+  .chat-container main .messages .message .content {
+      max-width: 70%;
+      width: fit-content;
+      height: fit-content;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 0 10px 10px 10px;
+      margin-left: 30px;
+      color: #626c76;
+  }
+  .chat-container main .messages .message.fromme {
+      flex-direction: row-reverse;
+  }
+  .chat-container main .messages .message.fromme:after {
+      border-width: 15px 20px 0 0;
+      border-color: #01e777 transparent transparent transparent;
+      right: 59px;
+      left: unset;
+  }
+  .chat-container main .messages .message.fromme .content {
+      border-radius: 10px 0px 10px 10px;
+      margin-left: unset;
+      margin-right: 30px;
+      background-color: #01e777;
+      color: #fff;
+  }
+  .chat-container main .bottom-bar {
+      background-color: #fff;
+      height: 80px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+  .chat-container main .bottom-bar .msg-input {
+      width: calc(100% - 160px);
+      margin: 30px;
+      height: 40px;
+      border-radius: 30px;
+      border: 0px;
+      background-color: #ececec;
+      padding: 10px 15px 0px 15px;
+      font-size: 18px;
+  }
+  .chat-container main .bottom-bar .msg-input::placeholder {
+      color: #c5c5c5;
+  }
+  .chat-container main .bottom-bar .send-button {
+      box-sizing: content-box;
+      width: 30px;
+      height: 30px;
+      background-color: #0091e9;
+      padding: 10px;
+      border-radius: 50%;
+      margin-right: 20px;
+      cursor: pointer;
+  }
+  .chat-container main .bottom-bar .send-button:hover {
+      background-color: #1cc1f3;
+  }
+  .chat-container main .bottom-bar .send-button:active {
+      background-color: #0091e9;
+  }
+  .chat-container main .bottom-bar .send-button svg {
+      fill: white;
+      position: relative;
+      left: 1px;
+      top: 2px;
+      width: 25px;
+      height: 25px;
+  }
+  .chat-container .user-head {
+      width: 49px;
+      height:49Px;
+  }
+  .chat-container .user-head img {
+      border-radius: 50%;
+      width: 49px;
+      height:49px;
+  }
+  .chat-container .user-head:after {
+      content: '';
+      display: block;
+      position: relative;
+      width: 11px;
+      height: 11px;
+      background-color: #f95b55;
+      bottom: 19px;
+      right: -33px;
+      border-radius: 50%;
+      border: solid 3px #363e47;
+  }
+  .chat-container .user-head.online:after {
+      background-color: #01e777;
+  }
+  .chat-container .user-head.away:after {
+      background-color: #fda14c;
+  }
+  @keyframes menuHover {
+      0% {
+          width: 10px;
+    }
+      50% {
+          width: 16px;
+    }
+      100% {
+          width: 10px;
+    }
+  }
+  .buttonToShowMessagingUi {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border-radius: 0.6em;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-left:5em;
+    margin-top:3em;
+    padding-left:3.5em;
+    padding-right:3.5em;
+    margin-bottom:1em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    border-color: #ed145b;
+    color: #cfd8dc;
+    box-shadow: 0 0 40px 40px #ed145b inset, 0 0 0 0 #ed145b;
+    transition: all 150ms ease-in-out;
+}
+ .buttonToShowMessagingUi:hover {
+	 box-shadow: 0 0 10px 0 #ed145b inset, 0 0 10px 4px #ed145b;
+   color: #2c3e50;
+ }
+
+ #sendMessageButton
+ {
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: 0.8em;
+ }
+
+ #sendMessageButton:hover
+ {
+    cursor: pointer;
+ }
+
+
 </style>
     <body onload="loadData()">
 
-   <!-- <form id="search1" method="GET" class="form-inline" action="search.php"> 
-    <input id="textToSearch" class="form-control mr" type="search" name="searchString" placeholder="Search" aria-label="Search">
-    <input  class="btn btn-primary" type="submit" value="Go" ></input>
-  </form>--> 
 
     <header>
             <div class="header-div">
@@ -746,6 +1049,115 @@ background: rgb(231, 236, 237);
         <br>
     </div>
     
+    <div class="centerit">
+      <div class='close'>&#10006;</div>
+        <div class="chat-container">
+          <main>
+            <div class="top-bar">
+              <div class="user-info">
+                <div class="user-head">
+                  <img src="" class = "matePic">
+                </div>
+                <div class="name"></div>
+                <div class="status online"></div>
+              </div>
+              <div class="buttons">
+                <div class="call">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                       viewBox="0 0 512.076 512.076" style="enable-background:new 0 0 512.076 512.076;" xml:space="preserve">
+                    <g>
+                      <path d="M499.639,396.039l-103.646-69.12c-13.153-8.701-30.784-5.838-40.508,6.579l-30.191,38.818
+                               c-3.88,5.116-10.933,6.6-16.546,3.482l-5.743-3.166c-19.038-10.377-42.726-23.296-90.453-71.04s-60.672-71.45-71.049-90.453
+                               l-3.149-5.743c-3.161-5.612-1.705-12.695,3.413-16.606l38.792-30.182c12.412-9.725,15.279-27.351,6.588-40.508l-69.12-103.646
+                               C109.12,1.056,91.25-2.966,77.461,5.323L34.12,31.358C20.502,39.364,10.511,52.33,6.242,67.539
+                               c-15.607,56.866-3.866,155.008,140.706,299.597c115.004,114.995,200.619,145.92,259.465,145.92
+                               c13.543,0.058,27.033-1.704,40.107-5.239c15.212-4.264,28.18-14.256,36.181-27.878l26.061-43.315
+                               C517.063,422.832,513.043,404.951,499.639,396.039z M494.058,427.868l-26.001,43.341c-5.745,9.832-15.072,17.061-26.027,20.173
+                               c-52.497,14.413-144.213,2.475-283.008-136.32S8.29,124.559,22.703,72.054c3.116-10.968,10.354-20.307,20.198-26.061
+                               l43.341-26.001c5.983-3.6,13.739-1.855,17.604,3.959l37.547,56.371l31.514,47.266c3.774,5.707,2.534,13.356-2.85,17.579
+                               l-38.801,30.182c-11.808,9.029-15.18,25.366-7.91,38.332l3.081,5.598c10.906,20.002,24.465,44.885,73.967,94.379
+                               c49.502,49.493,74.377,63.053,94.37,73.958l5.606,3.089c12.965,7.269,29.303,3.898,38.332-7.91l30.182-38.801
+                               c4.224-5.381,11.87-6.62,17.579-2.85l103.637,69.12C495.918,414.126,497.663,421.886,494.058,427.868z"/>
+                      <path d="M291.161,86.39c80.081,0.089,144.977,64.986,145.067,145.067c0,4.713,3.82,8.533,8.533,8.533s8.533-3.82,8.533-8.533
+                               c-0.099-89.503-72.63-162.035-162.133-162.133c-4.713,0-8.533,3.82-8.533,8.533S286.448,86.39,291.161,86.39z"/>
+                      <path d="M291.161,137.59c51.816,0.061,93.806,42.051,93.867,93.867c0,4.713,3.821,8.533,8.533,8.533
+                               c4.713,0,8.533-3.82,8.533-8.533c-0.071-61.238-49.696-110.863-110.933-110.933c-4.713,0-8.533,3.82-8.533,8.533
+                               S286.448,137.59,291.161,137.59z"/>
+                      <path d="M291.161,188.79c23.552,0.028,42.638,19.114,42.667,42.667c0,4.713,3.821,8.533,8.533,8.533s8.533-3.82,8.533-8.533
+                               c-0.038-32.974-26.759-59.696-59.733-59.733c-4.713,0-8.533,3.82-8.533,8.533S286.448,188.79,291.161,188.79z"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="messages" id="messages">
+              <div class="date-split">Nothing up here!</div>
+      
+              <div class="message">
+                <div class="user-head">
+                  <img src="" class ="matePic">
+                </div>
+                <div class="content">I've updated the website content now Fiona, I hope that's all okay? Please let me know of any additional changes</div>
+              </div>
+              <div class="message fromme">
+                <div class="user-head">
+                  <img src="" class = "myPic">
+                </div>
+                <div class="content">Ah! That's Great, Joe. IOU you one!<br>I've got to go now, I'll catch up with you tomorrow.</div>
+              </div>
+              <div class="message">
+                <div class="user-head">
+                  <img src="" class ="matePic">
+                </div>
+                <div class="content">No Worries, I'm glad you're happy!</div>
+              </div>
+              <div class="message">
+                <div class="user-head">
+                  <img src="" class ="matePic">
+                </div>
+                <div class="content">Sure thing, talk to you later, Fiona</div>
+              </div>
+              <div class="date-split">TODAY</div>
+              <div class="message fromme">
+                <div class="user-head">
+                  <img src="" class = "myPic">
+                </div>
+                <div class="content">Hey can you check over the images for me, please?</div>
+              </div>
+              <div class="message">
+                <div class="user-head">
+                  <img src="" class ="matePic">
+                </div>
+                <div class="content">I've already done it, I'll get the presentation together now.</div>
+              </div>
+            </div>
+            <div class="bottom-bar">
+              <textarea id="messageInput" class="msg-input"  spellcheck="false" placeholder="New Message"></textarea>
+              <div class="send-button">
+                <button id="sendMessageButton" onclick="sendMessage()">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 512.076 512.076" style="enable-background:new 0 0 512.076 512.076;" xml:space="preserve">
+                  <g>
+                    <path d="M509.532,34.999c-2.292-2.233-5.678-2.924-8.658-1.764L5.213,225.734c-2.946,1.144-4.967,3.883-5.192,7.034
+                             c-0.225,3.151,1.386,6.149,4.138,7.7l102.719,57.875l35.651,174.259c0.222,1.232,0.723,2.379,1.442,3.364
+                             c0.072,0.099,0.131,0.175,0.191,0.251c1.256,1.571,3.037,2.668,5.113,3c0.265,0.042,0.531,0.072,0.795,0.088
+                             c0.171,0.011,0.341,0.016,0.511,0.016c1.559,0,3.036-0.445,4.295-1.228c0.426-0.264,0.831-0.569,1.207-0.915
+                             c0.117-0.108,0.219-0.205,0.318-0.306l77.323-77.52c3.186-3.195,3.18-8.369-0.015-11.555c-3.198-3.188-8.368-3.18-11.555,0.015
+                             l-60.739,60.894l13.124-112.394l185.495,101.814c1.868,1.02,3.944,1.239,5.846,0.78c0.209-0.051,0.4-0.105,0.589-0.166
+                             c1.878-0.609,3.526-1.877,4.574-3.697c0.053-0.094,0.1-0.179,0.146-0.264c0.212-0.404,0.382-0.8,0.517-1.202L511.521,43.608
+                             C512.6,40.596,511.824,37.23,509.532,34.999z M27.232,234.712L432.364,77.371l-318.521,206.14L27.232,234.712z M162.72,316.936
+                             c-0.764,0.613-1.429,1.374-1.949,2.267c-0.068,0.117-0.132,0.235-0.194,0.354c-0.496,0.959-0.784,1.972-0.879,2.986L148.365,419.6
+                             l-25.107-122.718l275.105-178.042L162.72,316.936z M359.507,419.195l-177.284-97.307L485.928,66.574L359.507,419.195z"/>
+                  </g>
+                </svg>
+              </button>
+              </div>
+            </div>
+          </main>
+          </div>
+    </div>
+
+
         <div class="pCard_card">
             <div class="pCard_up">
         <div class="pCard_text">
@@ -763,28 +1175,8 @@ background: rgb(231, 236, 237);
             <p style="margin-left:7rem">Location</p>
             <p id="locationUsr" style="margin-left:7rem" ></p>
         </div>
-        <div>
-            <p>
-                <!-- LIKE -->
-                <section style="width:12rem; margin-left:4.5rem;" id="like" class="rating">
-                <!-- FIFTH HEART -->
-                <input type="radio" id="heart_5" name="like" value="5" />
-                <label for="heart_5" title="Five">&#10084;</label>
-                <!-- FOURTH HEART -->
-                <input type="radio" id="heart_4" name="like" value="4" />
-                <label for="heart_4" title="Four">&#10084;</label>
-                <!-- THIRD HEART -->
-                <input type="radio" id="heart_3" name="like" value="3" />
-                <label for="heart_3" title="Three">&#10084;</label>
-                <!-- SECOND HEART -->
-                <input type="radio" id="heart_2" name="like" value="2" />
-                <label for="heart_2" title="Two">&#10084;</label>
-                <!-- FIRST HEART -->
-                <input type="radio" id="heart_1" name="like" value="1" />
-                <label for="heart_1" title="One">&#10084;</label> 
-                </section>
-            </p>
-        </div>
+        <button class="buttonToShowMessagingUi">chat with them
+        </button>
     </div>
     <div class="pCard_back">
     <p id="hair"></p>
@@ -818,115 +1210,225 @@ background: rgb(231, 236, 237);
 
 
 <script>
-    var genderFilter = "empty"
-    var hairFilter = "empty"
-    var eyeFilter = "empty" 
-    var currentYear=2021;
-    var size=0;
-    var tsize=0;
-    var currentProfileIndex=0;
-    var currentProfileImgIndex=0;
-    var ids=[];
-    var fullnames=[];
-    var genders=[];
-    var birthdays=[];
-    var education_levels=[];
-    var job_titles=[];
-    var locations=[];
-    var hobbies=[];
-    var hair_colors=[];
-    var skin_colors=[];
-    var eye_colors=[];
-    var imgs= [];
-    var arrOfProfileData
-    var arrOfProfileImg
 
-    async function loadData()
-    {
-
-      await fetch("http://localhost:8080/fetchStarFromUsersNeqId", {method: 'GET'})    
-      .then( res  =>  res.json() )
-      .then( data => 
-      {
-        arrOfProfileData = data
-      });
-      if(arrOfProfileData.fullnames === undefined)
-      {
-        window.location.replace("http://localhost:8080/login")
-      }
-      $('#helloLink').html("Hello " + arrOfProfileData.email)
-      $('.pCard_up').css("background-image", "url("  + arrOfProfileData.images[currentProfileImgIndex] +  ")")
-      $('.pCard_up').css('background-size', 'cover')
-      $('#nameUsr').html(arrOfProfileData.fullnames[currentProfileImgIndex])
-      $('#locationUsr').html(arrOfProfileData.locations[currentProfileImgIndex])
-      $('#ageUsr').html(arrOfProfileData.ages[currentProfileImgIndex])
-      $('#jobUsr').html(arrOfProfileData.jobs[currentProfileImgIndex])
-      $('#education').html("Education: "+arrOfProfileData.educationLevels[currentProfileImgIndex])
-      $('#eye').html("Eye color: "+arrOfProfileData.eyeColors[currentProfileImgIndex])
-      $('#hair').html("Hair color: "+arrOfProfileData.hairColors[currentProfileImgIndex])
-      $('#hobbies').html("Hobbies: "+arrOfProfileData.hobbies[currentProfileImgIndex])
-      size= arrOfProfileData.locations.length-1
-      tsize=size+1
-      $("#matchesFound").html(tsize+" profiles found") 
-      
-      $.ajax( { 
-            url :  'http://localhost:8080/updateUserVisitedUser', 
-            type : 'GET',
-            async: false,
-            data : {
-                'fullname' : arrOfProfileData.fullnames[currentProfileImgIndex],
-            },  
-            success : function(data) 
-            {
-              //alert("success")
-            }
-            ,
-            error: function() {
-            alert("Unable to reach API")
-            } 
-        });
-  }
-
-  function nextProfile()
+  $('.buttonToShowMessagingUi').click(function () 
   {
-      if(currentProfileIndex==size)
-      {
-        alert("End of profiles")
-        return;
-      }
-      currentProfileIndex++
-      currentProfileImgIndex++
+      $('.centerit').show();
+  })
 
-      $('.pCard_up').css("background-image", "url("  + arrOfProfileData.images[currentProfileImgIndex] +  ")")
-      $('.pCard_up').css('background-size', 'cover')
-      $('#nameUsr').html(arrOfProfileData.fullnames[currentProfileImgIndex])
-      $('#locationUsr').html(arrOfProfileData.locations[currentProfileImgIndex])
-      $('#ageUsr').html(arrOfProfileData.ages[currentProfileImgIndex])
-      $('#jobUsr').html(arrOfProfileData.jobs[currentProfileImgIndex])
-      $('#education').html("Education: "+arrOfProfileData.educationLevels[currentProfileImgIndex])
-      $('#eye').html("Eye color: "+arrOfProfileData.eyeColors[currentProfileImgIndex])
-      $('#hair').html("Hair color: "+arrOfProfileData.hairColors[currentProfileImgIndex])
-      $('#hobbies').html("Hobbies: "+arrOfProfileData.hobbies[currentProfileImgIndex])
+  $('.close').click(function () 
+  {
+      $('.centerit').hide();
+  })
 
-      $.ajax( { 
-            url :  'http://localhost:8080/updateUserVisitedUser', 
-            type : 'GET',
-            async: false,
-            data : {
-                'fullname' : arrOfProfileData.fullnames[currentProfileImgIndex],
-            },  
-            success : function(data) 
-            {
-              //alert("success")
-            }
-            ,
-            error: function() {
-             alert("Unable to reach API")
-            } 
+  var currentSubscription
+  var messageInput 
+  var avatarPicOfMate
+  var myAvatarPic
+  var myFullname 
+  var stompClient
+  var mateEmail
+  var myEmail
+  var genderFilter = "empty"
+  var hairFilter = "empty"
+  var eyeFilter = "empty" 
+  var currentYear=2021
+  var size=0
+  var tsize=0
+  var currentProfileIndex=0
+  var currentProfileImgIndex=0
+  var ids=[]
+  var fullnames=[]
+  var genders=[]
+  var birthdays=[]
+  var education_levels=[]
+  var job_titles=[]
+  var locations=[]
+  var hobbies=[]
+  var hair_colors=[]
+  var skin_colors=[]
+  var eye_colors=[]
+  var imgs= []
+  var arrOfProfileData
+  var arrOfProfileImg
+
+  async function loadData()
+  {
+
+    await fetch("http://localhost:8080/fetchStarFromUsersNeqId", {method: 'GET'})    
+    .then( res  =>  res.json() )
+    .then( data => 
+    {
+      arrOfProfileData = data
+    });
+
+    if(arrOfProfileData.fullnames === undefined)
+    {
+      window.location.replace("http://localhost:8080/login")
+    }
+
+    myFullname = arrOfProfileData.myFullname
+    mateEmail = arrOfProfileData.emails[currentProfileImgIndex]
+    myEmail = arrOfProfileData.email
+    $('#helloLink').html("Hello " + arrOfProfileData.email)
+    $('.pCard_up').css("background-image", "url("  + arrOfProfileData.images[currentProfileImgIndex] +  ")")
+    $('.pCard_up').css('background-size', 'cover')
+    $('#nameUsr').html(arrOfProfileData.fullnames[currentProfileImgIndex])
+    $('#locationUsr').html(arrOfProfileData.locations[currentProfileImgIndex])
+    $('#ageUsr').html(arrOfProfileData.ages[currentProfileImgIndex])
+    $('#jobUsr').html(arrOfProfileData.jobs[currentProfileImgIndex])
+    $('#education').html("Education: "+arrOfProfileData.educationLevels[currentProfileImgIndex])
+    $('#eye').html("Eye color: "+arrOfProfileData.eyeColors[currentProfileImgIndex])
+    $('#hair').html("Hair color: "+arrOfProfileData.hairColors[currentProfileImgIndex])
+    $('#hobbies').html("Hobbies: "+arrOfProfileData.hobbies[currentProfileImgIndex])
+    size= arrOfProfileData.locations.length-1
+    tsize=size+1
+    $("#matchesFound").html(tsize+" profiles found") 
+    
+    $.ajax( 
+    { 
+        url :  'http://localhost:8080/updateUserVisitedUser', 
+        type : 'GET',
+        async: false,
+        data : {
+            'fullname' : arrOfProfileData.fullnames[currentProfileImgIndex],
+        },  
+        success : function(data) 
+        {
+          //alert("success")
+        }
+        ,
+        error: function() {
+        alert("Unable to reach API")
+        } 
+    });
+
+    var socket = new SockJS('/ws')
+    stompClient = Stomp.over(socket)
+    stompClient.connect({}, onConnected, onError)
+
+    const Image  =   await fetch("http://localhost:8080/testAvatar?email=" + mateEmail, {method: 'GET'})    
+        .then( res  =>  res.json() )
+        .then( data => 
+        {
+            avatarPicOfMate = data.avatarPic
         });
+
+        $('.matePic').css("background-image", "url("  + avatarPicOfMate +  ")")
+        $('.matePic').css('background-size', 'cover')
+        $('.name').html(arrOfProfileData.fullnames[currentProfileImgIndex])
+
+
+        const Image2  =   await fetch("http://localhost:8080/testAvatar?email=" + myEmail, {method: 'GET'})    
+        .then( res  =>  res.json() )
+        .then( data => 
+        {
+            myAvatarPic = data.avatarPic
+        });
+
+        $('.myPic').css("background-image", "url("  + myAvatarPic +  ")")
+        $('.myPic').css('background-size', 'cover')
+    //event.preventDefault();
   }
 
-  function previousProfile()
+  function onConnected() 
+  {
+    // Subscribe to the Public Topic
+    if(currentSubscription)
+    {
+      stompClient.unsubscribe()
+    }
+
+    currentSubscription = stompClient.subscribe(`/topic/${myFullname}`, onMessageReceived)
+    // Tell your username to the server
+    stompClient.send(`/app/chat/${myFullname}/addUser`,
+        {},
+        JSON.stringify({sender: myFullname[0], type: 'JOIN'}))
+  }
+
+  function onError(error) 
+  {
+    alert("Could not connect to the Web Socket server please refresh the page.")
+  }
+
+
+  function onMessageReceived(payload) 
+  {
+    alert("I am getting a message" + payload)
+  }
+
+  function sendMessage()
+  {
+    messageInput = document.querySelector('#messageInput').value.trim()
+
+    if(messageInput && stompClient) 
+    {
+      var chatMessage = 
+      {
+          sender: myFullname[0].toString(), 
+          content: messageInput,
+          type: 'CHAT',
+          recipientFullname:     arrOfProfileData.fullnames[currentProfileImgIndex]
+      }
+
+      stompClient.send(`/app/chat/${arrOfProfileData.fullnames[currentProfileImgIndex]}/sendMessage`, {}, JSON.stringify(chatMessage))
+      messageInput.value = ''
+    }
+
+  }
+
+
+  async function nextProfile()
+  {
+    if(currentProfileIndex==size)
+    {
+      alert("End of profiles")
+      return;
+    }
+    currentProfileIndex++
+    currentProfileImgIndex++
+    mateEmail = arrOfProfileData.emails[currentProfileImgIndex]
+
+    $('.pCard_up').css("background-image", "url("  + arrOfProfileData.images[currentProfileImgIndex] +  ")")
+    $('.pCard_up').css('background-size', 'cover')
+    $('#nameUsr').html(arrOfProfileData.fullnames[currentProfileImgIndex])
+    $('#locationUsr').html(arrOfProfileData.locations[currentProfileImgIndex])
+    $('#ageUsr').html(arrOfProfileData.ages[currentProfileImgIndex])
+    $('#jobUsr').html(arrOfProfileData.jobs[currentProfileImgIndex])
+    $('#education').html("Education: "+arrOfProfileData.educationLevels[currentProfileImgIndex])
+    $('#eye').html("Eye color: "+arrOfProfileData.eyeColors[currentProfileImgIndex])
+    $('#hair').html("Hair color: "+arrOfProfileData.hairColors[currentProfileImgIndex])
+    $('#hobbies').html("Hobbies: "+arrOfProfileData.hobbies[currentProfileImgIndex])
+
+    $.ajax( { 
+      url :  'http://localhost:8080/updateUserVisitedUser', 
+      type : 'GET',
+      async: false,
+      data : {
+          'fullname' : arrOfProfileData.fullnames[currentProfileImgIndex],
+      },  
+      success : function(data) 
+      {
+        //alert("success")
+      }
+      ,
+      error: function() {
+        alert("Unable to reach API")
+      }});
+      
+    const Image  =   await fetch("http://localhost:8080/testAvatar?email=" + mateEmail, {method: 'GET'})    
+    .then( res  =>  res.json() )
+    .then( data => 
+    {
+        avatarPicOfMate = data.avatarPic
+    });
+
+    $('.matePic').css("background-image", "url("  + avatarPicOfMate +  ")")
+    $('.matePic').css('background-size', 'cover')
+    $('.name').html(arrOfProfileData.fullnames[currentProfileImgIndex])
+  }
+
+  async function previousProfile()
   {
       if(currentProfileIndex==0)
       {
@@ -935,7 +1437,7 @@ background: rgb(231, 236, 237);
       }
       currentProfileIndex--
       currentProfileImgIndex--
-
+      mateEmail = arrOfProfileData.emails[currentProfileImgIndex]
       $('.pCard_up').css("background-image", "url("  + arrOfProfileData.images[currentProfileImgIndex] +  ")")
       $('.pCard_up').css('background-size', 'cover')
       $('#nameUsr').html(arrOfProfileData.fullnames[currentProfileImgIndex])
@@ -962,7 +1464,18 @@ background: rgb(231, 236, 237);
             error: function() {
              alert("Unable to reach API")
             } 
-        });
+        }); 
+        
+    const Image  =   await fetch("http://localhost:8080/testAvatar?email=" + mateEmail, {method: 'GET'})    
+    .then( res  =>  res.json() )
+    .then( data => 
+    {
+        avatarPicOfMate = data.avatarPic
+    });
+
+    $('.matePic').css("background-image", "url("  + avatarPicOfMate +  ")")
+    $('.matePic').css('background-size', 'cover')
+    $('.name').html(arrOfProfileData.fullnames[currentProfileImgIndex])
   }
 
   async function getFilteredProfilesData(hairFilter,genderFilter)
@@ -982,6 +1495,7 @@ background: rgb(231, 236, 237);
 
 .then((data) => 
 {
+  
   currentProfileImgIndex = 0
   currentProfileIndex = 0
   tsize = 0
@@ -1004,6 +1518,8 @@ background: rgb(231, 236, 237);
     $("#matchesFound").html(tsize+" profiles found")
     return
   }
+
+
   $('#helloLink').html("Hello " + arrOfProfileData.email)
   $('.pCard_up').css("background-image", "url("  + arrOfProfileData.images[currentProfileImgIndex] +  ")")
   $('.pCard_up').css('background-size', 'cover')
@@ -1016,11 +1532,24 @@ background: rgb(231, 236, 237);
   $('#hair').html("Hair color: "+arrOfProfileData.hairColors[currentProfileImgIndex])
   $('#hobbies').html("Hobbies: "+arrOfProfileData.hobbies[currentProfileImgIndex])
   $("#matchesFound").html(tsize+" profiles found")
+
 })
 
 .catch((error) => {
   console.error('Error:', error);
   });
+
+  mateEmail = arrOfProfileData.emails[currentProfileImgIndex]
+  const Image  =   await fetch("http://localhost:8080/testAvatar?email=" + mateEmail, {method: 'GET'})    
+    .then( res  =>  res.json() )
+    .then( data => 
+    {
+        avatarPicOfMate = data.avatarPic
+    });
+
+    $('.matePic').css("background-image", "url("  + avatarPicOfMate +  ")")
+    $('.matePic').css('background-size', 'cover')
+    $('.name').html(arrOfProfileData.fullnames[currentProfileImgIndex])
 }
 
     $(function () 

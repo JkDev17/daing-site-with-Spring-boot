@@ -1,5 +1,6 @@
 package dating.dating.controllers;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +28,17 @@ public class RstController
     }
 
     Logger LOGGER = LoggerFactory.getLogger(RestController.class);
+
     
+    @GetMapping(value="/testAvatar")
+    public HashMap<String,String> testAvatarForSpecificPerson(HttpSession session, @RequestParam("email") String email) throws IOException
+    {
+        HashMap<String,String> map = new HashMap<String,String>();
+        String avatarImageBytes =  userService.getSpecificPersonAvatarIcon(email);
+        map.put("avatarPic",avatarImageBytes);
+        return map;
+    }
+
     @GetMapping(value="/checkDuplicateEmail")
     public String checkDuplicateEmail(@RequestParam("email") String email)
     {
