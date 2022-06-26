@@ -996,7 +996,28 @@ background: rgb(231, 236, 237);
     cursor: pointer;
  }
 
+.myPic
+{
+  object-fit: cover;
+}
 
+.matePic
+{
+  object-fit: cover;
+}
+.dateAndTime
+{
+  padding-top:1rem;
+  padding-left:0.5rem;
+  color: #626c76;
+}
+
+.dateAndTime2
+{
+  padding-top:1rem;
+  padding-right:0.5rem;
+  color: #626c76;
+}
 </style>
     <body onload="loadData()">
 
@@ -1092,44 +1113,6 @@ background: rgb(231, 236, 237);
             </div>
             <div class="messages" id="messages">
               <div class="date-split">Nothing up here!</div>
-      
-              <div class="message">
-                <div class="user-head">
-                  <img src="" class ="matePic">
-                </div>
-                <div class="content">I've updated the website content now Fiona, I hope that's all okay? Please let me know of any additional changes</div>
-              </div>
-              <div class="message fromme">
-                <div class="user-head">
-                  <img src="" class = "myPic">
-                </div>
-                <div class="content">Ah! That's Great, Joe. IOU you one!<br>I've got to go now, I'll catch up with you tomorrow.</div>
-              </div>
-              <div class="message">
-                <div class="user-head">
-                  <img src="" class ="matePic">
-                </div>
-                <div class="content">No Worries, I'm glad you're happy!</div>
-              </div>
-              <div class="message">
-                <div class="user-head">
-                  <img src="" class ="matePic">
-                </div>
-                <div class="content">Sure thing, talk to you later, Fiona</div>
-              </div>
-              <div class="date-split">TODAY</div>
-              <div class="message fromme">
-                <div class="user-head">
-                  <img src="" class = "myPic">
-                </div>
-                <div class="content">Hey can you check over the images for me, please?</div>
-              </div>
-              <div class="message">
-                <div class="user-head">
-                  <img src="" class ="matePic">
-                </div>
-                <div class="content">I've already done it, I'll get the presentation together now.</div>
-              </div>
             </div>
             <div class="bottom-bar">
               <textarea id="messageInput" class="msg-input"  spellcheck="false" placeholder="New Message"></textarea>
@@ -1354,7 +1337,74 @@ background: rgb(231, 236, 237);
 
   function onMessageReceived(payload) 
   {
-    alert("I am getting a message" + payload)
+    
+    recipient = JSON.parse(payload.body)
+    if(recipient.content == null)
+      return
+    recipient = recipient.sender
+
+
+    if (recipient != myFullname)
+    {
+      var messageContent = JSON.parse(payload.body)
+      messageContent = messageContent.content
+
+      var newMessageDiv = document.createElement('div')
+
+      var dt = new Date()
+      var today = 'today'
+      var pm = 'pm'
+
+      var newMessage = 
+      `<div class="message">
+        <div class="user-head">
+          <img src="${avatarPicOfMate}" class ="matePic">
+        </div>
+        <div class="content">${messageContent}</div>
+        <div class="dateAndTime">
+          ${today}
+          ${
+            dt.getHours().toString().padStart(2, '0')}:
+            ${
+              dt.getMinutes().toString().padStart(2, '0')}
+          ${pm}  
+        </div>
+      </div>`
+
+      newMessageDiv.innerHTML = newMessage
+      document.getElementById("messages").appendChild(newMessageDiv)
+    }
+    
+    if (recipient == myFullname)
+    {
+      var messageContent = JSON.parse(payload.body)
+      messageContent = messageContent.content
+
+      var newMessageDiv = document.createElement('div')
+
+      var dt = new Date()
+      var today = 'today'
+      var pm = 'pm'
+
+      var newMessage = 
+      `<div class="message fromme">
+        <div class="user-head">
+          <img src="${myAvatarPic}" class ="myPic">
+        </div>
+        <div class="content">${messageContent}</div>
+        <div class="dateAndTime2">
+          ${today}
+          ${
+            dt.getHours().toString().padStart(2, '0')}:
+            ${
+              dt.getMinutes().toString().padStart(2, '0')}
+          ${pm}  
+        </div>
+      </div>`
+
+      newMessageDiv.innerHTML = newMessage
+      document.getElementById("messages").appendChild(newMessageDiv)
+    }
   }
 
   function sendMessage()
@@ -1372,6 +1422,7 @@ background: rgb(231, 236, 237);
       }
 
       stompClient.send(`/app/chat/${arrOfProfileData.fullnames[currentProfileImgIndex]}/sendMessage`, {}, JSON.stringify(chatMessage))
+      stompClient.send(`/app/chat/${myFullname}/sendMessage`, {}, JSON.stringify(chatMessage))
       messageInput.value = ''
     }
 

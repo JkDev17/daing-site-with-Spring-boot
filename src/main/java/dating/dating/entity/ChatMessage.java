@@ -1,5 +1,7 @@
 package dating.dating.entity;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ChatMessage 
 {
@@ -7,6 +9,17 @@ public class ChatMessage
     private String content;
     private String sender;
     private String recipientFullname;
+    /*private LocalDateTime localDateTime;
+
+    public  String getLocalDateTime()
+    {
+        return localDateTime.format((DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+    }
+
+    public  void setLocalDateTime()
+    {
+        localDateTime = LocalDateTime.now();
+    }*/
 
     public String getRecipientFullname() 
     {
