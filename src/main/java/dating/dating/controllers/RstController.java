@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import dating.dating.entity.ChatMessage;
 import dating.dating.entity.Filters;
 import dating.dating.services.UsersServices;
 
@@ -166,5 +167,11 @@ public class RstController
         HashMap <String,List<String>> map = new HashMap <String,List<String>>();
         map = userService.matchingProfiles(session);
         return map;
+    }
+
+    @PostMapping(value = "/saveMessage")
+    public void saveMessage(@RequestBody ChatMessage chatMessage)
+    {
+        userService.saveMessageToDatabase(chatMessage);
     }
 }

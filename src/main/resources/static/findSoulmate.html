@@ -1423,9 +1423,18 @@ background: rgb(231, 236, 237);
 
       stompClient.send(`/app/chat/${arrOfProfileData.fullnames[currentProfileImgIndex]}/sendMessage`, {}, JSON.stringify(chatMessage))
       stompClient.send(`/app/chat/${myFullname}/sendMessage`, {}, JSON.stringify(chatMessage))
-      messageInput.value = ''
-    }
+      
 
+      fetch("http://localhost:8080/saveMessage", 
+      {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json',},
+        body: JSON.stringify(chatMessage)
+      })
+
+      $('#messageInput').value = '';
+      document.getElementById("messageInput").value = "";
+    }
   }
 
 
@@ -1477,6 +1486,7 @@ background: rgb(231, 236, 237);
     $('.matePic').css("background-image", "url("  + avatarPicOfMate +  ")")
     $('.matePic').css('background-size', 'cover')
     $('.name').html(arrOfProfileData.fullnames[currentProfileImgIndex])
+    $('div#messages').empty()
   }
 
   async function previousProfile()
@@ -1527,10 +1537,12 @@ background: rgb(231, 236, 237);
     $('.matePic').css("background-image", "url("  + avatarPicOfMate +  ")")
     $('.matePic').css('background-size', 'cover')
     $('.name').html(arrOfProfileData.fullnames[currentProfileImgIndex])
+    $('div#messages').empty()
   }
 
   async function getFilteredProfilesData(hairFilter,genderFilter)
   {
+    $('div#messages').empty()
     const data = { 'hairFilter': hairFilter,
                    'genderFilter': genderFilter
                   }

@@ -13,6 +13,8 @@ import java.nio.file.Paths;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Calendar;
@@ -30,13 +32,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import dating.dating.entity.ChatMessage;
 import dating.dating.entity.Filters;
 import dating.dating.entity.Images;
+import dating.dating.entity.Messages;
 import dating.dating.entity.UserHasImages;
 import dating.dating.entity.UserVisitedUsers;
 import dating.dating.entity.Users;
 import dating.dating.exceptions.ProfileNotFoundException;
 import dating.dating.repositories.ImagesRepository;
+import dating.dating.repositories.MessagesRepository;
 import dating.dating.repositories.UserHasImagesRepository;
 import dating.dating.repositories.UserVisitedUsersRepository;
 import dating.dating.repositories.UsersRepository;
@@ -52,15 +57,18 @@ public class UsersServices
 
     private final UserVisitedUsersRepository userVisitedUsersRepository;
 
+    private final MessagesRepository messagesRepository;
+
     Logger LOGGER = LoggerFactory.getLogger(UsersServices.class);
 
     UsersServices(UsersRepository usersRepository,UserHasImagesRepository userHasImagesRepository, ImagesRepository imagesRepository,
-                  UserVisitedUsersRepository userVisitedUsersRepository)
+                  UserVisitedUsersRepository userVisitedUsersRepository, MessagesRepository messagesRepository )
     {
         this.usersRepository = usersRepository;
         this.userHasImagesRepository = userHasImagesRepository;
         this.imagesRepository = imagesRepository;
         this.userVisitedUsersRepository = userVisitedUsersRepository;
+        this.messagesRepository = messagesRepository;
     }
 
     public String getSpecificPersonAvatarIcon(String email) throws IOException
@@ -920,5 +928,12 @@ public class UsersServices
         imageId = imagesRepository.getLastId();
         userHasImagesRepository.saveAndFlush(new UserHasImages(userId, imageId, '1'));
         LOGGER.info("User created with id:"+ userId+" and email:"+ session.getAttribute("userEmailFromSignup").toString());
+    }
+
+    public void saveMessageToDatabase(ChatMessage chatMessage)
+    {
+        LocalDateTime utcTimestamp = LocalDateTime.now(ZoneId.of("UTC"));
+        Messages messages = new Messages(chatMessage.getContent(), chatMessage.getSender(), chatMessage.getRecipientFullname(),utcTimestamp );
+        messagesRepository.save(messages);
     }
 }
