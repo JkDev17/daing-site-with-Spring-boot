@@ -33,13 +33,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Seri
   @Override
   protected void configure(HttpSecurity http) throws Exception  
   {
-    http.authorizeRequests()
+    http
+    .authorizeRequests()
     .antMatchers("/" , "/Signup"  , "/checkDuplicateEmail" , "/success",  "/saveVarsToSession" , "/getSessionData" ,
     "/CustomizeProfile" , "/fetchUserPersonalDataIdEq2" ,  "/fetchUserPersonalDataProfilePic", "/TestingImagesApi", "/TestingImages",
     "/fetchUserPersonalDataIdEq3", "/fetchUserPersonalDataIdEq4" , "/saveDataToDatabase" , "/sessionEmail", "/getUserLogInEmail" ,
     "/TestingImagesApi-v2", "/TestingImagesApi-v3", "/fetchDataFromDatabase" , "/fetchUserVisitedUsersList", "/fetchBasicDataFromDB"
     , "/fetchStarFromUsersNeqId", "/findSoulmate", "/fetchStarFromUImagesNeqToId", "/updateUserVisitedUser", "/FilterProfiles",
-    "/VisitProfile", "/fetchOnePersonVisited", "/MatchingProfiles", "/ProfilesMatched", "/testAvatar", "/saveMessage").permitAll()
+    "/VisitProfile", "/fetchOnePersonVisited", "/MatchingProfiles", "/ProfilesMatched", "/testAvatar", "/saveMessage", "/getConvo")
+    .permitAll()
+
     //.antMatchers("/PremiumApi").hasRole("PREMIUM_USER") 
     .anyRequest().authenticated()
     .and()

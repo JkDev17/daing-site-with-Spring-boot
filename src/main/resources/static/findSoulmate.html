@@ -1196,14 +1196,16 @@ background: rgb(231, 236, 237);
 
   $('.buttonToShowMessagingUi').click(function () 
   {
-      $('.centerit').show();
+      $('.centerit').show()
   })
 
   $('.close').click(function () 
   {
-      $('.centerit').hide();
+      $('.centerit').hide()
   })
 
+  var pmOrAm
+  var messagesWithMate = []
   var currentSubscription
   var messageInput 
   var avatarPicOfMate
@@ -1291,27 +1293,133 @@ background: rgb(231, 236, 237);
     stompClient.connect({}, onConnected, onError)
 
     const Image  =   await fetch("http://localhost:8080/testAvatar?email=" + mateEmail, {method: 'GET'})    
-        .then( res  =>  res.json() )
-        .then( data => 
-        {
-            avatarPicOfMate = data.avatarPic
-        });
+    .then( res  =>  res.json() )
+    .then( data => 
+    {
+        avatarPicOfMate = data.avatarPic
+    });
 
-        $('.matePic').css("background-image", "url("  + avatarPicOfMate +  ")")
-        $('.matePic').css('background-size', 'cover')
-        $('.name').html(arrOfProfileData.fullnames[currentProfileImgIndex])
+    $('.matePic').css("background-image", "url("  + avatarPicOfMate +  ")")
+    $('.matePic').css('background-size', 'cover')
+    $('.name').html(arrOfProfileData.fullnames[currentProfileImgIndex])
 
 
-        const Image2  =   await fetch("http://localhost:8080/testAvatar?email=" + myEmail, {method: 'GET'})    
-        .then( res  =>  res.json() )
-        .then( data => 
-        {
-            myAvatarPic = data.avatarPic
-        });
+    const Image2  =   await fetch("http://localhost:8080/testAvatar?email=" + myEmail, {method: 'GET'})    
+    .then( res  =>  res.json() )
+    .then( data => 
+    {
+        myAvatarPic = data.avatarPic
+    });
 
-        $('.myPic').css("background-image", "url("  + myAvatarPic +  ")")
-        $('.myPic').css('background-size', 'cover')
-    //event.preventDefault();
+    $('.myPic').css("background-image", "url("  + myAvatarPic +  ")")
+    $('.myPic').css('background-size', 'cover')
+
+    const data =  { 'sender': myFullname[0],
+                    'recipientFullname': arrOfProfileData.fullnames[currentProfileImgIndex]
+                  }
+
+    await fetch("http://localhost:8080/getConvo", 
+    {
+      method: 'POST',
+      headers: 
+      { 'Content-Type': 'application/json', },
+      body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then( data => 
+    {
+      messagesWithMate = data.Messages
+    })
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0')
+    var mm = String(today.getMonth() + 1).padStart(2, '0')
+    var yyyy = today.getFullYear()
+    today = yyyy + '/' + mm + '/' + dd
+
+    day = today.substr(8,9)
+
+    if (messagesWithMate.length == 0)
+    {
+      return 
+    }
+
+    for( i=0; i< messagesWithMate.length; i++)
+    {
+      var messageDay = messagesWithMate[i].localDateTime.substr(4,6)
+      messageDay = messageDay.substr([4])
+      var dayDifference = day - messageDay
+      var year =  messagesWithMate[i].localDateTime.substr(0,4)
+      var month = messagesWithMate[i].localDateTime.substr(2,5)
+      month = month.substr(3,)
+      var date = year + " : " + month + " : " + messageDay
+      var time = messagesWithMate[i].localDateTime.substr(7,9)
+      time = time.substr(4,)
+
+      if (time.substr(0,2) > 12)
+        pmOrAm = "PM"
+      else
+        pmOrAm = "AM"
+
+
+      if (dayDifference == 0)
+      {
+        dayDifference = "Today at: "
+      }
+
+      else if (dayDifference == 1)
+      {
+        dayDifference = "Yesterday at:"
+      }
+
+      else if(dayDifference == 2)
+      {
+        dayDifference == "2 days ago at:"
+      }
+
+      else
+      {
+        dayDifference = date + " at "
+      }
+
+      if(messagesWithMate[i].sender == myFullname)
+      {
+        var newMessageDiv = document.createElement('div')
+
+        var newMessage = 
+        `<div class="message fromme">
+          <div class="user-head">
+            <img src="${myAvatarPic}" class ="myPic">
+          </div>
+          <div class="content">${messagesWithMate[i].content}</div>
+          <div class="dateAndTime2">
+            ${dayDifference} ${time} ${pmOrAm}
+          </div>
+        </div>`
+
+        newMessageDiv.innerHTML = newMessage
+        document.getElementById("messages").appendChild(newMessageDiv)
+      }
+
+      else if(messagesWithMate[i].sender != myFullname)
+      {
+        var newMessageDiv = document.createElement('div')
+
+        var newMessage = 
+        `<div class="message">
+          <div class="user-head">
+            <img src="${avatarPicOfMate}" class ="matePic">
+          </div>
+          <div class="content">${messagesWithMate[i].content}</div>
+          <div class="dateAndTime">
+            ${dayDifference} ${time} ${pmOrAm}
+          </div>
+        </div>`
+
+        newMessageDiv.innerHTML = newMessage
+        document.getElementById("messages").appendChild(newMessageDiv)
+      }
+    }
   }
 
   function onConnected() 
@@ -1352,8 +1460,16 @@ background: rgb(231, 236, 237);
       var newMessageDiv = document.createElement('div')
 
       var dt = new Date()
-      var today = 'today'
-      var pm = 'pm'
+      var today = 'Today at:'
+      var pmOrAm
+      var delim = ":"
+
+      var hours = dt.getHours()
+      if (dt >12)
+        pmOrAm = "PM"
+      else
+        pmOrAm = "AM"
+      var minutes = dt.getMinutes()
 
       var newMessage = 
       `<div class="message">
@@ -1362,12 +1478,7 @@ background: rgb(231, 236, 237);
         </div>
         <div class="content">${messageContent}</div>
         <div class="dateAndTime">
-          ${today}
-          ${
-            dt.getHours().toString().padStart(2, '0')}:
-            ${
-              dt.getMinutes().toString().padStart(2, '0')}
-          ${pm}  
+          ${today}  ${hours} ${delim} ${minutes} ${pmOrAm}
         </div>
       </div>`
 
@@ -1383,8 +1494,17 @@ background: rgb(231, 236, 237);
       var newMessageDiv = document.createElement('div')
 
       var dt = new Date()
-      var today = 'today'
-      var pm = 'pm'
+      var today = 'Today at:'
+      var pmOrAm
+      var delim = ":"
+
+      var hours = dt.getHours()
+      if (dt >12)
+        pmOrAm = "PM"
+      else
+        pmOrAm = "AM"
+    var minutes = dt.getMinutes()
+
 
       var newMessage = 
       `<div class="message fromme">
@@ -1393,12 +1513,7 @@ background: rgb(231, 236, 237);
         </div>
         <div class="content">${messageContent}</div>
         <div class="dateAndTime2">
-          ${today}
-          ${
-            dt.getHours().toString().padStart(2, '0')}:
-            ${
-              dt.getMinutes().toString().padStart(2, '0')}
-          ${pm}  
+        ${today}  ${hours} ${delim} ${minutes} ${pmOrAm}
         </div>
       </div>`
 
@@ -1432,8 +1547,7 @@ background: rgb(231, 236, 237);
         body: JSON.stringify(chatMessage)
       })
 
-      $('#messageInput').value = '';
-      document.getElementById("messageInput").value = "";
+      document.getElementById("messageInput").value = ""
     }
   }
 
@@ -1469,7 +1583,7 @@ background: rgb(231, 236, 237);
       },  
       success : function(data) 
       {
-        //alert("success")
+
       }
       ,
       error: function() {
@@ -1487,6 +1601,112 @@ background: rgb(231, 236, 237);
     $('.matePic').css('background-size', 'cover')
     $('.name').html(arrOfProfileData.fullnames[currentProfileImgIndex])
     $('div#messages').empty()
+
+        const data =  { 'sender': myFullname[0],
+                    'recipientFullname': arrOfProfileData.fullnames[currentProfileImgIndex]
+                  }
+
+    await fetch("http://localhost:8080/getConvo", 
+    {
+      method: 'POST',
+      headers: 
+      { 'Content-Type': 'application/json', },
+      body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then( data => 
+    {
+      messagesWithMate = data.Messages
+    })
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0')
+    var mm = String(today.getMonth() + 1).padStart(2, '0')
+    var yyyy = today.getFullYear()
+    today = yyyy + '/' + mm + '/' + dd
+
+    day = today.substr(8,9)
+
+    if (messagesWithMate.length == 0)
+    {
+      return 
+    }
+
+    for( i=0; i< messagesWithMate.length; i++)
+    {
+      var messageDay = messagesWithMate[i].localDateTime.substr(4,6)
+      messageDay = messageDay.substr([4])
+      var dayDifference = day - messageDay
+      var year =  messagesWithMate[i].localDateTime.substr(0,4)
+      var month = messagesWithMate[i].localDateTime.substr(2,5)
+      month = month.substr(3,)
+      var date = year + " : " + month + " : " + messageDay
+      var time = messagesWithMate[i].localDateTime.substr(7,9)
+      time = time.substr(4,)
+
+            if (time.substr(0,2) > 12)
+        pmOrAm = "PM"
+      else
+        pmOrAm = "AM"
+
+      if (dayDifference == 0)
+      {
+        dayDifference = "Today at: "
+      }
+
+      else if (dayDifference == 1)
+      {
+        dayDifference = "Yesterday at:"
+      }
+
+      else if(dayDifference == 2)
+      {
+        dayDifference == "2 days ago at:"
+      }
+
+      else
+      {
+        dayDifference = date + " at "
+      }
+
+      if(messagesWithMate[i].sender == myFullname)
+      {
+        var newMessageDiv = document.createElement('div')
+
+        var newMessage = 
+        `<div class="message fromme">
+          <div class="user-head">
+            <img src="${myAvatarPic}" class ="myPic">
+          </div>
+          <div class="content">${messagesWithMate[i].content}</div>
+          <div class="dateAndTime2">
+            ${dayDifference} ${time} ${pmOrAm}
+          </div>
+        </div>`
+
+        newMessageDiv.innerHTML = newMessage
+        document.getElementById("messages").appendChild(newMessageDiv)
+      }
+
+      else if(messagesWithMate[i].sender != myFullname)
+      {
+        var newMessageDiv = document.createElement('div')
+        
+        var newMessage = 
+        `<div class="message">
+          <div class="user-head">
+            <img src="${avatarPicOfMate}" class ="matePic">
+          </div>
+          <div class="content">${messagesWithMate[i].content}</div>
+          <div class="dateAndTime">
+            ${dayDifference} ${time} ${pmOrAm}
+          </div>
+        </div>`
+
+        newMessageDiv.innerHTML = newMessage
+        document.getElementById("messages").appendChild(newMessageDiv)
+      }
+    }
   }
 
   async function previousProfile()
@@ -1538,6 +1758,113 @@ background: rgb(231, 236, 237);
     $('.matePic').css('background-size', 'cover')
     $('.name').html(arrOfProfileData.fullnames[currentProfileImgIndex])
     $('div#messages').empty()
+
+    const data =  { 'sender': myFullname[0],
+                    'recipientFullname': arrOfProfileData.fullnames[currentProfileImgIndex]
+                  }
+
+    await fetch("http://localhost:8080/getConvo", 
+    {
+      method: 'POST',
+      headers: 
+      { 'Content-Type': 'application/json', },
+      body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then( data => 
+    {
+      messagesWithMate = data.Messages
+    })
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0')
+    var mm = String(today.getMonth() + 1).padStart(2, '0')
+    var yyyy = today.getFullYear()
+    today = yyyy + '/' + mm + '/' + dd
+
+    day = today.substr(8,9)
+
+    if (messagesWithMate.length == 0)
+    {
+      return 
+    }
+
+    for( i=0; i< messagesWithMate.length; i++)
+    {
+      var messageDay = messagesWithMate[i].localDateTime.substr(4,6)
+      messageDay = messageDay.substr([4])
+      var dayDifference = day - messageDay
+      var year =  messagesWithMate[i].localDateTime.substr(0,4)
+      var month = messagesWithMate[i].localDateTime.substr(2,5)
+      month = month.substr(3,)
+      var date = year + " : " + month + " : " + messageDay
+      var time = messagesWithMate[i].localDateTime.substr(7,9)
+      time = time.substr(4,)
+
+      if (time.substr(0,2) > 12)
+        pmOrAm = "PM"
+      else
+        pmOrAm = "AM"
+
+
+      if (dayDifference == 0)
+      {
+        dayDifference = "Today at: "
+      }
+
+      else if (dayDifference == 1)
+      {
+        dayDifference = "Yesterday at:"
+      }
+
+      else if(dayDifference == 2)
+      {
+        dayDifference == "2 days ago at:"
+      }
+
+      else
+      {
+        dayDifference = date + " at "
+      }
+
+      if(messagesWithMate[i].sender == myFullname)
+      {
+        var newMessageDiv = document.createElement('div')
+
+        var newMessage = 
+        `<div class="message fromme">
+          <div class="user-head">
+            <img src="${myAvatarPic}" class ="myPic">
+          </div>
+          <div class="content">${messagesWithMate[i].content}</div>
+          <div class="dateAndTime2">
+            ${dayDifference} ${time} ${pmOrAm}
+          </div>
+        </div>`
+
+        newMessageDiv.innerHTML = newMessage
+        document.getElementById("messages").appendChild(newMessageDiv)
+      }
+
+      else if(messagesWithMate[i].sender != myFullname)
+      {
+        var newMessageDiv = document.createElement('div')
+
+        var newMessage = 
+        `<div class="message">
+          <div class="user-head">
+            <img src="${avatarPicOfMate}" class ="matePic">
+          </div>
+          <div class="content">${messagesWithMate[i].content}</div>
+          <div class="dateAndTime">
+            ${dayDifference} ${time} ${pmOrAm}
+          </div>
+        </div>`
+
+        newMessageDiv.innerHTML = newMessage
+        document.getElementById("messages").appendChild(newMessageDiv)
+      }
+    }
   }
 
   async function getFilteredProfilesData(hairFilter,genderFilter)
@@ -1613,6 +1940,112 @@ background: rgb(231, 236, 237);
     $('.matePic').css("background-image", "url("  + avatarPicOfMate +  ")")
     $('.matePic').css('background-size', 'cover')
     $('.name').html(arrOfProfileData.fullnames[currentProfileImgIndex])
+    const dt =  { 'sender': myFullname[0],
+                    'recipientFullname': arrOfProfileData.fullnames[currentProfileImgIndex]
+                  }
+
+    await fetch("http://localhost:8080/getConvo", 
+    {
+      method: 'POST',
+      headers: 
+      { 'Content-Type': 'application/json', },
+      body: JSON.stringify(dt),
+    })
+    .then(response => response.json())
+    .then( data => 
+    {
+      messagesWithMate = data.Messages
+    })
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0')
+    var mm = String(today.getMonth() + 1).padStart(2, '0')
+    var yyyy = today.getFullYear()
+    today = yyyy + '/' + mm + '/' + dd
+
+    day = today.substr(8,9)
+
+    if (messagesWithMate.length == 0)
+    {
+      return 
+    }
+
+    for( i=0; i< messagesWithMate.length; i++)
+    {
+      var messageDay = messagesWithMate[i].localDateTime.substr(4,6)
+      messageDay = messageDay.substr([4])
+      var dayDifference = day - messageDay
+      var year =  messagesWithMate[i].localDateTime.substr(0,4)
+      var month = messagesWithMate[i].localDateTime.substr(2,5)
+      month = month.substr(3,)
+      var date = year + " : " + month + " : " + messageDay
+      var time = messagesWithMate[i].localDateTime.substr(7,9)
+      time = time.substr(4,)
+
+      if (time.substr(0,2) > 12)
+        pmOrAm = "PM"
+      else
+        pmOrAm = "AM"
+
+
+      if (dayDifference == 0)
+      {
+        dayDifference = "Today at: "
+      }
+
+      else if (dayDifference == 1)
+      {
+        dayDifference = "Yesterday at:"
+      }
+
+      else if(dayDifference == 2)
+      {
+        dayDifference == "2 days ago at:"
+      }
+
+      else
+      {
+        dayDifference = date + " at "
+      }
+
+      if(messagesWithMate[i].sender == myFullname)
+      {
+        var newMessageDiv = document.createElement('div')
+
+        var newMessage = 
+        `<div class="message fromme">
+          <div class="user-head">
+            <img src="${myAvatarPic}" class ="myPic">
+          </div>
+          <div class="content">${messagesWithMate[i].content}</div>
+          <div class="dateAndTime2">
+            ${dayDifference} ${time} ${pmOrAm}
+          </div>
+        </div>`
+
+        newMessageDiv.innerHTML = newMessage
+        document.getElementById("messages").appendChild(newMessageDiv)
+      }
+
+      else if(messagesWithMate[i].sender != myFullname)
+      {
+        var newMessageDiv = document.createElement('div')
+
+        var newMessage = 
+        `<div class="message">
+          <div class="user-head">
+            <img src="${avatarPicOfMate}" class ="matePic">
+          </div>
+          <div class="content">${messagesWithMate[i].content}</div>
+          <div class="dateAndTime">
+            ${dayDifference} ${time} ${pmOrAm}
+          </div>
+        </div>`
+
+        newMessageDiv.innerHTML = newMessage
+        document.getElementById("messages").appendChild(newMessageDiv)
+      }
+    }
 }
 
     $(function () 

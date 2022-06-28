@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import dating.dating.entity.ChatMessage;
 import dating.dating.entity.Filters;
+import dating.dating.entity.Messages;
 import dating.dating.services.UsersServices;
 
 @RestController
@@ -23,13 +24,12 @@ public class RstController
 {
     private final UsersServices userService;
 
+    Logger LOGGER = LoggerFactory.getLogger(RestController.class);
+
     RstController(UsersServices userService)
     {
         this.userService = userService;
     }
-
-    Logger LOGGER = LoggerFactory.getLogger(RestController.class);
-
     
     @GetMapping(value="/testAvatar")
     public HashMap<String,String> testAvatarForSpecificPerson(HttpSession session, @RequestParam("email") String email) throws IOException
@@ -61,7 +61,6 @@ public class RstController
         map = userService.serveDatatoGetSession(session);
         return map;
     }
-
 
     @PostMapping(value="/fetchUserPersonalDataIdEq2") //id equals to 2 => check js to remember
     public void fetchUserPersonalDataIdEq2(@RequestBody final Map<String, String> input , HttpServletRequest request)
@@ -173,5 +172,11 @@ public class RstController
     public void saveMessage(@RequestBody ChatMessage chatMessage)
     {
         userService.saveMessageToDatabase(chatMessage);
+    }
+
+    @PostMapping(value = "/getConvo")
+    public HashMap <String,List<Messages>> getConvo(@RequestBody Map<String,String> map )
+    {
+        return userService.getConvo(map);
     }
 }

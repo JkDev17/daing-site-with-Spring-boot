@@ -936,4 +936,15 @@ public class UsersServices
         Messages messages = new Messages(chatMessage.getContent(), chatMessage.getSender(), chatMessage.getRecipientFullname(),utcTimestamp );
         messagesRepository.save(messages);
     }
+
+    public HashMap <String,List<Messages>> getConvo(Map <String,String> map)
+    {
+        HashMap <String,List<Messages>> returnMap = new HashMap <String,List<Messages>>();
+        List<Messages> listOfMessages = new ArrayList<>();
+        String sender = map.get("sender");
+        String recipient = map.get("recipientFullname");
+        listOfMessages = messagesRepository.getMessagesOrderByLocalDateTime(sender, recipient);
+        returnMap.put("Messages",listOfMessages);
+        return returnMap;
+    }
 }
