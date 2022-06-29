@@ -1374,7 +1374,7 @@ background: rgb(231, 236, 237);
 
       else if(dayDifference == 2)
       {
-        dayDifference == "2 days ago at:"
+        dayDifference = "2 days ago at:"
       }
 
       else
@@ -1459,17 +1459,17 @@ background: rgb(231, 236, 237);
 
       var newMessageDiv = document.createElement('div')
 
-      var dt = new Date()
+      var dt = new Date().toISOString()
+      var hoursAndMinutes = dt.substr(10,11)
+      hoursAndMinutes = hoursAndMinutes.substring(1,6)
       var today = 'Today at:'
       var pmOrAm
       var delim = ":"
 
-      var hours = dt.getHours()
-      if (dt >12)
+      if (hoursAndMinutes > 12)
         pmOrAm = "PM"
       else
         pmOrAm = "AM"
-      var minutes = dt.getMinutes()
 
       var newMessage = 
       `<div class="message">
@@ -1478,7 +1478,7 @@ background: rgb(231, 236, 237);
         </div>
         <div class="content">${messageContent}</div>
         <div class="dateAndTime">
-          ${today}  ${hours} ${delim} ${minutes} ${pmOrAm}
+          ${today}  ${hoursAndMinutes}  ${pmOrAm}
         </div>
       </div>`
 
@@ -1493,17 +1493,18 @@ background: rgb(231, 236, 237);
 
       var newMessageDiv = document.createElement('div')
 
-      var dt = new Date()
+      var dt = new Date().toISOString()
+      var hoursAndMinutes = dt.substr(10,11)
+      hoursAndMinutes = hoursAndMinutes.substring(1,6)
       var today = 'Today at:'
       var pmOrAm
       var delim = ":"
 
-      var hours = dt.getHours()
-      if (dt >12)
+      if (hoursAndMinutes >12)
         pmOrAm = "PM"
       else
         pmOrAm = "AM"
-    var minutes = dt.getMinutes()
+
 
 
       var newMessage = 
@@ -1661,7 +1662,7 @@ background: rgb(231, 236, 237);
 
       else if(dayDifference == 2)
       {
-        dayDifference == "2 days ago at:"
+        dayDifference = "2 days ago at:"
       }
 
       else
@@ -1819,7 +1820,7 @@ background: rgb(231, 236, 237);
 
       else if(dayDifference == 2)
       {
-        dayDifference == "2 days ago at:"
+        dayDifference = "2 days ago at:"
       }
 
       else
