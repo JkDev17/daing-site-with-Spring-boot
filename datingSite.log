@@ -1,89 +1,46 @@
-29 Jun 2022 - 10:09:02.510 [restartedMain] INFO  dating.dating.DatingApplication - Starting DatingApplication using Java 11.0.11 on DESKTOP-7I4BO0A with PID 6136 (C:\Users\USER\Documents\Spring\dating\target\classes started by USER in C:\Users\USER\Documents\Spring\dating)
-29 Jun 2022 - 10:09:02.522 [restartedMain] INFO  dating.dating.DatingApplication - No active profile set, falling back to default profiles: default
-29 Jun 2022 - 10:09:02.584 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-29 Jun 2022 - 10:09:02.585 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-29 Jun 2022 - 10:09:03.377 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-29 Jun 2022 - 10:09:03.474 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 75 ms. Found 5 JPA repository interfaces.
-29 Jun 2022 - 10:09:04.368 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-29 Jun 2022 - 10:09:04.383 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-29 Jun 2022 - 10:09:04.384 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
-29 Jun 2022 - 10:09:04.480 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-29 Jun 2022 - 10:09:04.481 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1895 ms
-29 Jun 2022 - 10:09:04.625 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-29 Jun 2022 - 10:09:05.227 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-29 Jun 2022 - 10:09:05.380 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-29 Jun 2022 - 10:09:05.482 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
-29 Jun 2022 - 10:09:05.721 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-29 Jun 2022 - 10:09:05.897 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-29 Jun 2022 - 10:09:06.443 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.Images (class must be instantiated by Interceptor)
-29 Jun 2022 - 10:09:06.492 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.UserHasImages (class must be instantiated by Interceptor)
-29 Jun 2022 - 10:09:06.621 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-29 Jun 2022 - 10:09:06.639 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-29 Jun 2022 - 10:09:07.771 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
-29 Jun 2022 - 10:09:07.771 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
-29 Jun 2022 - 10:09:07.771 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
-29 Jun 2022 - 10:09:07.831 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@32267f7c, org.springframework.security.web.context.SecurityContextPersistenceFilter@3818f4df, org.springframework.security.web.header.HeaderWriterFilter@3b419411, org.springframework.security.web.authentication.logout.LogoutFilter@795c09ba, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@38c92650, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@62e659c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@93f7031, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c429091, org.springframework.security.web.session.SessionManagementFilter@7f49b18c, org.springframework.security.web.access.ExceptionTranslationFilter@aded4cd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6214b5bb]
-29 Jun 2022 - 10:09:08.013 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
-29 Jun 2022 - 10:09:08.213 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-29 Jun 2022 - 10:09:08.325 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-29 Jun 2022 - 10:09:08.332 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-29 Jun 2022 - 10:09:08.334 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@44edca5f]]
-29 Jun 2022 - 10:09:08.336 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-29 Jun 2022 - 10:09:08.367 [restartedMain] INFO  dating.dating.DatingApplication - Started DatingApplication in 6.252 seconds (JVM running for 6.699)
-29 Jun 2022 - 10:09:13.079 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-29 Jun 2022 - 10:09:13.079 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-29 Jun 2022 - 10:09:13.095 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-29 Jun 2022 - 10:09:32.964 [clientOutboundChannel-1] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:09:56.763 [clientOutboundChannel-3] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:10:07.635 [MessageBroker-5] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 12, active threads = 0, queued tasks = 0, completed tasks = 18], outboundChannel[pool size = 4, active threads = 0, queued tasks = 0, completed tasks = 4], sockJsScheduler[pool size = 6, active threads = 1, queued tasks = 5, completed tasks = 9]
-29 Jun 2022 - 10:14:14.002 [http-nio-8080-exec-6] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:14:14.508 [http-nio-8080-exec-4] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
-29 Jun 2022 - 10:14:16.427 [clientOutboundChannel-7] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:14:16.728 [clientOutboundChannel-8] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:14:33.272 [http-nio-8080-exec-2] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:14:34.697 [clientOutboundChannel-11] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:14:40.471 [http-nio-8080-exec-4] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:14:41.882 [clientOutboundChannel-14] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:17:00.268 [http-nio-8080-exec-5] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:17:01.671 [clientOutboundChannel-17] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:17:58.958 [http-nio-8080-exec-8] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:18:00.583 [clientOutboundChannel-20] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:19:31.801 [restartedMain] INFO  dating.dating.DatingApplication - Starting DatingApplication using Java 11.0.11 on DESKTOP-7I4BO0A with PID 12620 (C:\Users\USER\Documents\Spring\dating\target\classes started by USER in C:\Users\USER\Documents\Spring\dating)
-29 Jun 2022 - 10:19:31.803 [restartedMain] INFO  dating.dating.DatingApplication - No active profile set, falling back to default profiles: default
-29 Jun 2022 - 10:19:31.868 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-29 Jun 2022 - 10:19:31.869 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-29 Jun 2022 - 10:19:32.584 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-29 Jun 2022 - 10:19:32.670 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61 ms. Found 5 JPA repository interfaces.
-29 Jun 2022 - 10:19:33.455 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-29 Jun 2022 - 10:19:33.469 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-29 Jun 2022 - 10:19:33.469 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
-29 Jun 2022 - 10:19:33.539 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-29 Jun 2022 - 10:19:33.539 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1669 ms
-29 Jun 2022 - 10:19:33.640 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-29 Jun 2022 - 10:19:33.971 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-29 Jun 2022 - 10:19:34.109 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-29 Jun 2022 - 10:19:34.164 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
-29 Jun 2022 - 10:19:34.356 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-29 Jun 2022 - 10:19:34.458 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-29 Jun 2022 - 10:19:34.926 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.Images (class must be instantiated by Interceptor)
-29 Jun 2022 - 10:19:34.958 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.UserHasImages (class must be instantiated by Interceptor)
-29 Jun 2022 - 10:19:35.111 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-29 Jun 2022 - 10:19:35.121 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-29 Jun 2022 - 10:19:35.965 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
-29 Jun 2022 - 10:19:35.965 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
-29 Jun 2022 - 10:19:35.965 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
-29 Jun 2022 - 10:19:36.000 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@230734bf, org.springframework.security.web.context.SecurityContextPersistenceFilter@1b75615f, org.springframework.security.web.header.HeaderWriterFilter@5b9587bf, org.springframework.security.web.authentication.logout.LogoutFilter@148b68f6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5f5a4f44, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6e141ec2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b4a62e5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e65233e, org.springframework.security.web.session.SessionManagementFilter@4407ad97, org.springframework.security.web.access.ExceptionTranslationFilter@326f4415, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2c6b8252]
-29 Jun 2022 - 10:19:36.144 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
-29 Jun 2022 - 10:19:36.254 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-29 Jun 2022 - 10:19:36.281 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-29 Jun 2022 - 10:19:36.296 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-29 Jun 2022 - 10:19:36.296 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@379f29e9]]
-29 Jun 2022 - 10:19:36.298 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-29 Jun 2022 - 10:19:36.298 [restartedMain] INFO  dating.dating.DatingApplication - Started DatingApplication in 4.953 seconds (JVM running for 5.453)
-29 Jun 2022 - 10:19:37.219 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-29 Jun 2022 - 10:19:37.219 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-29 Jun 2022 - 10:19:37.234 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
-29 Jun 2022 - 10:19:39.693 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:27:51.851 [restartedMain] INFO  dating.dating.DatingApplication - Starting DatingApplication using Java 11.0.11 on DESKTOP-7I4BO0A with PID 1428 (C:\Users\USER\Documents\Spring\dating\target\classes started by USER in C:\Users\USER\Documents\Spring\dating)
+09 Jul 2022 - 11:27:51.860 [restartedMain] INFO  dating.dating.DatingApplication - No active profile set, falling back to default profiles: default
+09 Jul 2022 - 11:27:51.915 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+09 Jul 2022 - 11:27:51.925 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+09 Jul 2022 - 11:27:52.847 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09 Jul 2022 - 11:27:52.932 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 73 ms. Found 5 JPA repository interfaces.
+09 Jul 2022 - 11:27:53.824 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+09 Jul 2022 - 11:27:53.833 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+09 Jul 2022 - 11:27:53.833 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
+09 Jul 2022 - 11:27:53.930 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+09 Jul 2022 - 11:27:53.930 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2004 ms
+09 Jul 2022 - 11:27:54.042 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+09 Jul 2022 - 11:27:54.610 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+09 Jul 2022 - 11:27:54.795 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+09 Jul 2022 - 11:27:54.895 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+09 Jul 2022 - 11:27:55.096 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+09 Jul 2022 - 11:27:55.274 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+09 Jul 2022 - 11:27:55.875 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.Images (class must be instantiated by Interceptor)
+09 Jul 2022 - 11:27:55.920 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.UserHasImages (class must be instantiated by Interceptor)
+09 Jul 2022 - 11:27:57.534 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+09 Jul 2022 - 11:27:57.551 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09 Jul 2022 - 11:27:58.568 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+09 Jul 2022 - 11:27:58.568 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+09 Jul 2022 - 11:27:58.568 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+09 Jul 2022 - 11:27:58.609 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6bb3c869, org.springframework.security.web.context.SecurityContextPersistenceFilter@5588b8bc, org.springframework.security.web.header.HeaderWriterFilter@5c9aedc8, org.springframework.security.web.authentication.logout.LogoutFilter@28b67c9e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@511df0b7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6d0400d4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@69b983e8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ef7d34a, org.springframework.security.web.session.SessionManagementFilter@24b2ac5d, org.springframework.security.web.access.ExceptionTranslationFilter@5cf2dcd1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@38ed7641]
+09 Jul 2022 - 11:27:58.763 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+09 Jul 2022 - 11:27:58.884 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+09 Jul 2022 - 11:27:58.928 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+09 Jul 2022 - 11:27:58.942 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+09 Jul 2022 - 11:27:58.943 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6c046bc7]]
+09 Jul 2022 - 11:27:58.944 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+09 Jul 2022 - 11:27:58.947 [restartedMain] INFO  dating.dating.DatingApplication - Started DatingApplication in 7.514 seconds (JVM running for 7.983)
+09 Jul 2022 - 11:27:59.545 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09 Jul 2022 - 11:27:59.545 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+09 Jul 2022 - 11:27:59.548 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+09 Jul 2022 - 11:28:29.507 [clientOutboundChannel-1] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
+09 Jul 2022 - 11:28:32.440 [clientOutboundChannel-3] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
+09 Jul 2022 - 11:28:58.489 [MessageBroker-3] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 12, active threads = 0, queued tasks = 0, completed tasks = 24], outboundChannel[pool size = 6, active threads = 0, queued tasks = 0, completed tasks = 6], sockJsScheduler[pool size = 6, active threads = 1, queued tasks = 5, completed tasks = 7]
+09 Jul 2022 - 11:29:53.372 [http-nio-8080-exec-8] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
+09 Jul 2022 - 11:29:53.593 [http-nio-8080-exec-2] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
+09 Jul 2022 - 11:29:55.376 [clientOutboundChannel-9] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
+09 Jul 2022 - 11:29:55.491 [clientOutboundChannel-10] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
+09 Jul 2022 - 11:29:57.827 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
 	at java.base/java.nio.HeapByteBuffer.<init>(HeapByteBuffer.java:61)
 	at java.base/java.nio.ByteBuffer.allocate(ByteBuffer.java:349)
@@ -98,7 +55,7 @@ java.lang.OutOfMemoryError: Java heap space
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-29 Jun 2022 - 10:19:39.697 [http-nio-8080-exec-9] ERROR o.apache.tomcat.util.net.NioEndpoint - Error running socket processor
+09 Jul 2022 - 11:29:57.843 [http-nio-8080-exec-2] ERROR o.apache.tomcat.util.net.NioEndpoint - Error running socket processor
 java.lang.NullPointerException: null
 	at org.apache.coyote.http11.Http11InputBuffer.recycle(Http11InputBuffer.java:268)
 	at org.apache.coyote.http11.Http11Processor.recycle(Http11Processor.java:1380)
@@ -110,7 +67,7 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-29 Jun 2022 - 10:19:39.769 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:29:57.928 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
 	at java.base/java.nio.HeapByteBuffer.<init>(HeapByteBuffer.java:61)
 	at java.base/java.nio.ByteBuffer.allocate(ByteBuffer.java:349)
@@ -124,663 +81,229 @@ java.lang.OutOfMemoryError: Java heap space
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-29 Jun 2022 - 10:19:39.835 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:29:58.019 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:39.940 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:29:58.097 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:40.043 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:29:58.165 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:40.154 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:31:39.505 [http-nio-8080-exec-1] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
+09 Jul 2022 - 11:31:39.755 [http-nio-8080-exec-5] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
+09 Jul 2022 - 11:31:41.738 [clientOutboundChannel-16] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
+09 Jul 2022 - 11:31:41.877 [clientOutboundChannel-17] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
+09 Jul 2022 - 11:32:30.243 [http-nio-8080-exec-10] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
+09 Jul 2022 - 11:32:30.559 [http-nio-8080-exec-9] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
+09 Jul 2022 - 11:32:32.343 [clientOutboundChannel-23] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
+09 Jul 2022 - 11:32:32.492 [clientOutboundChannel-25] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
+09 Jul 2022 - 11:32:33.895 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:40.218 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:32:33.971 [http-nio-8080-exec-1] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:40.266 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:32:34.057 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:40.406 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:32:34.121 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:40.406 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:32:34.210 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:40.467 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:32:34.285 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:40.524 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:32:34.405 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:40.636 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:32:34.467 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:40.589 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:32:34.531 [http-nio-8080-exec-1] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:40.697 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:32:34.604 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:40.767 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:32:34.681 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:40.830 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:32:37.238 [clientOutboundChannel-15] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
+09 Jul 2022 - 11:35:56.790 [http-nio-8080-exec-3] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
+09 Jul 2022 - 11:35:56.790 [http-nio-8080-exec-5] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
+09 Jul 2022 - 11:35:57.629 [http-nio-8080-exec-6] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
+09 Jul 2022 - 11:35:58.167 [clientOutboundChannel-29] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
+09 Jul 2022 - 11:35:58.903 [clientOutboundChannel-31] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
+09 Jul 2022 - 11:37:12.510 [http-nio-8080-exec-10] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
+09 Jul 2022 - 11:37:12.697 [http-nio-8080-exec-5] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
+09 Jul 2022 - 11:37:13.877 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:40.914 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:14.008 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:40.972 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:14.138 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:41.131 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:14.204 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:41.131 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:14.277 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:41.247 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:14.284 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:41.247 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:14.346 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:41.318 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:14.423 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:41.378 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:14.493 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:41.447 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:14.562 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:41.508 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:14.626 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:41.572 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:14.693 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:41.641 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:14.762 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:41.705 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:14.847 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:41.764 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:14.909 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:41.995 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:14.978 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:42.056 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:15.048 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:42.116 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:15.059 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:42.176 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:15.194 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:42.232 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:15.194 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:42.289 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:15.262 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:42.400 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:15.341 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:42.400 [http-nio-8080-exec-1] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:15.407 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:42.463 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:15.479 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:42.509 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:15.547 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:42.628 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:15.559 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:42.628 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:15.626 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:42.746 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:15.688 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:42.746 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:15.833 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:42.808 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:15.834 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:42.873 [http-nio-8080-exec-1] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:15.917 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:42.927 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:15.997 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.001 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:16.078 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.073 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:16.085 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.075 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:16.227 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.073 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:16.227 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.248 [http-nio-8080-exec-1] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:16.365 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.248 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:16.365 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.248 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:16.443 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.312 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:16.524 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.379 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:16.595 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.441 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:16.602 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.562 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:16.679 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.563 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:16.754 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.623 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:17.114 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.741 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:17.133 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.741 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.899 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.899 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:43.968 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:44.152 [http-nio-8080-exec-1] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:44.152 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:44.152 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:44.213 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:44.275 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:44.333 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:44.392 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:44.491 [http-nio-8080-exec-1] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:44.491 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:44.558 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:44.618 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:44.677 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:44.683 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:44.740 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:44.798 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:44.840 [http-nio-8080-exec-1] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:19:50.238 [restartedMain] INFO  dating.dating.DatingApplication - Starting DatingApplication using Java 11.0.11 on DESKTOP-7I4BO0A with PID 476 (C:\Users\USER\Documents\Spring\dating\target\classes started by USER in C:\Users\USER\Documents\Spring\dating)
-29 Jun 2022 - 10:19:50.238 [restartedMain] INFO  dating.dating.DatingApplication - No active profile set, falling back to default profiles: default
-29 Jun 2022 - 10:19:50.278 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-29 Jun 2022 - 10:19:50.278 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-29 Jun 2022 - 10:19:50.977 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-29 Jun 2022 - 10:19:51.046 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61 ms. Found 5 JPA repository interfaces.
-29 Jun 2022 - 10:19:51.810 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-29 Jun 2022 - 10:19:51.828 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-29 Jun 2022 - 10:19:51.828 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
-29 Jun 2022 - 10:19:51.897 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-29 Jun 2022 - 10:19:51.897 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1603 ms
-29 Jun 2022 - 10:19:52.013 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-29 Jun 2022 - 10:19:52.362 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-29 Jun 2022 - 10:19:52.493 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-29 Jun 2022 - 10:19:52.551 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
-29 Jun 2022 - 10:19:52.681 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-29 Jun 2022 - 10:19:52.807 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-29 Jun 2022 - 10:19:53.252 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.Images (class must be instantiated by Interceptor)
-29 Jun 2022 - 10:19:53.294 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.UserHasImages (class must be instantiated by Interceptor)
-29 Jun 2022 - 10:19:53.446 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-29 Jun 2022 - 10:19:53.455 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-29 Jun 2022 - 10:19:54.327 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
-29 Jun 2022 - 10:19:54.328 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
-29 Jun 2022 - 10:19:54.328 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
-29 Jun 2022 - 10:19:54.365 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@17694594, org.springframework.security.web.context.SecurityContextPersistenceFilter@7359f852, org.springframework.security.web.header.HeaderWriterFilter@7eae5280, org.springframework.security.web.authentication.logout.LogoutFilter@702a7843, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@738e9332, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6969e5e9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2c4ec551, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1595a253, org.springframework.security.web.session.SessionManagementFilter@700f7bdb, org.springframework.security.web.access.ExceptionTranslationFilter@66982f0d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@499de235]
-29 Jun 2022 - 10:19:54.518 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
-29 Jun 2022 - 10:19:54.637 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-29 Jun 2022 - 10:19:54.669 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-29 Jun 2022 - 10:19:54.671 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-29 Jun 2022 - 10:19:54.672 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@d3252f5]]
-29 Jun 2022 - 10:19:54.673 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-29 Jun 2022 - 10:19:54.685 [restartedMain] INFO  dating.dating.DatingApplication - Started DatingApplication in 4.858 seconds (JVM running for 5.337)
-29 Jun 2022 - 10:19:55.457 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-29 Jun 2022 - 10:19:55.457 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-29 Jun 2022 - 10:19:55.464 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
-29 Jun 2022 - 10:19:55.542 [http-nio-8080-exec-1] WARN  o.s.w.s.s.t.h.DefaultSockJsService - Unknown transport type for http://localhost:8080/ws/725/avqcs5uv/jsonp?c=_jp.asmua25
-29 Jun 2022 - 10:20:06.549 [clientOutboundChannel-1] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:20:11.481 [clientOutboundChannel-3] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:20:54.210 [MessageBroker-4] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 12, active threads = 0, queued tasks = 0, completed tasks = 18], outboundChannel[pool size = 4, active threads = 0, queued tasks = 0, completed tasks = 4], sockJsScheduler[pool size = 6, active threads = 1, queued tasks = 5, completed tasks = 13]
-29 Jun 2022 - 10:29:31.269 [http-nio-8080-exec-2] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:29:31.854 [http-nio-8080-exec-6] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
-29 Jun 2022 - 10:29:33.626 [clientOutboundChannel-9] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:29:33.877 [clientOutboundChannel-11] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:29:40.672 [clientOutboundChannel-13] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:30:51.461 [http-nio-8080-exec-6] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:30:51.461 [http-nio-8080-exec-3] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:30:52.627 [clientOutboundChannel-21] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:32:01.901 [http-nio-8080-exec-10] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:32:02.456 [http-nio-8080-exec-1] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
-29 Jun 2022 - 10:32:03.351 [clientOutboundChannel-27] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:32:04.007 [clientOutboundChannel-29] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:32:55.200 [http-nio-8080-exec-10] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
-29 Jun 2022 - 10:32:56.578 [clientOutboundChannel-34] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:33:22.354 [http-nio-8080-exec-5] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:33:23.848 [clientOutboundChannel-37] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:39:20.765 [http-nio-8080-exec-3] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:40:07.616 [clientOutboundChannel-40] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:40:15.396 [http-nio-8080-exec-10] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:40:17.001 [clientOutboundChannel-43] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:42:17.303 [http-nio-8080-exec-2] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:42:18.693 [clientOutboundChannel-50] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:42:48.552 [http-nio-8080-exec-8] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
-29 Jun 2022 - 10:42:48.937 [http-nio-8080-exec-10] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:42:50.430 [clientOutboundChannel-56] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:42:50.807 [clientOutboundChannel-58] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:43:40.400 [http-nio-8080-exec-6] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:43:40.671 [http-nio-8080-exec-10] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
-29 Jun 2022 - 10:43:42.414 [clientOutboundChannel-61] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:43:42.767 [clientOutboundChannel-63] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:44:12.964 [http-nio-8080-exec-1] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
-29 Jun 2022 - 10:44:13.219 [http-nio-8080-exec-6] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:44:15.409 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:17.136 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-	at java.base/java.nio.HeapByteBuffer.<init>(HeapByteBuffer.java:61)
-	at java.base/java.nio.ByteBuffer.allocate(ByteBuffer.java:349)
-	at org.apache.coyote.http11.Http11InputBuffer.init(Http11InputBuffer.java:757)
-	at org.apache.coyote.http11.Http11Processor.setSocketWrapper(Http11Processor.java:483)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:255)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-29 Jun 2022 - 10:44:15.412 [http-nio-8080-exec-3] ERROR o.apache.tomcat.util.net.NioEndpoint - Error running socket processor
-java.lang.NullPointerException: null
-	at org.apache.coyote.http11.Http11InputBuffer.recycle(Http11InputBuffer.java:268)
-	at org.apache.coyote.http11.Http11Processor.recycle(Http11Processor.java:1380)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.release(AbstractProtocol.java:1099)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1059)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-29 Jun 2022 - 10:44:15.499 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:17.289 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-	at java.base/java.nio.HeapByteBuffer.<init>(HeapByteBuffer.java:61)
-	at java.base/java.nio.ByteBuffer.allocate(ByteBuffer.java:349)
-	at org.apache.coyote.http11.Http11OutputBuffer.<init>(Http11OutputBuffer.java:110)
-	at org.apache.coyote.http11.Http11Processor.<init>(Http11Processor.java:163)
-	at org.apache.coyote.http11.AbstractHttp11Protocol.createProcessor(AbstractHttp11Protocol.java:1089)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:879)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-29 Jun 2022 - 10:44:15.584 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:17.289 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:15.677 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:17.364 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:15.793 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:17.440 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:15.863 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:17.517 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:15.966 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:17.586 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:15.972 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:17.662 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:16.075 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:17.804 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:16.148 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:17.804 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:16.227 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:17.882 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:16.302 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:18.025 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:16.380 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:18.025 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:16.464 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:18.098 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:16.546 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:18.175 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:16.624 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:18.248 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:16.701 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:18.318 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:16.777 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:18.397 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:17.250 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:18.472 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:17.386 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:18.545 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:17.473 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:18.616 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:17.550 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:18.696 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:17.626 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:18.764 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:17.700 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
+09 Jul 2022 - 11:37:18.835 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
 java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:17.773 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:17.845 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:17.919 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:17.993 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:19.192 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:19.265 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:19.271 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:19.346 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:19.421 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:19.426 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:19.499 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:19.505 [http-nio-8080-exec-1] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:19.576 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:19.863 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:20.859 [http-nio-8080-exec-1] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:20.866 [clientOutboundChannel-68] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:44:22.524 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:22.600 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:22.675 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:22.748 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:22.821 [http-nio-8080-exec-1] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:22.898 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:22.972 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:23.050 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:23.122 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:23.194 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:34.127 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:34.203 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:34.280 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:34.357 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:34.434 [http-nio-8080-exec-1] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:34.515 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:34.592 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:34.668 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:34.746 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:44:34.820 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:45:05.720 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotWritableException: No converter for [class java.util.LinkedHashMap] with preset Content-Type 'text/event-stream;charset=UTF-8']
-29 Jun 2022 - 10:45:06.794 [clientOutboundChannel-71] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:45:10.514 [http-nio-8080-exec-3] ERROR o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView - Cannot render error page for request [/ws/954/14it5lo5/htmlfile] and exception [An established connection was aborted by the software in your host machine] as the response has already been committed. As a result, the response may have the wrong status code.
-29 Jun 2022 - 10:45:13.763 [clientOutboundChannel-74] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:45:52.102 [http-nio-8080-exec-1] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:45:52.417 [http-nio-8080-exec-3] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
-29 Jun 2022 - 10:45:54.212 [clientOutboundChannel-80] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:45:54.350 [clientOutboundChannel-70] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:46:31.873 [http-nio-8080-exec-10] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:46:32.311 [http-nio-8080-exec-3] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
-29 Jun 2022 - 10:46:34.385 [clientOutboundChannel-85] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:46:34.540 [clientOutboundChannel-78] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:47:00.919 [http-nio-8080-exec-1] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:47:01.117 [http-nio-8080-exec-8] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
-29 Jun 2022 - 10:47:02.930 [clientOutboundChannel-73] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:47:03.053 [clientOutboundChannel-83] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:48:03.331 [http-nio-8080-exec-10] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:48:04.454 [clientOutboundChannel-90] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:49:00.485 [http-nio-8080-exec-8] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:49:00.754 [http-nio-8080-exec-2] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
-29 Jun 2022 - 10:49:01.895 [clientOutboundChannel-96] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:49:02.045 [clientOutboundChannel-98] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:49:32.781 [http-nio-8080-exec-1] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:49:33.007 [http-nio-8080-exec-7] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
-29 Jun 2022 - 10:49:34.283 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:34.358 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:34.460 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:34.547 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:34.672 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:34.799 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:34.883 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:34.967 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:35.044 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:35.131 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:35.202 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:35.284 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:35.300 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:35.384 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:35.453 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:35.546 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:35.615 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:35.699 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:36.184 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:36.269 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:36.334 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:36.407 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:36.424 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:36.501 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:36.585 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:36.651 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:36.732 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:37.739 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:37.812 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:37.971 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:37.971 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:38.040 [http-nio-8080-exec-1] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:38.191 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:38.191 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:38.283 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:38.356 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:38.509 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:38.509 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:38.590 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:38.593 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:38.740 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:38.740 [http-nio-8080-exec-1] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:38.809 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:38.900 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:38.970 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:39.056 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:39.125 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:39.210 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:40.190 [http-nio-8080-exec-9] WARN  o.s.w.s.s.t.h.DefaultSockJsService - Unknown transport type for http://localhost:8080/ws/531/ucecemso/jsonp?c=_jp.ahqclir
-29 Jun 2022 - 10:49:42.210 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:42.280 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:42.364 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:42.448 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:42.517 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:42.598 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:42.680 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:42.764 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:42.848 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:45.284 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:45.367 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:45.453 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:45.522 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:45.621 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:45.694 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:45.777 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:45.854 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:45.941 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:49:46.022 [http-nio-8080-exec-3] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:50:03.067 [http-nio-8080-exec-1] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:50:03.157 [http-nio-8080-exec-9] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:50:03.229 [http-nio-8080-exec-6] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:50:03.321 [http-nio-8080-exec-2] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:50:03.391 [http-nio-8080-exec-4] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:50:03.474 [http-nio-8080-exec-8] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:50:03.574 [http-nio-8080-exec-5] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:50:03.657 [http-nio-8080-exec-7] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:50:03.732 [http-nio-8080-exec-10] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:50:03.822 [http-nio-8080-exec-1] ERROR o.a.coyote.http11.Http11NioProtocol - Failed to complete processing of a request
-java.lang.OutOfMemoryError: Java heap space
-29 Jun 2022 - 10:50:24.880 [clientOutboundChannel-105] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:50:27.442 [http-nio-8080-exec-8] ERROR o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView - Cannot render error page for request [/ws/531/c2lco2wk/htmlfile] and exception [An established connection was aborted by the software in your host machine] as the response has already been committed. As a result, the response may have the wrong status code.
-29 Jun 2022 - 10:50:34.392 [clientOutboundChannel-108] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:50:54.224 [MessageBroker-5] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 35 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(31)-CONNECTED(31)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 12, active threads = 0, queued tasks = 0, completed tasks = 471], outboundChannel[pool size = 8, active threads = 0, queued tasks = 0, completed tasks = 128], sockJsScheduler[pool size = 6, active threads = 1, queued tasks = 5, completed tasks = 513]
-29 Jun 2022 - 10:50:59.682 [http-nio-8080-exec-8] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:51:00.800 [clientOutboundChannel-113] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:51:00.838 [http-nio-8080-exec-6] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
-29 Jun 2022 - 10:51:01.906 [clientOutboundChannel-104] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:52:22.964 [http-nio-8080-exec-5] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:52:24.139 [clientOutboundChannel-117] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:52:25.821 [http-nio-8080-exec-5] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
-29 Jun 2022 - 10:52:26.986 [clientOutboundChannel-120] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:53:34.172 [http-nio-8080-exec-10] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:53:34.673 [http-nio-8080-exec-3] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
-29 Jun 2022 - 10:53:35.776 [clientOutboundChannel-126] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:53:36.292 [clientOutboundChannel-128] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:54:12.528 [http-nio-8080-exec-7] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:54:15.249 [clientOutboundChannel-127] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:54:27.347 [clientOutboundChannel-129] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 10:54:40.523 [http-nio-8080-exec-10] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:54:40.523 [http-nio-8080-exec-7] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 10:54:41.836 [http-nio-8080-exec-9] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
-29 Jun 2022 - 10:54:59.252 [restartedMain] INFO  dating.dating.DatingApplication - Starting DatingApplication using Java 11.0.11 on DESKTOP-7I4BO0A with PID 2160 (C:\Users\USER\Documents\Spring\dating\target\classes started by USER in C:\Users\USER\Documents\Spring\dating)
-29 Jun 2022 - 10:54:59.253 [restartedMain] INFO  dating.dating.DatingApplication - No active profile set, falling back to default profiles: default
-29 Jun 2022 - 10:54:59.308 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-29 Jun 2022 - 10:54:59.309 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-29 Jun 2022 - 10:54:59.927 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-29 Jun 2022 - 10:54:59.997 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 5 JPA repository interfaces.
-29 Jun 2022 - 10:55:00.706 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-29 Jun 2022 - 10:55:00.720 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-29 Jun 2022 - 10:55:00.721 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
-29 Jun 2022 - 10:55:00.800 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-29 Jun 2022 - 10:55:00.801 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1490 ms
-29 Jun 2022 - 10:55:00.905 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-29 Jun 2022 - 10:55:01.206 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-29 Jun 2022 - 10:55:01.321 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-29 Jun 2022 - 10:55:01.393 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
-29 Jun 2022 - 10:55:01.520 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-29 Jun 2022 - 10:55:01.639 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-29 Jun 2022 - 10:55:02.054 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.Images (class must be instantiated by Interceptor)
-29 Jun 2022 - 10:55:02.101 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.UserHasImages (class must be instantiated by Interceptor)
-29 Jun 2022 - 10:55:02.239 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-29 Jun 2022 - 10:55:02.259 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-29 Jun 2022 - 10:55:03.192 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
-29 Jun 2022 - 10:55:03.192 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
-29 Jun 2022 - 10:55:03.193 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
-29 Jun 2022 - 10:55:03.270 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2118deeb, org.springframework.security.web.context.SecurityContextPersistenceFilter@4bb59fb7, org.springframework.security.web.header.HeaderWriterFilter@3ee4476b, org.springframework.security.web.authentication.logout.LogoutFilter@46e3c6a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3c945c2c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@167d9cbf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@63cd6b46, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@171efbf5, org.springframework.security.web.session.SessionManagementFilter@6fcfb5e9, org.springframework.security.web.access.ExceptionTranslationFilter@27e5d0c4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2071ad2d]
-29 Jun 2022 - 10:55:03.419 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
-29 Jun 2022 - 10:55:03.565 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-29 Jun 2022 - 10:55:03.603 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-29 Jun 2022 - 10:55:03.606 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-29 Jun 2022 - 10:55:03.607 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6561d6f7]]
-29 Jun 2022 - 10:55:03.607 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-29 Jun 2022 - 10:55:03.618 [restartedMain] INFO  dating.dating.DatingApplication - Started DatingApplication in 4.757 seconds (JVM running for 5.208)
-29 Jun 2022 - 11:11:03.111 [restartedMain] INFO  dating.dating.DatingApplication - Starting DatingApplication using Java 11.0.11 on DESKTOP-7I4BO0A with PID 10824 (C:\Users\USER\Documents\Spring\dating\target\classes started by USER in C:\Users\USER\Documents\Spring\dating)
-29 Jun 2022 - 11:11:03.127 [restartedMain] INFO  dating.dating.DatingApplication - No active profile set, falling back to default profiles: default
-29 Jun 2022 - 11:11:03.223 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-29 Jun 2022 - 11:11:03.223 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-29 Jun 2022 - 11:11:04.029 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-29 Jun 2022 - 11:11:04.098 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 58 ms. Found 5 JPA repository interfaces.
-29 Jun 2022 - 11:11:04.846 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-29 Jun 2022 - 11:11:04.864 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-29 Jun 2022 - 11:11:04.864 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
-29 Jun 2022 - 11:11:04.931 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-29 Jun 2022 - 11:11:04.931 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1708 ms
-29 Jun 2022 - 11:11:05.049 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-29 Jun 2022 - 11:11:05.362 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-29 Jun 2022 - 11:11:05.478 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-29 Jun 2022 - 11:11:05.532 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
-29 Jun 2022 - 11:11:05.678 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-29 Jun 2022 - 11:11:05.800 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-29 Jun 2022 - 11:11:06.205 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.Images (class must be instantiated by Interceptor)
-29 Jun 2022 - 11:11:06.243 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.UserHasImages (class must be instantiated by Interceptor)
-29 Jun 2022 - 11:11:06.421 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-29 Jun 2022 - 11:11:06.429 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-29 Jun 2022 - 11:11:07.280 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
-29 Jun 2022 - 11:11:07.280 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
-29 Jun 2022 - 11:11:07.280 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
-29 Jun 2022 - 11:11:07.302 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@9a3b5b0, org.springframework.security.web.context.SecurityContextPersistenceFilter@76214e14, org.springframework.security.web.header.HeaderWriterFilter@334fa7a4, org.springframework.security.web.authentication.logout.LogoutFilter@60fcd5a7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5df276eb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7fc9c202, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@25d9735, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@34f4263b, org.springframework.security.web.session.SessionManagementFilter@9c95a94, org.springframework.security.web.access.ExceptionTranslationFilter@db0df7a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@353bb6fa]
-29 Jun 2022 - 11:11:07.433 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
-29 Jun 2022 - 11:11:07.533 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-29 Jun 2022 - 11:11:07.557 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-29 Jun 2022 - 11:11:07.576 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-29 Jun 2022 - 11:11:07.577 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6baa64da]]
-29 Jun 2022 - 11:11:07.577 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-29 Jun 2022 - 11:11:07.581 [restartedMain] INFO  dating.dating.DatingApplication - Started DatingApplication in 4.936 seconds (JVM running for 5.42)
-29 Jun 2022 - 11:11:08.129 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-29 Jun 2022 - 11:11:08.130 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-29 Jun 2022 - 11:11:08.131 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-29 Jun 2022 - 11:11:33.511 [clientOutboundChannel-1] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 11:11:35.717 [clientOutboundChannel-3] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
-29 Jun 2022 - 11:12:04.245 [http-nio-8080-exec-2] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
-29 Jun 2022 - 11:12:04.863 [http-nio-8080-exec-1] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
-29 Jun 2022 - 11:12:07.184 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 1 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 12, active threads = 0, queued tasks = 0, completed tasks = 24], outboundChannel[pool size = 6, active threads = 0, queued tasks = 0, completed tasks = 6], sockJsScheduler[pool size = 6, active threads = 1, queued tasks = 3, completed tasks = 10]
+09 Jul 2022 - 11:37:25.661 [restartedMain] INFO  dating.dating.DatingApplication - Starting DatingApplication using Java 11.0.11 on DESKTOP-7I4BO0A with PID 3756 (C:\Users\USER\Documents\Spring\dating\target\classes started by USER in C:\Users\USER\Documents\Spring\dating)
+09 Jul 2022 - 11:37:25.663 [restartedMain] INFO  dating.dating.DatingApplication - No active profile set, falling back to default profiles: default
+09 Jul 2022 - 11:37:25.728 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+09 Jul 2022 - 11:37:25.728 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+09 Jul 2022 - 11:37:26.428 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09 Jul 2022 - 11:37:26.509 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 68 ms. Found 5 JPA repository interfaces.
+09 Jul 2022 - 11:37:27.286 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+09 Jul 2022 - 11:37:27.298 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+09 Jul 2022 - 11:37:27.300 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
+09 Jul 2022 - 11:37:27.395 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+09 Jul 2022 - 11:37:27.397 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1668 ms
+09 Jul 2022 - 11:37:27.518 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+09 Jul 2022 - 11:37:27.851 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+09 Jul 2022 - 11:37:27.995 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+09 Jul 2022 - 11:37:28.070 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+09 Jul 2022 - 11:37:28.212 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+09 Jul 2022 - 11:37:28.352 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+09 Jul 2022 - 11:37:28.828 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.Images (class must be instantiated by Interceptor)
+09 Jul 2022 - 11:37:28.866 [restartedMain] INFO  org.hibernate.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: dating.dating.entity.UserHasImages (class must be instantiated by Interceptor)
+09 Jul 2022 - 11:37:29.036 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+09 Jul 2022 - 11:37:29.044 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09 Jul 2022 - 11:37:30.046 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/icons/*'] with []
+09 Jul 2022 - 11:37:30.047 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/**/*.css'] with []
+09 Jul 2022 - 11:37:30.048 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure Ant [pattern='/static/**'] with []
+09 Jul 2022 - 11:37:30.077 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3c4f3d6, org.springframework.security.web.context.SecurityContextPersistenceFilter@225f4645, org.springframework.security.web.header.HeaderWriterFilter@1d09e59d, org.springframework.security.web.authentication.logout.LogoutFilter@2dcec5b8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1363b377, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@43225cbb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@59b115d5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2b578d7, org.springframework.security.web.session.SessionManagementFilter@191539f6, org.springframework.security.web.access.ExceptionTranslationFilter@65be9a3f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7e2473b6]
+09 Jul 2022 - 11:37:30.228 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+09 Jul 2022 - 11:37:30.330 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+09 Jul 2022 - 11:37:30.374 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+09 Jul 2022 - 11:37:30.376 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+09 Jul 2022 - 11:37:30.377 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4bbdf905]]
+09 Jul 2022 - 11:37:30.378 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+09 Jul 2022 - 11:37:30.391 [restartedMain] INFO  dating.dating.DatingApplication - Started DatingApplication in 5.174 seconds (JVM running for 5.676)
+09 Jul 2022 - 11:37:37.507 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09 Jul 2022 - 11:37:37.523 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+09 Jul 2022 - 11:37:37.524 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+09 Jul 2022 - 11:37:39.373 [clientOutboundChannel-1] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
+09 Jul 2022 - 11:38:03.548 [clientOutboundChannel-3] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
+09 Jul 2022 - 11:38:29.953 [MessageBroker-4] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 12, active threads = 0, queued tasks = 0, completed tasks = 18], outboundChannel[pool size = 4, active threads = 0, queued tasks = 0, completed tasks = 4], sockJsScheduler[pool size = 6, active threads = 1, queued tasks = 5, completed tasks = 15]
+09 Jul 2022 - 11:56:00.283 [http-nio-8080-exec-3] INFO  d.d.configs.WebSocketEventListener - User Disconnected : Jasmine White
+09 Jul 2022 - 11:56:03.091 [http-nio-8080-exec-9] INFO  d.d.configs.WebSocketEventListener - User Disconnected : George Williams
+09 Jul 2022 - 11:56:07.114 [clientOutboundChannel-11] INFO  d.d.configs.WebSocketEventListener - Received a new web socket connection
+09 Jul 2022 - 12:08:29.956 [MessageBroker-2] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 3 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(3)-CONNECTED(3)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 45], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 12], sockJsScheduler[pool size = 6, active threads = 1, queued tasks = 4, completed tasks = 516]

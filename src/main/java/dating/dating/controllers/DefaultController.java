@@ -60,7 +60,6 @@ public class DefaultController
     @GetMapping(value="/api")
     public String api(HttpSession session)
     {
-        System.out.println(session.getAttribute("email"));
         return "home.html";
     }
 
@@ -104,7 +103,6 @@ public class DefaultController
     @GetMapping(value="/PremiumApi")
     public String prem_api(HttpSession session,HttpServletResponse httpServletResponse)
     {
-        System.out.println(session.getAttribute("role").toString());
         if (session.getAttribute("role").toString().equals("0"))
         {   String projectUrl="http://localhost:8080/api";
             httpServletResponse.setHeader("Location", projectUrl);
@@ -129,7 +127,6 @@ public class DefaultController
         {
             email = http.getAttribute("email").toString();
             isPrem = userServices.getUserRole(email);
-            //System.out.println("IsPrem is equal to:"+isPrem);
             http.setAttribute("role", isPrem);
         }
 
@@ -148,14 +145,12 @@ public class DefaultController
 
     public void sendMessage (@DestinationVariable String fullname, @Payload ChatMessage chatMessage)
     {
-        System.out.println("Message send for "+ fullname + " with context " + chatMessage.getContent() + "  " + chatMessage.getRecipientFullname());
         simpMessageSendingOperations.convertAndSend(format("/topic/%s", fullname), chatMessage);
     }
 
     @MessageMapping("/chat/{fullname}/addUser")
     public void addUser(@DestinationVariable String fullname, @Payload ChatMessage chatMessage, SimpMessageHeaderAccessor  simpleMessageHeaderAccessor)
     {
-        System.out.println("Accepting user " + chatMessage.getSender());
         simpleMessageHeaderAccessor.getSessionAttributes()
                                    .put("username",chatMessage.getSender());
 

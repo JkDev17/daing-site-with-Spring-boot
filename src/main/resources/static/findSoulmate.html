@@ -1500,12 +1500,10 @@ background: rgb(231, 236, 237);
       var pmOrAm
       var delim = ":"
 
-      if (hoursAndMinutes >12)
+      if (hoursAndMinutes > 12)
         pmOrAm = "PM"
       else
         pmOrAm = "AM"
-
-
 
       var newMessage = 
       `<div class="message fromme">
@@ -1514,7 +1512,7 @@ background: rgb(231, 236, 237);
         </div>
         <div class="content">${messageContent}</div>
         <div class="dateAndTime2">
-        ${today}  ${hours} ${delim} ${minutes} ${pmOrAm}
+          ${today}  ${hoursAndMinutes}  ${pmOrAm}
         </div>
       </div>`
 

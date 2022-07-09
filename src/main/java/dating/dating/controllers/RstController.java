@@ -49,7 +49,6 @@ public class RstController
     @PostMapping(value="/saveVarsToSession" , consumes = "application/json", produces="application/json")
     public Map<String,String> getVarsTosaveToSession(@RequestBody final Map<String, String> parameters, HttpServletRequest request) 
     {
-        System.out.println("The params are :" + parameters);
         userService.saveVarsToSession(parameters, request);
         return parameters;
     }

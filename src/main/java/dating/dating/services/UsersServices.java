@@ -152,7 +152,6 @@ public class UsersServices
     public HashMap<String,String> serveDatatoGetSession(HttpSession session)
     {
         HashMap<String, String> map = new HashMap<>();
-        System.out.println(session.getId());
         String emailFromUser="";
         String fullnameFromUser="";
         String unhashedPasswordFromUser="";
@@ -194,8 +193,6 @@ public class UsersServices
         map.put("password", unhashedPasswordFromUser);   
         map.put("fullname", fullnameFromUser);
         map.put("age", ageFromUser);
-        System.out.println("User :"+ fullnameFromUser+" has email: " + emailFromUser+ " and unhashedpassword: "+ unhashedPasswordFromUser+
-                           " and user age is equal to:"+ ageFromUser);
         return map;
     }
     
@@ -207,9 +204,6 @@ public class UsersServices
         request.getSession().setAttribute("userLocationFromDatingUserPersonalData", input.get("userLocation"));
         request.getSession().setAttribute("userJobFromDatingUserPersonalData", input.get("userJob"));
         request.getSession().setAttribute("userHobbiesFromDatingUserPersonalData", input.get("userHobbies"));
-        System.out.println("User has gender :"+ input.get("userGender")+" and  has bday: " + input.get("userBday")
-        + " and user has Educationlevel: "+ input.get("userEducationlevel")
-        + " and user locates at:" +input.get("userLocation") +" and user works as:"+input.get("userJob") +" and user has hobbies such: "+ input.get("userHobbies"));
     }
 
     public void fetchUserPersonalDataPage3(Map<String, String> input , HttpServletRequest request)
@@ -219,9 +213,6 @@ public class UsersServices
         request.getSession().setAttribute("userEyeFromDatingUserPersonalData", input.get("userEye"));
         request.getSession().setAttribute("userHairFromDatingUserPersonalData", input.get("userHair"));
         request.getSession().setAttribute("userSkinFromDatingUserPersonalData", input.get("userSkin"));
-        System.out.println("User has height :"+ input.get("userHeight")+" and  has userWeight: " + input.get("userWeight")
-        + " and user has eye color of: "+ input.get("userEye")
-        + " and users hair is:" +input.get("userHair"));
     }
 
     public void fetchUserPersonalDataPage4(Map<String, String> input , HttpServletRequest request)
@@ -232,36 +223,21 @@ public class UsersServices
         request.getSession().setAttribute("mateHeightFromDatingUserPersonalData", input.get("mateHeight"));
         request.getSession().setAttribute("mateWeightFromDatingUserPersonalData", input.get("mateWeight"));
         request.getSession().setAttribute("mateSkinFromDatingUserPersonalData", input.get("mateSkin"));
-        System.out.println("User choose the gender of the mate to be :"+ input.get("mateGender")+" and  she/he has min age : " + input.get("rangeMin")
-        + " and she/he  has max age: "+ input.get("rangeMax")
-        + " and she/he has height of:" +input.get("mateHeight")
-        + " and she/he has weight of:" + input.get("mateWeight")
-        + " and she/he has skin color of:"+input.get("mateSkin"));
     }
 
     public void saveUsersProfilePicToSessionData(Map<String, String> input , HttpServletRequest request)
     {
         request.getSession().setAttribute("userProfilePic", input.get("dataImage"));
-        System.out.println("SAVING USERS PROFILE PIC");
     }
 
 
     public void fetchUserEmail(Map<String, String> input , HttpServletRequest request)
     {
-        System.out.println("ENTERING fetchUserEmail!!!!!!!");
-        for (Map.Entry<String, String> entry : input.entrySet()) 
-        {
-            String key = entry.getKey();
-            Object value = entry.getValue();
-            System.out.println("key: " +key+" value: "+value);
-        }
         request.getSession().setAttribute("email", input.get("email"));
-        System.out.println("EXITING fetchUserEmail!!!!!!!!");
     }
 
     public HashMap<String,String> fetchDataForProfileWhoLoggedIn(HttpSession session)
     {
-        System.out.println("ENTERING fetchDataForProfileWhoLoggedIn!!!!!!!!!");
         HashMap<String,String> map = new HashMap<>();
         int year = Calendar.getInstance().get(Calendar.YEAR);
         String email = session.getAttribute("email").toString();
@@ -292,13 +268,11 @@ public class UsersServices
         map.put("eyeColor",eyeColor);
         map.put("educationlevel",educationlevel);
         map.put("numOfUsersVisitedUser",String.valueOf(numOfUsersVisitedUser));
-        System.out.println("EXITING fetchDataForProfileWhoLoggedIn!!!!!!!!!");
         return map;
     }
 
     public HashMap<String,List<String>> getUserVisitedUsersList(HttpSession session)
     {
-        System.out.println("ENTERING getUserVisitedUsersList!!!!!!!!!");
         String name = "";
         HashMap<String,List<String>> map = new HashMap<>();
         List<Integer> arrayListOfUid1 = new ArrayList<Integer>();
@@ -312,13 +286,11 @@ public class UsersServices
             arrayListOfFullnames.add(name);
         }
         map.put("arrayListOfFullnames",arrayListOfFullnames);
-        System.out.println("EXITING getUserVisitedUsersList!!!!!!!!!");
         return map;
     }
 
     public HashMap<String,String> getBasicDataFromUsers(HttpSession session)
     {
-        System.out.println("ENTERING getBasicDataFromUsers!!!!!!!!!");
         HashMap<String,String> map = new HashMap<>();
         int year = Calendar.getInstance().get(Calendar.YEAR);
         String email = session.getAttribute("email").toString();
@@ -346,13 +318,11 @@ public class UsersServices
         map.put("hairColor",hairColor);
         map.put("eyeColor",eyeColor);
         map.put("educationlevel",educationlevel);
-        System.out.println("EXITING getBasicDataFromUsers!!!!!!!!!");
         return map;
     }
 
     public HashMap<String,Integer> userUpdatesToPremium(HttpSession session)
     {
-        System.out.println("ENTERING userUpdatesToPremium!!!!!!!!!");
         HashMap<String,Integer> map = new HashMap<String,Integer>();
         String email = session.getAttribute("email").toString();
         int res = usersRepository.updateIsPrem(email);
@@ -362,7 +332,6 @@ public class UsersServices
 
     public HashMap<String, List<String>> getStarFromUsersNeqId(HttpSession session)
     {
-        System.out.println("ENTERING getStarFromUsersNeqId!!!!!!!!!");
         HashMap <String,List<String>> map = new HashMap <String,List<String>>();
         ArrayList<String> fullnames = new ArrayList<String>();
         ArrayList<String> jobs = new ArrayList<String>();
@@ -429,13 +398,11 @@ public class UsersServices
         map.put("eyeColors",eyeColors);
         map.put("hobbies",hobbies);
         map.put("educationLevels",educationLevels);
-        System.out.println("EXITING getStarFromUsersNeqId!!!!!!!!!");
         return map;
     }
 
     public void updateUserVisitedUser(HttpSession session, HttpServletRequest request)
     {
-        System.out.println("ENTERING updateUserVisitedUser!!!!!!!!!");
         String email = "";
         int id1=0,id2=0;
          if( session.getAttribute("email") == null && session.getAttribute("userEmailFromSignup") == null)
@@ -472,12 +439,10 @@ public class UsersServices
             Timestamp timestamp = new Timestamp(date.getTime());
             userVisitedUsersRepository.updateUid1_VisitedUserUid2(id2, id1, timestamp);
         }
-        System.out.println("EXITING updateUserVisitedUser!!!!!!!!!");
     }
 
     public HashMap<String,List<String>> filterProfiles( Filters filters,HttpSession session, HttpServletRequest request)
     {
-        System.out.println("ENTERING filterProfiles!!!!!!!!!");
         HashMap<String,List<String>> map = new HashMap<String,List<String>>();
         ArrayList<String> fullnames = new ArrayList<String>();
         ArrayList<String> jobs = new ArrayList<String>();
@@ -648,13 +613,11 @@ public class UsersServices
             map.put("error",errArr);
         }
 
-        System.out.println("EXITING filterProfiles!!!!!!!!!");
         return map;
     }
 
     public HashMap<String,String> fetchOnePersonVisited(HttpSession session)
     {
-        System.out.println("ENTERING fetchOnePersonVisited!!!!!!!!!!");
         HashMap<String,String> map = new HashMap<>();
         int year = Calendar.getInstance().get(Calendar.YEAR);
 
@@ -693,13 +656,11 @@ public class UsersServices
             LOGGER.error("Session variables returning null at: "+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
             throw new ProfileNotFoundException("Profile not found");
         }
-        System.out.println("EXITING fetchOnePersonVisited!!!!!!!!!!");
         return map;
     }
 
     public HashMap<String,List<String>> matchingProfiles (HttpSession session)
     {
-        System.out.println("ENTERING matchingProfiles!!!!!!!!!!");
         HashMap <String,List<String>> map = new HashMap <String,List<String>>();
         ArrayList<String> fullnames = new ArrayList<String>();
         ArrayList<String> jobs = new ArrayList<String>();
@@ -753,27 +714,12 @@ public class UsersServices
             LOGGER.error("Session variables returning null at: "+ exception.getStackTrace()[0].getLineNumber() + " at file RstController.java");
             throw new ProfileNotFoundException("Session variables returning null");
         }
-        System.out.println("User is:"+ email);
-        System.out.println("User wanted his mate to be the gender of:"+ mateGender);
-        System.out.println("User wanted his mate to be of color:" + mateSkinColor);
-        System.out.println("User wanted his mate to be of age between:"+ mateLowerAgeLowerLimit + " and "+ mateAgeUpperLimit);
-        System.out.println("User wanted his mate to be in kg:"+ mateWeight);
-        System.out.println("User wanted his mate to be in cm"+ mateHeight);
-        System.out.println(users.size()+ " is the size of our list of users");
-        System.out.println(usersLocation);
         for( int i =0; i<users.size(); i++)
         {
             if(!users.get(i).getGender().equals(mateGender))
             {
-                System.out.println(i);
-                System.out.println(users.get(i).getFullname() + " is about to be removed");
                 users.remove(i);
                 i--;
-            }
-            else
-            {
-                System.out.println(i);
-                System.out.println("User: " + users.get(i).getFullname() +" is not getting removed with gender:"+users.get(i).getGender());
             }
         }
         
@@ -781,13 +727,11 @@ public class UsersServices
         {
             if(users.get(i).getLocation().equals(usersLocation))
             {
-                System.out.println("I am "+ users.get(i).getFullname() + " and I am in location "+ users.get(i).getLocation());
                 users.get(i).updateMatchingScore(10);
             }
 
             if(users.get(i).getSkinColor().equals(mateSkinColor))
             {
-                System.out.println("I am "+ users.get(i).getFullname() + " and I have "+ users.get(i).getSkinColor() + " skin color");
                 users.get(i).updateMatchingScore(5);
             }
 
@@ -796,7 +740,6 @@ public class UsersServices
             age = year - age;
             if(age <= mateAgeUpperLimit && age >= mateLowerAgeLowerLimit )
             {
-                System.out.println("I am "+ users.get(i).getFullname() + " and my age is:"+ age+ " with mateAgeUpperLimit:"+ mateAgeUpperLimit + " and mateLowerAgeLowerLimit:"+ mateLowerAgeLowerLimit);
                 users.get(i).updateMatchingScore(4);
             }
 
@@ -804,16 +747,11 @@ public class UsersServices
             double matesHeight = Double.parseDouble(users.get(i).getHeight().toString());
             if( (matesWeight <=mateWeight+5 && matesWeight>= mateWeight-5 ) && (matesHeight<= mateHeight+5 && matesHeight>= mateHeight-5) )
             {
-                System.out.println("I am "+ users.get(i).getFullname() + " and my weight is:"+ users.get(i).getWeight()+ " and my height is:"+users.get(i).getHeight());
                 users.get(i).updateMatchingScore(3);
             } 
         }
 
         Collections.sort(users, Comparator.comparingInt(Users ::getMatchingScore).reversed());
-        for(Users user: users)
-        {
-            System.out.println("The user: "+user.getFullname()+" has matching score of:" + user.getMatchingScore());
-        }
 
         for(Users user: users)
         {
@@ -834,11 +772,9 @@ public class UsersServices
             educationLevels.add(user.getEducationLevel().toString());
         }
 
-        System.out.println("Number of fullnames are:" +fullnames.size());
         for(int i=0; i<fullnames.size(); i++)
         {
            usersId.add(usersRepository.getIdByFullname(fullnames.get(i)));
-           System.out.println(""+ fullnames.get(i) + " has user id:" + usersRepository.getIdByFullname(fullnames.get(i)));
         }
 
         for(int i=0; i<usersId.size(); i++ )
@@ -846,16 +782,13 @@ public class UsersServices
             int userId = userHasImagesRepository.getImageIdByUserId(usersId.get(i));
             imagesId.add(userId);
         }
-        System.out.println("UsersId are:" + usersId);
-        System.out.println("ImagesId are:" + imagesId);
-        System.out.println("ImagesId are:" + imagesId.size());
+
         List <byte[]> byteImg = new ArrayList<byte[]> ();
         for(int i=0; i<imagesId.size();i++)
         {
             byteImg.add(imagesRepository.getDataById(imagesId.get(i)));
         }
         
-        System.out.println("I have "+ byteImg.size()+ " IMAGES");
         for (int i =0; i < byteImg.size(); i++)
         {
             images.add(new String (byteImg.get(i)));
@@ -871,7 +804,6 @@ public class UsersServices
         map.put("eyeColors",eyeColors);
         map.put("hobbies",hobbies);
         map.put("educationLevels",educationLevels);
-        System.out.println("EXITING matchingProfiles!!!!!!!!!!");
         return map; 
     }
 
