@@ -1,3 +1,4 @@
+
 # SoulMates 
 A dating site which will help you find your soulmate today!
 
@@ -39,3 +40,6 @@ A dating site which will help you find your soulmate today!
 ![12](https://user-images.githubusercontent.com/58857454/167677584-a55d2f6b-6ec2-4d6a-84ed-b5027a9c6e62.jpg)
 ![13](https://user-images.githubusercontent.com/58857454/167677595-e52c5062-6446-4b04-b024-4a0f9c5612f7.jpg)
 ![14](https://user-images.githubusercontent.com/58857454/167677603-4a6bbfe0-06a6-46c0-ae80-be1de5f37881.jpg)
+![b](https://user-images.githubusercontent.com/58857454/178101353-198078a8-0046-40b9-8ccc-9bab03e661d4.jpg)![c](https://user-images.githubusercontent.com/58857454/178101359-568ec88c-5a16-44f2-b72a-6debd36f571a.jpg)
+![a](https://user-images.githubusercontent.com/58857454/178101385-2946d186-cb76-4ddc-93d9-bc35dfc8eb6e.jpg)
+
