@@ -61,6 +61,8 @@ public class UserHasImages
         this.imageId = imageId;
         this.isProfilePic = isProfilePic;
     }
+    
+    public UserHasImages() {}
 
     @Override
     public String toString() 

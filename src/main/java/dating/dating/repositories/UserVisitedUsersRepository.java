@@ -28,6 +28,6 @@ public interface UserVisitedUsersRepository extends JpaRepository <UserVisitedUs
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE * FROM user_visited_users", nativeQuery = true)
+    @Query(value = "DELETE  FROM user_visited_users", nativeQuery = true)
     void deleteStarUserVisitedUsers();
 }

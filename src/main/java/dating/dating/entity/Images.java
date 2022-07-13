@@ -52,4 +52,6 @@ public class Images implements Serializable
     {
         this.data = data;
     }
+
+    public Images() {}
 }
